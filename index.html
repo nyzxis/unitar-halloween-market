@@ -35,7 +35,7 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-[#08070e] text-[#f8f9fa] antialiased min-h-screen flex flex-col">
+<body class="bg-[#08070e] text-[#f8f9fa] antialiased min-h-screen flex flex-col pb-20 md:pb-0">
 
   <!-- Ambient Spooky Canvas (Embers & Flying Bats) -->
   <canvas id="ambient-canvas"></canvas>
@@ -450,7 +450,7 @@
       </div>
 
       <!-- 4.B RIGHT 1 COLUMN: STICKY BOOTH DETAILS & STEP-BY-STEP DIRECTIONS -->
-      <div class="glass-panel-elevated p-5 lg:sticky lg:top-20">
+      <div id="booth-details-card" class="glass-panel-elevated p-5 lg:sticky lg:top-20">
         <!-- Badge & Category -->
         <div class="flex items-center justify-between gap-2 mb-2">
           <span id="panel-badge" class="px-3 py-1 rounded-full text-xs font-black tracking-wider uppercase bg-orange-500/20 text-orange-400 border border-orange-500/40">
@@ -533,27 +533,27 @@
       </div>
     </div>
 
-    <!-- Category Filter Chips -->
-    <div class="flex flex-wrap gap-2 mb-6" id="filter-pills-container">
-      <button data-filter="ALL" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-orange-500 text-slate-950 border border-orange-400">
+    <!-- Category Filter Chips (Swipeable on Mobile) -->
+    <div class="flex items-center gap-2 mb-6 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap" id="filter-pills-container">
+      <button data-filter="ALL" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-orange-500 text-slate-950 border border-orange-400">
         All Booths (33)
       </button>
-      <button data-filter="MC-S2" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="MC-S2" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Top Corridor (MC-S2)
       </button>
-      <button data-filter="MC-S3" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="MC-S3" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Middle Hub (MC-S3)
       </button>
-      <button data-filter="ACADEMIC" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="ACADEMIC" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Degree Programmes
       </button>
-      <button data-filter="HUB" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="HUB" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Activity &amp; Highlights
       </button>
-      <button data-filter="UNSTAMPED" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-orange-500">
+      <button data-filter="UNSTAMPED" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-orange-500">
         🎯 Left to Visit
       </button>
-      <button data-filter="STAMPED" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-emerald-500">
+      <button data-filter="STAMPED" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-emerald-500">
         ✓ Stamped
       </button>
     </div>
@@ -761,8 +761,8 @@
         </button>
       </div>
 
-      <!-- Passport Stamp Slots Grid -->
-      <div id="passport-slots-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+      <!-- Passport Stamp Slots Grid (3 columns on mobile) -->
+      <div id="passport-slots-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3">
         <!-- Rendered dynamically by app.js -->
       </div>
 
@@ -825,6 +825,33 @@
       </div>
     </div>
   </footer>
+
+  <!-- =========================================================================
+       11. MOBILE BOTTOM ACTION BAR (PHONES ONLY)
+       ========================================================================= -->
+  <div class="fixed bottom-3 inset-x-3 z-40 md:hidden">
+    <div class="mobile-bottom-nav flex items-center justify-around py-2 px-3">
+      <a href="#map-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
+        <span class="text-base">🗺️</span>
+        <span>Map</span>
+      </a>
+
+      <a href="#directory-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
+        <span class="text-base">🛍️</span>
+        <span>Booths</span>
+      </a>
+
+      <button onclick="openPassportModal()" class="flex flex-col items-center gap-1 text-[10px] font-bold text-orange-400 hover:text-orange-300 transition relative">
+        <span class="text-base">📜</span>
+        <span>Passport</span>
+      </button>
+
+      <a href="#agenda-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
+        <span class="text-base">⏱️</span>
+        <span>Agenda</span>
+      </a>
+    </div>
+  </div>
 
   <!-- Application Logic -->
   <script src="app.js"></script>

@@ -691,8 +691,8 @@ class SvgPanZoom {
     this.svg = svgEl;
 
     this.scale = 1;
-    this.minScale = 0.7;
-    this.maxScale = 3.2;
+    this.minScale = 0.35;
+    this.maxScale = 3.5;
 
     this.panX = 0;
     this.panY = 0;
@@ -707,8 +707,44 @@ class SvgPanZoom {
     this.init();
   }
 
+  fitToScreen(animated = false) {
+    const rect = this.viewport.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+
+    // Calculate scale needed to fit 1000x650 floorplan inside viewport with padding
+    const scaleX = rect.width / 1000;
+    const scaleY = rect.height / 650;
+    const fitScale = Math.min(scaleX, scaleY) * 0.96;
+
+    this.minScale = Math.max(0.25, fitScale * 0.75);
+    this.maxScale = Math.max(3.5, fitScale * 4);
+
+    const targetScale = fitScale;
+    const targetPanX = (rect.width - 1000 * targetScale) / 2;
+    const targetPanY = (rect.height - 650 * targetScale) / 2;
+
+    if (animated) {
+      this.animateTo(targetScale, targetPanX, targetPanY);
+    } else {
+      this.scale = targetScale;
+      this.panX = targetPanX;
+      this.panY = targetPanY;
+      this.applyTransform();
+    }
+  }
+
   init() {
-    this.applyTransform();
+    // Initial fit
+    requestAnimationFrame(() => {
+      this.fitToScreen(false);
+    });
+
+    // Window resize observer
+    window.addEventListener('resize', () => {
+      if (this.scale <= this.minScale * 1.3) {
+        this.fitToScreen(false);
+      }
+    });
 
     // Mouse Drag Listeners
     this.viewport.addEventListener('mousedown', (e) => {
@@ -832,7 +868,7 @@ class SvgPanZoom {
   }
 
   resetView() {
-    this.animateTo(1, 0, 0);
+    this.fitToScreen(true);
   }
 
   centerOnEntrance() {
@@ -841,7 +877,8 @@ class SvgPanZoom {
 
   flyToBooth(svgX, svgY, targetZoom = 1.6) {
     const rect = this.viewport.getBoundingClientRect();
-    const targetScale = Math.min(this.maxScale, Math.max(1.2, targetZoom));
+    const baseZoom = Math.max(1.3, this.minScale * 2.5);
+    const targetScale = Math.min(this.maxScale, Math.max(baseZoom, targetZoom));
 
     // Center target coordinates inside viewport
     const targetPanX = (rect.width / 2) - (svgX * targetScale);
@@ -1104,6 +1141,16 @@ function selectBooth(id, triggerFly = true) {
 
   // 4. Update Details Drawer & Drawer UI
   updateBoothInfoPanel(booth);
+
+  // If on mobile (screen < 1024px) and triggerFly is true, smoothly scroll details into view
+  if (triggerFly && window.innerWidth < 1024) {
+    const detailsPanel = document.getElementById('booth-details-card');
+    if (detailsPanel) {
+      setTimeout(() => {
+        detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 200);
+    }
+  }
 
   // 5. Update cards glowing active state
   renderBoothCards();
