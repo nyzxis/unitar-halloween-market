@@ -28,7 +28,7 @@ const SVG_ICONS = {
 // 2. COMPLETE BOOTH DATASET (EVERY CONTACT NUMBER REMOVED)
 // =============================================================================
 const BOOTHS_DATA = [
-  // --- MC-S2: Top Corridor (B01 - B12, B14) ---
+  // --- Top Corridor (B01, B02, B05, B06, B08, B11) ---
   {
     id: "B01",
     name: "CUSTIN",
@@ -36,10 +36,10 @@ const BOOTHS_DATA = [
     owner: "Sharifah Elliya Farzana",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 148,
-    cy: 85,
-    path: "514,602 514,200 148,200 148,100",
-    directions: "Enter through Main Entrance, walk up central corridor past the left Lift, turn left into Top Corridor to B01."
+    cx: 139,
+    cy: 101,
+    path: "514,602 514,150 139,150 139,117",
+    directions: "Enter through Main Entrance, walk straight up central aisle past Lifts to top corridor under Staff Room."
   },
   {
     id: "B02",
@@ -48,10 +48,10 @@ const BOOTHS_DATA = [
     owner: "Vainishini Sankar",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 230,
-    cy: 85,
-    path: "514,602 514,200 230,200 230,100",
-    directions: "Walk past the Lifts toward the top corridor, turn left, and B02 is right next to B01."
+    cx: 219,
+    cy: 101,
+    path: "514,602 514,150 219,150 219,117",
+    directions: "Walk straight up past Lifts to top corridor in front of One Stop Centre, next to B01."
   },
   {
     id: "B03",
@@ -59,11 +59,11 @@ const BOOTHS_DATA = [
     category: "Women Accessories",
     owner: "Theeveeya Shankar Ganesh",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 250,
-    cy: 145,
-    path: "514,602 514,200 250,200 250,160",
-    directions: "Walk past the Lifts, turn left after the Escalator into row 2 of the top corridor."
+    zone: "West Corridor",
+    cx: 24,
+    cy: 326,
+    path: "514,602 514,450 88,450 88,326 38,326",
+    directions: "From Entrance, turn left past Admissions, walk up West Corridor outer row; B03 is between B07 and B04 across B10."
   },
   {
     id: "B04",
@@ -71,11 +71,11 @@ const BOOTHS_DATA = [
     category: "Jewelleries",
     owner: "Ooi Shun Jie Puvendran",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 166,
-    cy: 145,
-    path: "514,602 514,200 166,200 166,160",
-    directions: "Head past the Lifts, turn left toward Escalator; B04 is right next to B03."
+    zone: "West Corridor",
+    cx: 24,
+    cy: 404,
+    path: "514,602 514,450 88,450 88,404 38,404",
+    directions: "From Entrance, turn left toward Admissions; B04 is at the start of West Corridor outer row across B09."
   },
   {
     id: "B05",
@@ -84,10 +84,10 @@ const BOOTHS_DATA = [
     owner: "Shritharan",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 315,
-    cy: 85,
-    path: "514,602 514,185 315,185 315,100",
-    directions: "Walk straight between the two Lifts toward the One Stop Centre back wall."
+    cx: 304,
+    cy: 101,
+    path: "514,602 514,150 304,150 304,117",
+    directions: "Walk straight up to top corridor under One Stop Centre, between B02 and B06."
   },
   {
     id: "B06",
@@ -96,10 +96,10 @@ const BOOTHS_DATA = [
     owner: "Shawin",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 405,
-    cy: 85,
-    path: "514,602 514,185 405,185 405,100",
-    directions: "Walk past Lifts and head slightly left to the top row in front of One Stop Centre."
+    cx: 394,
+    cy: 101,
+    path: "514,602 514,150 394,150 394,117",
+    directions: "Walk up past Left Lift to top corridor in front of One Stop Centre."
   },
   {
     id: "B07",
@@ -107,11 +107,11 @@ const BOOTHS_DATA = [
     category: "Keychains, Charms, Pins",
     owner: "Louiis Fernandez",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 346,
-    cy: 145,
-    path: "514,602 514,200 346,200 346,160",
-    directions: "Head straight past the left Lift; B07 is right ahead in the front row of the top corridor."
+    zone: "West Corridor",
+    cx: 24,
+    cy: 248,
+    path: "514,602 514,450 88,450 88,248 38,248",
+    directions: "Turn left into West Corridor and walk past B04 and B03; B07 is near the Trophy circle across B12."
   },
   {
     id: "B08",
@@ -120,10 +120,10 @@ const BOOTHS_DATA = [
     owner: "Sudha",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 498,
-    cy: 85,
-    path: "514,602 514,100",
-    directions: "Go straight from Main Entrance all the way to top row in front of International Student Office."
+    cx: 484,
+    cy: 101,
+    path: "514,602 514,150 484,150 484,117",
+    directions: "Walk straight between the Lifts to top corridor under International Student Office."
   },
   {
     id: "B09",
@@ -131,11 +131,11 @@ const BOOTHS_DATA = [
     category: "Florist",
     owner: "Yooshnika",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 445,
-    cy: 145,
-    path: "514,602 514,200 445,200 445,160",
-    directions: "Walk between the two Lifts; B09 is directly ahead in row 2."
+    zone: "West Corridor",
+    cx: 149,
+    cy: 404,
+    path: "514,602 514,450 88,450 88,404 135,404",
+    directions: "Turn left past Admissions into West Corridor; B09 is the first booth in the inner row across B04."
   },
   {
     id: "B10",
@@ -143,11 +143,11 @@ const BOOTHS_DATA = [
     category: "Florist",
     owner: "Lawnesh",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 540,
-    cy: 145,
-    path: "514,602 514,200 540,200 540,160",
-    directions: "Walk between the Lifts; B10 is directly ahead in the lower row."
+    zone: "West Corridor",
+    cx: 149,
+    cy: 326,
+    path: "514,602 514,450 88,450 88,326 135,326",
+    directions: "Walk down West Corridor inner aisle; B10 is between B09 and B12 across B03."
   },
   {
     id: "B11",
@@ -156,10 +156,10 @@ const BOOTHS_DATA = [
     owner: "Nurdini Alya Najwa",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 600,
-    cy: 85,
-    path: "514,602 514,185 600,185 600,100",
-    directions: "Walk past the right Lift to top row in front of International Student Office."
+    cx: 574,
+    cy: 101,
+    path: "514,602 514,150 574,150 574,117",
+    directions: "Walk past Right Lift to top corridor under International Student Office."
   },
   {
     id: "B12",
@@ -167,11 +167,11 @@ const BOOTHS_DATA = [
     category: "Body Art",
     owner: "Shashmita",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 635,
-    cy: 145,
-    path: "514,602 514,200 635,200 635,160",
-    directions: "Head past the right Lift and slightly right to reach B12 at end of top corridor."
+    zone: "West Corridor",
+    cx: 149,
+    cy: 248,
+    path: "514,602 514,450 88,450 88,248 135,248",
+    directions: "Walk down West Corridor inner aisle to B12, directly below the West Escalator across B07."
   },
   {
     id: "B14",
@@ -180,10 +180,10 @@ const BOOTHS_DATA = [
     owner: "Aila Naazneen",
     section: "MC-S2",
     zone: "Middle Hub",
-    cx: 675,
-    cy: 217,
-    path: "514,602 514,450 700,450 700,220 686,220",
-    directions: "Walk to Middle Hub Entrance on your right, step inside, and walk to B14."
+    cx: 668,
+    cy: 215,
+    path: "514,602 514,445 690,445 690,215 678,215",
+    directions: "Walk right to Middle Hub entrance, step inside, and head to B14 on left partition."
   },
 
   // --- MC-S3: Middle Hub Zone (B15 - B20) ---
@@ -194,10 +194,10 @@ const BOOTHS_DATA = [
     owner: "Hirosha",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 675,
+    cx: 668,
     cy: 267,
-    path: "514,602 514,450 700,450 700,270 686,270",
-    directions: "Turn right at Middle Hub Entrance before Lift, enter zone, find B15 on left aisle."
+    path: "514,602 514,445 690,445 690,267 678,267",
+    directions: "Turn right into Middle Hub entrance, walk up left aisle to find B15."
   },
   {
     id: "B16",
@@ -206,10 +206,10 @@ const BOOTHS_DATA = [
     owner: "Krishan",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 675,
+    cx: 668,
     cy: 319,
-    path: "514,602 514,450 700,450 700,322 686,322",
-    directions: "Turn right into Middle Hub Entrance; find B16 second from bottom on left partition."
+    path: "514,602 514,445 690,445 690,319 678,319",
+    directions: "Turn right into Middle Hub entrance; find B16 in the left partition."
   },
   {
     id: "B17",
@@ -218,10 +218,10 @@ const BOOTHS_DATA = [
     owner: "Nirmala Dhevi",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 675,
-    cy: 373,
-    path: "514,602 514,450 700,450 700,376 686,376",
-    directions: "Turn right into Middle Hub Entrance; B17 is the first booth immediately on your left."
+    cx: 668,
+    cy: 371,
+    path: "514,602 514,445 690,445 690,371 678,371",
+    directions: "Turn right into Middle Hub entrance; B17 is immediately on your left."
   },
   {
     id: "B18",
@@ -230,10 +230,10 @@ const BOOTHS_DATA = [
     owner: "Jagedishraj",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 725,
-    cy: 246,
-    path: "514,602 514,450 700,450 700,249 714,249",
-    directions: "Turn right into Middle Hub Entrance and walk up central aisle to B18 on right."
+    cx: 718,
+    cy: 249,
+    path: "514,602 514,445 725,445 725,249 718,249",
+    directions: "Turn right into Middle Hub and follow central partition up to B18."
   },
   {
     id: "B19",
@@ -242,10 +242,10 @@ const BOOTHS_DATA = [
     owner: "Arunn",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 725,
-    cy: 301,
-    path: "514,602 514,450 700,450 700,304 714,304",
-    directions: "Turn right into Middle Hub Entrance; B19 is in middle row on right partition."
+    cx: 718,
+    cy: 303,
+    path: "514,602 514,445 725,445 725,303 718,303",
+    directions: "Turn right into Middle Hub; B19 is on the central partition."
   },
   {
     id: "B20",
@@ -254,10 +254,10 @@ const BOOTHS_DATA = [
     owner: "UNITAR Student Committee",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 725,
-    cy: 355,
-    path: "514,602 514,450 700,450 700,358 714,358",
-    directions: "Turn right into Middle Hub Entrance; B20 is first booth on right partition."
+    cx: 718,
+    cy: 357,
+    path: "514,602 514,445 725,445 725,357 718,357",
+    directions: "Turn right into Middle Hub; B20 is the first booth on the central partition."
   },
 
   // --- HUB Activity & Games (G1 - G3) ---
@@ -268,10 +268,10 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 791,
-    cy: 227,
-    path: "514,602 514,450 765,450 765,230 780,230",
-    directions: "From Main Entrance, turn right toward Registration table inside Middle Hub enclosure."
+    cx: 786,
+    cy: 223,
+    path: "514,602 514,445 760,445 760,223 776,223",
+    directions: "From Main Entrance, turn right into Middle Hub; G1 is at the top of the activity row."
   },
   {
     id: "G2",
@@ -280,10 +280,10 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 791,
-    cy: 283,
-    path: "514,602 514,450 765,450 765,286 780,286",
-    directions: "Turn right into Middle Hub enclosure past Register counter to reach G2."
+    cx: 786,
+    cy: 277,
+    path: "514,602 514,445 760,445 760,277 776,277",
+    directions: "Turn right into Middle Hub; G2 is in the activity row beside the round tables."
   },
   {
     id: "G3",
@@ -292,10 +292,10 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 791,
-    cy: 341,
-    path: "514,602 514,450 765,450 765,344 780,344",
-    directions: "Turn right into Middle Hub enclosure right next to Register counter for G3."
+    cx: 786,
+    cy: 331,
+    path: "514,602 514,445 760,445 760,331 776,331",
+    directions: "Turn right into Middle Hub; G3 is right next to the Register counter."
   },
 
   // --- Academic Degree Programme Passport Booths (Level G Hub) ---
@@ -306,10 +306,10 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 739,
+    cx: 736,
     cy: 532,
-    path: "514,602 514,465 895,465 895,560 736,560 736,542",
-    directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is in top row."
+    path: "514,602 514,450 888,450 888,560 736,560 736,544",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is on the top row."
   },
   {
     id: "BAF",
@@ -318,10 +318,10 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 792,
+    cx: 790,
     cy: 532,
-    path: "514,602 514,465 895,465 895,560 789,560 789,542",
-    directions: "Turn right toward UNITAR Hub 'IN' lane; BA&F is in middle of top row."
+    path: "514,602 514,450 888,450 888,560 790,560 790,544",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BA&F is in middle of top row."
   },
   {
     id: "BACC",
@@ -330,9 +330,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 845,
+    cx: 844,
     cy: 532,
-    path: "514,602 514,465 895,465 895,560 843,560 843,542",
+    path: "514,602 514,450 888,450 888,560 844,560 844,544",
     directions: "Head right to UNITAR Hub 'IN' entrance; BACC is first booth on right top row."
   },
   {
@@ -342,9 +342,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 739,
-    cy: 604,
-    path: "514,602 514,465 895,465 895,575 736,575 736,596",
+    cx: 736,
+    cy: 602,
+    path: "514,602 514,450 888,450 888,575 736,575 736,590",
     directions: "Turn right toward UNITAR Hub 'IN' entrance and walk down to BBA near Main Stage."
   },
   {
@@ -354,9 +354,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 792,
-    cy: 604,
-    path: "514,602 514,465 895,465 895,575 789,575 789,596",
+    cx: 790,
+    cy: 602,
+    path: "514,602 514,450 888,450 888,575 790,575 790,590",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BIB is in middle of bottom row."
   },
   {
@@ -366,9 +366,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 845,
-    cy: 604,
-    path: "514,602 514,465 895,465 895,575 843,575 843,596",
+    cx: 844,
+    cy: 602,
+    path: "514,602 514,450 888,450 888,575 844,575 844,590",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BHRM is on bottom row right."
   },
 
@@ -380,9 +380,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 660,
-    cy: 564,
-    path: "514,602 514,465 895,465 895,565 678,565",
+    cx: 653,
+    cy: 563,
+    path: "514,602 514,450 888,450 888,563 672,563",
     directions: "Walk forward from Main Entrance, turn right down walkway past Photo Stand to Stage."
   },
   {
@@ -392,10 +392,10 @@ const BOOTHS_DATA = [
     owner: "Prop & Pop Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 840,
-    cy: 461,
-    path: "514,602 514,465 815,465",
-    directions: "Walk slightly up and turn right; Photo Stand is between Middle Hub and Level G Stage."
+    cx: 835,
+    cy: 452,
+    path: "514,602 514,450 810,450",
+    directions: "Walk slightly up and turn right; Photo Stand is located between Middle Hub and Level G entrance."
   },
   {
     id: "GIFT",
@@ -404,10 +404,10 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 955,
-    cy: 521,
-    path: "514,602 514,465 895,465 895,525 945,525",
-    directions: "Follow walkway to the far right wall of UNITAR Hub Level G."
+    cx: 956,
+    cy: 523,
+    path: "514,602 514,450 888,450 888,523 946,523",
+    directions: "Follow walkway into UNITAR Hub; Gift redemption counter is along far right wall."
   },
   {
     id: "SALES1",
@@ -416,9 +416,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 955,
-    cy: 569,
-    path: "514,602 514,465 895,465 895,571 945,571",
+    cx: 956,
+    cy: 567,
+    path: "514,602 514,450 888,450 888,567 946,567",
     directions: "Located on far right wall inside UNITAR Hub Level G below Gift Counter."
   },
   {
@@ -428,9 +428,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 955,
-    cy: 617,
-    path: "514,602 514,465 895,465 895,618 945,618",
+    cx: 956,
+    cy: 611,
+    path: "514,602 514,450 888,450 888,611 946,611",
     directions: "Located at bottom-right corner inside UNITAR Hub Level G."
   }
 ];

@@ -269,6 +269,20 @@
               <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
                 <path d="M 25 0 L 0 0 25" fill="none" stroke="#1d1233" stroke-width="1"/>
               </pattern>
+
+              <!-- Realistic Escalator Ribbed Stairs (Horizontal) -->
+              <pattern id="escalator-ribs-h" width="8" height="34" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="34" stroke="#6c3baa" stroke-width="1.5" />
+                <rect x="1" y="0" width="6" height="34" fill="#2d1748" />
+                <line x1="7" y1="0" x2="7" y2="34" stroke="#a370f7" stroke-width="1" />
+              </pattern>
+
+              <!-- Realistic Escalator Ribbed Stairs (Vertical) -->
+              <pattern id="escalator-ribs-v" width="30" height="8" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="30" y2="0" stroke="#6c3baa" stroke-width="1.5" />
+                <rect x="0" y="1" width="30" height="6" fill="#2d1748" />
+                <line x1="0" y1="7" x2="30" y2="7" stroke="#a370f7" stroke-width="1" />
+              </pattern>
             </defs>
 
             <!-- Background Grid -->
@@ -276,188 +290,236 @@
 
             <!-- ================= TOP BUILDING ROOMS (PERFECTLY CENTERED LABELS) ================= -->
             <g stroke="#4a2574" stroke-width="2" fill="#140b24">
-              <rect x="10" y="10" width="180" height="45" rx="4" />
-              <rect x="198" y="10" width="245" height="45" rx="4" />
-              <rect x="435" y="10" width="290" height="45" rx="4" />
-              <rect x="725" y="10" width="265" height="45" rx="4" />
+              <rect x="10" y="10" width="175" height="45" rx="4" />
+              <rect x="195" y="10" width="235" height="45" rx="4" />
+              <rect x="440" y="10" width="285" height="45" rx="4" />
+              <rect x="735" y="10" width="255" height="45" rx="4" />
             </g>
             <g fill="#c7b2e8" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">
-              <text x="100" y="32.5">STAFF ROOM</text>
-              <text x="320.5" y="32.5">ONE STOP CENTRE</text>
-              <text x="580" y="32.5">INTERNATIONAL STUDENT OFFICE</text>
-              <text x="857.5" y="32.5">SAN FRANCISCO CAFE</text>
+              <text x="97.5" y="32.5">STAFF ROOM</text>
+              <text x="312.5" y="32.5">ONE STOP CENTRE</text>
+              <text x="582.5" y="32.5">INTERNATIONAL STUDENT OFFICE</text>
+              <text x="862.5" y="32.5">SAN FRANCISCO CAFE</text>
             </g>
 
-            <!-- Trophy Circle -->
-            <circle cx="52" cy="96" r="34" fill="#291447" stroke="#6c3baa" stroke-width="2" />
-            <text x="52" y="96" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">TROPHY</text>
+            <!-- Trophy Circle (Top Left) -->
+            <circle cx="48" cy="125" r="30" fill="#291447" stroke="#6c3baa" stroke-width="2" />
+            <text x="48" y="125" fill="#e0c8ff" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">TROPHY</text>
 
-            <!-- Left Escalator -->
-            <rect x="80" y="205" width="120" height="32" fill="#2b1942" stroke="#6c3baa" stroke-dasharray="4 2" rx="4" />
-            <text x="140" y="221" fill="#9d80c4" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">ESCALATOR</text>
-
-            <!-- Corridor Walls & Lifts -->
-            <polyline points="215,265 415,265 415,335 425" fill="none" stroke="#5a348a" stroke-width="2" />
-            <rect x="393" y="318" width="44" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
-            <text x="415" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
-
-            <polyline points="650,265 612,265 612,425 690,425" fill="none" stroke="#5a348a" stroke-width="2" />
-            <rect x="590" y="318" width="44" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
-            <text x="612" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
-
-            <!-- Admissions and Counselling -->
+            <!-- Admissions and Counselling (Bottom Left) -->
             <rect x="10" y="485" width="388" height="155" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="6" />
             <text x="204" y="562.5" fill="#c7b2e8" font-size="13" font-weight="700" text-anchor="middle" dominant-baseline="central">ADMISSIONS AND COUNSELLING</text>
 
-            <!-- Main Entrance (Centered, Clean SVG Entrance) -->
+            <!-- Main Entrance (Bottom Center) -->
             <rect x="415" y="602" width="198" height="40" fill="#3c1642" stroke="#ff6b00" stroke-width="3" rx="6" />
             <text x="514" y="622" fill="#ffb703" font-size="13" font-weight="800" text-anchor="middle" dominant-baseline="central">MAIN ENTRANCE</text>
 
-            <!-- Middle Hub Enclosure (No Overlap, Centered Header Inside) -->
-            <rect x="652" y="188" width="196" height="222" fill="#180c29" stroke="#723d9c" stroke-width="2" rx="6" />
-            <line x1="750" y1="210" x2="750" y2="405" stroke="#723d9c" stroke-width="1.5" stroke-dasharray="3 3" />
-            <text x="750" y="200" fill="#c7b2e8" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">MIDDLE HUB ENCLOSURE</text>
-
-            <!-- Register Box inside Middle Hub -->
-            <rect x="800" y="387" width="42" height="20" fill="#3a1c5e" stroke="#a370f7" stroke-width="1.5" rx="3" />
-            <text x="821" y="397" fill="#e2d4f0" font-size="8" font-weight="700" text-anchor="middle" dominant-baseline="central">REGISTER</text>
-
-            <!-- Right Escalator, Sitting Area, Washroom (Aligned & Centered) -->
-            <rect x="878" y="280" width="30" height="135" fill="#2b1942" stroke="#6c3baa" stroke-dasharray="4 2" rx="4" />
-            <text x="893" y="347.5" fill="#9d80c4" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 893 347.5)">ESCALATOR</text>
-
-            <rect x="938" y="185" width="46" height="230" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="4" />
-            <text x="961" y="240" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 961 240)">WASHROOM</text>
-            <text x="961" y="340" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 961 340)">SITTING AREA</text>
-
-            <!-- Photo Stand (Clear Label Inside) -->
-            <polygon id="map-PHOTO" points="815,446 865,446 865,476 815,476" fill="#ff6b00" opacity="0.85" class="booth-rect" />
-            <text x="840" y="461" fill="#ffffff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">PHOTO</text>
-
-            <!-- UNITAR Hub Level G (Header placed cleanly at top of zone, NO OVERLAP) -->
-            <rect x="615" y="488" width="375" height="152" fill="#150a26" stroke="#8338ec" stroke-width="2.5" rx="6" />
-            <text x="800" y="504" fill="#c7d7ff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central">UNITAR HUB (LEVEL G)</text>
-
-            <!-- In / Out Arrows -->
-            <text x="892" y="478" fill="#c7b2e8" font-size="10" font-weight="800">IN</text>
-            <text x="912" y="478" fill="#c7b2e8" font-size="10" font-weight="800">OUT</text>
-            <line x1="895" y1="500" x2="895" y2="555" stroke="#c7b2e8" stroke-width="1.5" marker-end="url(#arrow)" />
-            <line x1="922" y1="555" x2="922" y2="500" stroke="#c7b2e8" stroke-width="1.5" marker-end="url(#arrow)" />
-
-            <!-- Stage (Centered) -->
-            <rect id="map-STAGE" x="642" y="506" width="36" height="116" fill="#e63946" stroke="#ffb703" stroke-width="2" rx="4" class="booth-rect" />
-            <text x="660" y="564" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 660 564)">STAGE</text>
-
-            <!-- ================= INTERACTIVE BOOTHS LAYER (CENTERED WITH DOMINANT-BASELINE) ================= -->
-            <!-- Top Corridor Row 1: B01, B02, B05, B06, B08, B11 -->
-            <g class="booth-group">
-              <rect id="map-B01" class="booth-rect" x="118" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="148" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B01</text>
-
-              <rect id="map-B02" class="booth-rect" x="200" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="230" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B02</text>
-
-              <rect id="map-B05" class="booth-rect" x="285" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="315" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B05</text>
-
-              <rect id="map-B06" class="booth-rect" x="375" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="405" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B06</text>
-
-              <rect id="map-B08" class="booth-rect" x="468" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="498" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B08</text>
-
-              <rect id="map-B11" class="booth-rect" x="570" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="600" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B11</text>
+            <!-- ================= WEST CORRIDOR (ESCALATOR & BOOTHS) ================= -->
+            <!-- Left Horizontal Escalator -->
+            <rect x="155" y="165" width="115" height="34" fill="url(#escalator-ribs-h)" stroke="#a370f7" stroke-width="2" rx="4" />
+            <g fill="#c7b2e8" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">
+              <text x="286" y="182" transform="rotate(-90 286 182)">ESCALATOR</text>
             </g>
 
-            <!-- Top Corridor Row 2: B04, B03, B07, B09, B10, B12 -->
-            <g class="booth-group">
-              <rect id="map-B04" class="booth-rect" x="136" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="166" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B04</text>
+            <!-- Central Corridor Walls & Lifts -->
+            <!-- Left Lift Alcove Wall -->
+            <path d="M 325 260 H 445 V 315 M 445 375 V 425 H 365" fill="none" stroke="#5a348a" stroke-width="2" />
+            <rect x="420" y="318" width="45" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
+            <text x="442.5" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
 
-              <rect id="map-B03" class="booth-rect" x="220" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="250" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B03</text>
+            <!-- Right Lift Wall -->
+            <path d="M 607 375 V 435" fill="none" stroke="#5a348a" stroke-width="2" />
+            <rect x="585" y="318" width="44" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
+            <text x="607" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
 
-              <rect id="map-B07" class="booth-rect" x="316" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="346" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B07</text>
+            <!-- Middle Hub Enclosure (Center-Right) -->
+            <rect x="645" y="182" width="198" height="236" fill="#180c29" stroke="#723d9c" stroke-width="2" rx="6" />
+            <line x1="745" y1="195" x2="745" y2="405" stroke="#723d9c" stroke-width="1.5" stroke-dasharray="3 3" />
 
-              <rect id="map-B09" class="booth-rect" x="415" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="445" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B09</text>
+            <!-- Register Desk inside Middle Hub -->
+            <rect x="795" y="390" width="44" height="20" fill="#3a1c5e" stroke="#a370f7" stroke-width="1.5" rx="3" />
+            <text x="817" y="400" fill="#e2d4f0" font-size="8" font-weight="700" text-anchor="middle" dominant-baseline="central">REGISTER</text>
 
-              <rect id="map-B10" class="booth-rect" x="510" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="540" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B10</text>
+            <!-- 3 Round Discussion Tables beside G1, G2, G3 -->
+            <circle cx="824" cy="223" r="12" fill="#2d174a" stroke="#6c3baa" stroke-width="1.5" />
+            <circle cx="824" cy="277" r="12" fill="#2d174a" stroke="#6c3baa" stroke-width="1.5" />
+            <circle cx="824" cy="331" r="12" fill="#2d174a" stroke="#6c3baa" stroke-width="1.5" />
 
-              <rect id="map-B12" class="booth-rect" x="605" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="635" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B12</text>
+            <!-- Middle Hub Entrance & Photo Stand -->
+            <text x="695" y="442" fill="#c7b2e8" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">ENTRANCE</text>
+
+            <!-- Photo Stand (With Camera Accent Graphic) -->
+            <rect id="map-PHOTO" class="booth-rect" x="810" y="435" width="50" height="34" rx="4" fill="#ff6b00" opacity="0.9" />
+            <text x="835" y="452" fill="#ffffff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">PHOTO</text>
+
+            <!-- Right Vertical Escalator, Sitting Area, Washroom -->
+            <rect x="874" y="272" width="30" height="140" fill="url(#escalator-ribs-v)" stroke="#a370f7" stroke-width="2" rx="4" />
+            <text x="889" y="258" fill="#c7b2e8" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">ESCALATOR</text>
+
+            <rect x="934" y="182" width="36" height="236" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="4" />
+            <text x="952" y="300" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 952 300)">SITTING AREA</text>
+
+            <rect x="972" y="182" width="22" height="236" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="4" />
+            <text x="983" y="300" fill="#c7b2e8" font-size="9" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 983 300)">WASHROOM</text>
+
+            <!-- ================= UNITAR HUB (LEVEL G, BOTTOM RIGHT) ================= -->
+            <rect x="605" y="485" width="388" height="155" fill="#150a26" stroke="#8338ec" stroke-width="2.5" rx="6" />
+
+            <!-- Main Stage (With Blueprint Tabs) -->
+            <g id="map-STAGE" class="booth-rect">
+              <rect x="642" y="498" width="22" height="14" fill="#e63946" stroke="#ffb703" stroke-width="1.5" rx="2" />
+              <rect x="634" y="512" width="38" height="102" fill="#e63946" stroke="#ffb703" stroke-width="2" rx="4" />
+              <rect x="642" y="614" width="22" height="14" fill="#e63946" stroke="#ffb703" stroke-width="1.5" rx="2" />
+              <text x="653" y="563" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 653 563)" pointer-events="none">STAGE</text>
             </g>
 
-            <!-- Middle Enclosure Booths: B14 - B20 (Centered inside rectangles) -->
-            <g class="booth-group">
-              <rect id="map-B14" class="booth-rect" x="664" y="196" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="217" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 217)" pointer-events="none">B14</text>
-
-              <rect id="map-B15" class="booth-rect" x="664" y="246" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="267" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 267)" pointer-events="none">B15</text>
-
-              <rect id="map-B16" class="booth-rect" x="664" y="298" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="319" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 319)" pointer-events="none">B16</text>
-
-              <rect id="map-B17" class="booth-rect" x="664" y="352" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="373" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 373)" pointer-events="none">B17</text>
-
-              <rect id="map-B18" class="booth-rect" x="714" y="225" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="246" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 246)" pointer-events="none">B18</text>
-
-              <rect id="map-B19" class="booth-rect" x="714" y="280" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="301" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 301)" pointer-events="none">B19</text>
-
-              <rect id="map-B20" class="booth-rect" x="714" y="334" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="355" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 355)" pointer-events="none">B20</text>
+            <!-- Hub Center Label: UNITAR HUB LEVEL G -->
+            <g fill="#9d76d6" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" opacity="0.75">
+              <text x="690" y="525">UNITAR</text>
+              <text x="690" y="545">HUB</text>
+              <text x="690" y="575">LEVEL</text>
+              <text x="690" y="595">G</text>
             </g>
 
-            <!-- Activity Zones: G1 - G3 (Centered inside rectangles) -->
+            <!-- In / Out Directional Arrows to UNITAR Hub -->
+            <text x="888" y="474" fill="#c7b2e8" font-size="9" font-weight="800" text-anchor="middle">IN</text>
+            <text x="914" y="474" fill="#c7b2e8" font-size="9" font-weight="800" text-anchor="middle">OUT</text>
+            <line x1="888" y1="486" x2="888" y2="550" stroke="#ffb703" stroke-width="1.5" marker-end="url(#arrow)" />
+            <line x1="914" y1="550" x2="914" y2="486" stroke="#ffb703" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- ================= INTERACTIVE BOOTHS LAYER ================= -->
+            <!-- 1. Top Corridor Row: B01, B02, B05, B06, B08, B11 -->
             <g class="booth-group">
-              <rect id="map-G1" class="booth-rect" x="780" y="206" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="227" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 227)" pointer-events="none">G1</text>
+              <rect id="map-B01" class="booth-rect" x="110" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="139" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B01</text>
 
-              <rect id="map-G2" class="booth-rect" x="780" y="262" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="283" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 283)" pointer-events="none">G2</text>
+              <rect id="map-B02" class="booth-rect" x="190" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="219" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B02</text>
 
-              <rect id="map-G3" class="booth-rect" x="780" y="320" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="341" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 341)" pointer-events="none">G3</text>
+              <rect id="map-B05" class="booth-rect" x="275" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="304" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B05</text>
+
+              <rect id="map-B06" class="booth-rect" x="365" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="394" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B06</text>
+
+              <rect id="map-B08" class="booth-rect" x="455" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="484" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B08</text>
+
+              <rect id="map-B11" class="booth-rect" x="545" y="85" width="58" height="32" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="574" y="101" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B11</text>
             </g>
 
-            <!-- Academic Programme Booths in Level G Hub (Centered Clean Labels) -->
+            <!-- 2. West Corridor Outer Column: B07, B03, B04 -->
             <g class="booth-group">
-              <rect id="map-BFINTECH" class="booth-rect" x="715" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="739" y="532" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BFINTECH</text>
+              <rect id="map-B07" class="booth-rect" x="10" y="220" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="24" y="248" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 24 248)" pointer-events="none">B07</text>
 
-              <rect id="map-BAF" class="booth-rect" x="768" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="792" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BA&amp;F</text>
+              <rect id="map-B03" class="booth-rect" x="10" y="298" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="24" y="326" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 24 326)" pointer-events="none">B03</text>
 
-              <rect id="map-BACC" class="booth-rect" x="821" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="845" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BACC</text>
-
-              <rect id="map-BBA" class="booth-rect" x="715" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="739" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BBA</text>
-
-              <rect id="map-BIB" class="booth-rect" x="768" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="792" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BIB</text>
-
-              <rect id="map-BHRM" class="booth-rect" x="821" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="845" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BHRM</text>
+              <rect id="map-B04" class="booth-rect" x="10" y="376" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="24" y="404" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 24 404)" pointer-events="none">B04</text>
             </g>
 
-            <!-- Gift & Sales Counters -->
+            <!-- 3. West Corridor Inner Column (Below Left Escalator): B12, B10, B09 -->
             <g class="booth-group">
-              <rect id="map-GIFT" class="booth-rect" x="942" y="502" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="521" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 521)" pointer-events="none">GIFT</text>
+              <rect id="map-B12" class="booth-rect" x="135" y="220" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="149" y="248" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 149 248)" pointer-events="none">B12</text>
 
-              <rect id="map-SALES1" class="booth-rect" x="942" y="550" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="569" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 569)" pointer-events="none">SALES1</text>
+              <rect id="map-B10" class="booth-rect" x="135" y="298" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="149" y="326" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 149 326)" pointer-events="none">B10</text>
 
-              <rect id="map-SALES2" class="booth-rect" x="942" y="598" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="617" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 617)" pointer-events="none">SALES2</text>
+              <rect id="map-B09" class="booth-rect" x="135" y="376" width="28" height="56" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1.5" />
+              <text x="149" y="404" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 149 404)" pointer-events="none">B09</text>
+            </g>
+
+            <!-- 4. Middle Hub Enclosure Booths: B14 - B20 -->
+            <g class="booth-group">
+              <rect id="map-B14" class="booth-rect" x="658" y="194" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="668" y="215" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 668 215)" pointer-events="none">B14</text>
+
+              <rect id="map-B15" class="booth-rect" x="658" y="246" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="668" y="267" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 668 267)" pointer-events="none">B15</text>
+
+              <rect id="map-B16" class="booth-rect" x="658" y="298" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="668" y="319" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 668 319)" pointer-events="none">B16</text>
+
+              <rect id="map-B17" class="booth-rect" x="658" y="350" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="668" y="371" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 668 371)" pointer-events="none">B17</text>
+
+              <rect id="map-B18" class="booth-rect" x="708" y="228" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="718" y="249" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 718 249)" pointer-events="none">B18</text>
+
+              <rect id="map-B19" class="booth-rect" x="708" y="282" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="718" y="303" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 718 303)" pointer-events="none">B19</text>
+
+              <rect id="map-B20" class="booth-rect" x="708" y="336" width="20" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
+              <text x="718" y="357" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 718 357)" pointer-events="none">B20</text>
+            </g>
+
+            <!-- 5. Activity Zones: G1 - G3 -->
+            <g class="booth-group">
+              <rect id="map-G1" class="booth-rect" x="776" y="202" width="20" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="786" y="223" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 786 223)" pointer-events="none">G1</text>
+
+              <rect id="map-G2" class="booth-rect" x="776" y="256" width="20" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="786" y="277" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 786 277)" pointer-events="none">G2</text>
+
+              <rect id="map-G3" class="booth-rect" x="776" y="310" width="20" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="786" y="331" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 786 331)" pointer-events="none">G3</text>
+            </g>
+
+            <!-- 6. Academic Degree Programme Booths (Level G Hub) -->
+            <g class="booth-group">
+              <!-- Top Row with Chair Circles -->
+              <circle cx="724" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="748" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <rect id="map-BFINTECH" class="booth-rect" x="712" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="736" y="532" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BFINTECH</text>
+
+              <circle cx="778" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="802" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <rect id="map-BAF" class="booth-rect" x="766" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="790" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BA&amp;F</text>
+
+              <circle cx="832" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="856" cy="506" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <rect id="map-BACC" class="booth-rect" x="820" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="844" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BACC</text>
+
+              <!-- Bottom Row with Chair Circles -->
+              <rect id="map-BBA" class="booth-rect" x="712" y="590" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="736" y="602" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BBA</text>
+              <circle cx="724" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="748" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+
+              <rect id="map-BIB" class="booth-rect" x="766" y="590" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="790" y="602" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BIB</text>
+              <circle cx="778" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="802" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+
+              <rect id="map-BHRM" class="booth-rect" x="820" y="590" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="844" y="602" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BHRM</text>
+              <circle cx="832" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="856" cy="624" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+            </g>
+
+            <!-- 7. Gift & Sales Counters (Right Wall of Hub with Table Circles) -->
+            <g class="booth-group">
+              <rect id="map-GIFT" class="booth-rect" x="946" y="504" width="20" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="956" y="523" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 956 523)" pointer-events="none">GIFT</text>
+              <circle cx="975" cy="513" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="975" cy="533" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+
+              <rect id="map-SALES1" class="booth-rect" x="946" y="548" width="20" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="956" y="567" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 956 567)" pointer-events="none">SALES 1</text>
+              <circle cx="975" cy="557" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="975" cy="577" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+
+              <rect id="map-SALES2" class="booth-rect" x="946" y="592" width="20" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="956" y="611" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 956 611)" pointer-events="none">SALES 2</text>
+              <circle cx="975" cy="601" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
+              <circle cx="975" cy="621" r="5" fill="#2d174a" stroke="#6c3baa" stroke-width="1" />
             </g>
 
             <!-- Dynamic Glowing Wayfinding Path -->
@@ -552,7 +614,7 @@
         All Booths (33)
       </button>
       <button data-filter="MC-S2" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
-        Top Corridor (MC-S2)
+        Top &amp; West Corridor (MC-S2)
       </button>
       <button data-filter="MC-S3" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Middle Hub (MC-S3)
