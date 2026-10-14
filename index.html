@@ -945,21 +945,14 @@
         <strong>LEGENDARY FEAT!</strong> You actually visited and collected every single vendor booth stamp (<span class="text-orange-400 font-extrabold">all vendor booths B01–B20</span>) across Level G!
       </p>
 
-      <!-- Verified Winner Claim Code -->
-      <div class="my-3 p-3 rounded-xl bg-slate-950/90 border border-orange-500/40">
-        <span class="text-[9px] text-purple-400 uppercase tracking-widest block font-bold">Official Verification Voucher Code</span>
-        <span id="voucher-code" class="text-lg sm:text-xl font-black font-mono text-orange-400 tracking-wider block mt-0.5">UPP-RICKROLL-B01TOB20</span>
-        <span class="text-[10px] text-emerald-400 font-semibold block mt-0.5">✓ B01–B20 Complete • Present to the Gift Counter team for your real prize!</span>
-      </div>
-
       <!-- Action Buttons -->
-      <div class="flex gap-2">
+      <div class="flex gap-2 mt-4">
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-xs transition flex items-center justify-center gap-1.5">
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
           <span>Open YouTube</span>
         </a>
         <button onclick="closeVoucherModal()" class="flex-1 py-2 rounded-full bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs transition">
-          Claim Real Prize &amp; Close
+          Close
         </button>
       </div>
     </div>
@@ -990,11 +983,21 @@
           </svg>
           <span>TikTok (@unitarhalloweenevent2026)</span>
         </a>
-        <a href="qr-standee.html" target="_blank" class="text-orange-400 hover:underline">Printable QR Standee</a>
+        <a id="qr-standee-link" href="qr-standee.html" target="_blank" class="hidden text-orange-400 hover:underline">Printable QR Standee</a>
         <a href="#map-section" class="text-purple-300 hover:underline">Top ↑</a>
       </div>
     </div>
   </footer>
+
+  <!-- =========================================================================
+       ORGANIZER QR STANDEE FLOATING PILL (HIDDEN BY DEFAULT; REVEALED IN REALTIME VIA URL E.G. ?qr OR #qr)
+       ========================================================================= -->
+  <div id="qr-organizer-pill" class="hidden fixed bottom-16 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="qr-standee.html" target="_blank" class="px-3.5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-xs shadow-2xl shadow-orange-500/50 border border-orange-300/40 flex items-center gap-2 transition hover:scale-105 active:scale-95">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span>Printable QR Standee ↗</span>
+    </a>
+  </div>
 
   <!-- =========================================================================
        11. MOBILE BOTTOM ACTION BAR (PHONES ONLY - DYNAMIC ACTIVE HIGHLIGHTS)

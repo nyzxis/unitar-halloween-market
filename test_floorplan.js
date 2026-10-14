@@ -157,7 +157,7 @@ const fs = require('fs');
     process.exitCode = 1;
   }
 
-  // 8. Test 100% Completion & Rickroll Prize Unlock
+  // 8. Test 100% Completion & Rickroll Modal (Voucher Code Section DELETED)
   console.log('Testing 100% completion (collecting all 19 booth stamps)...');
   await page.evaluate(() => {
     const stampable = BOOTHS_DATA.filter(b => passport.isStampable(b.id));
@@ -178,13 +178,27 @@ const fs = require('fs');
   await page.waitForTimeout(400);
 
   const voucherModalHidden = await page.$eval('#voucher-modal', modal => modal.classList.contains('hidden'));
-  const voucherCode = await page.innerText('#voucher-code');
-  console.log(`Voucher modal visible: ${!voucherModalHidden}, code: "${voucherCode}"`);
-  if (voucherModalHidden || !voucherCode.includes('B01TOB20')) {
-    console.error(`FAIL: Voucher modal not shown properly or code unexpected: "${voucherCode}"`);
+  console.log(`Voucher modal visible: ${!voucherModalHidden}`);
+  if (voucherModalHidden) {
+    console.error('FAIL: Voucher modal not shown upon 100% completion!');
+    process.exitCode = 1;
+  }
+
+  // Verify the deleted voucher section does NOT exist
+  const voucherCodeEl = await page.$('#voucher-code');
+  if (voucherCodeEl) {
+    console.error('FAIL: #voucher-code element should be deleted from DOM!');
     process.exitCode = 1;
   } else {
-    console.log('SUCCESS: Rickroll 100% prize voucher unlocked with code UPP-RICKROLL-B01TOB20!');
+    console.log('SUCCESS: #voucher-code element is successfully deleted from DOM!');
+  }
+
+  const modalHtml = await page.$eval('#voucher-modal', m => m.innerHTML);
+  if (modalHtml.includes('OFFICIAL VERIFICATION VOUCHER CODE')) {
+    console.error('FAIL: "OFFICIAL VERIFICATION VOUCHER CODE" section still present in modal HTML!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: "OFFICIAL VERIFICATION VOUCHER CODE" section completely removed!');
   }
 
   await page.screenshot({ path: path.join(screenshotDir, 'voucher_modal_unlocked.png') });
@@ -198,14 +212,65 @@ const fs = require('fs');
     passport.updateUI();
   });
 
-  // 9. Reset map view to full overview
+  // 9. Verify QR Standee is HIDDEN by default and ACCESSIBLE in realtime via URL altering
+  console.log('Testing QR Standee hidden by default...');
+  const isQrLinkHiddenDefault = await page.$eval('#qr-standee-link', el => el.classList.contains('hidden'));
+  const isQrPillHiddenDefault = await page.$eval('#qr-organizer-pill', el => el.classList.contains('hidden'));
+
+  console.log(`Default QR link hidden: ${isQrLinkHiddenDefault}, QR pill hidden: ${isQrPillHiddenDefault}`);
+  if (!isQrLinkHiddenDefault || !isQrPillHiddenDefault) {
+    console.error('FAIL: QR standee link/pill should be hidden by default!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: QR Standee entry points are hidden by default!');
+  }
+
+  // Alter URL in realtime via hash (#qr)
+  console.log('Altering URL in realtime with #qr...');
+  await page.evaluate(() => {
+    window.location.hash = '#qr';
+  });
+  await page.waitForTimeout(350);
+
+  const isQrLinkVisibleWithHash = await page.$eval('#qr-standee-link', el => !el.classList.contains('hidden'));
+  const isQrPillVisibleWithHash = await page.$eval('#qr-organizer-pill', el => !el.classList.contains('hidden'));
+  console.log(`With #qr - QR link visible: ${isQrLinkVisibleWithHash}, QR pill visible: ${isQrPillVisibleWithHash}`);
+  if (!isQrLinkVisibleWithHash || !isQrPillVisibleWithHash) {
+    console.error('FAIL: QR standee link/pill should be visible when hash contains #qr!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: QR Standee became visible in realtime after altering URL hash to #qr!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'qr_revealed_realtime.png') });
+  console.log('Saved: qr_revealed_realtime.png');
+
+  // Remove hash (#) in realtime
+  console.log('Removing hash to test hiding again in realtime...');
+  await page.evaluate(() => {
+    window.location.hash = '';
+    history.replaceState(null, '', window.location.pathname);
+  });
+  await page.waitForTimeout(350);
+
+  const isQrLinkHiddenAfterHashClear = await page.$eval('#qr-standee-link', el => el.classList.contains('hidden'));
+  const isQrPillHiddenAfterHashClear = await page.$eval('#qr-organizer-pill', el => el.classList.contains('hidden'));
+  console.log(`After clearing hash - QR link hidden: ${isQrLinkHiddenAfterHashClear}, QR pill hidden: ${isQrPillHiddenAfterHashClear}`);
+  if (!isQrLinkHiddenAfterHashClear || !isQrPillHiddenAfterHashClear) {
+    console.error('FAIL: QR standee link/pill should hide again after clearing hash!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: QR Standee hides again in realtime when URL hash is cleared!');
+  }
+
+  // 10. Reset map view to full overview
   console.log('Resetting map view...');
   await page.click('#btn-reset-zoom');
   await page.waitForTimeout(400);
   await mapElement.screenshot({ path: path.join(screenshotDir, 'desktop_floorplan_overview.png') });
   console.log('Saved: desktop_floorplan_overview.png');
 
-  // 10. Verify Zero Phone Numbers in DOM
+  // 11. Verify Zero Phone Numbers in DOM
   const bodyText = await page.innerText('body');
   const phoneRegex = /\b01[0-9]-?[0-9]{7,8}\b/g;
   const foundPhones = bodyText.match(phoneRegex);
@@ -216,7 +281,7 @@ const fs = require('fs');
     console.log('SUCCESS: Zero phone/contact numbers detected in DOM! (Verified constraint)');
   }
 
-  // 11. Test Mobile Viewport (390x844 iPhone 12/13/14)
+  // 12. Test Mobile Viewport (390x844 iPhone 12/13/14)
   console.log('Testing Mobile Viewport (390x844)...');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.waitForTimeout(400);

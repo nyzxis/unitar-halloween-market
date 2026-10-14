@@ -1185,6 +1185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSearchAndFilters();
   setupLiveTimeTicker();
   setupAmbientParticles();
+  setupQrUrlWatcher();
 
   // 6. Select B01 by default with animated path
   setTimeout(() => {
@@ -1624,10 +1625,6 @@ function redeemPrize() {
   }
 
   const voucherModal = document.getElementById('voucher-modal');
-  const codeEl = document.getElementById('voucher-code');
-  if (codeEl) {
-    codeEl.textContent = `UPP-RICKROLL-B01TOB20`;
-  }
 
   // Load YouTube Rickroll video
   const rickrollIframe = document.getElementById('rickroll-iframe');
@@ -1805,4 +1802,50 @@ function showToastNotification(htmlContent) {
     toast.classList.add('translate-y-4', 'opacity-0');
     setTimeout(() => toast.remove(), 400);
   }, 4000);
+}
+
+// =============================================================================
+// 12. REAL-TIME QR STANDEE ACCESS WATCHER
+// Hidden by default; only unlocked when the URL is altered in realtime
+// (e.g., ?qr, ?qr=1, ?qr=true, ?standee=true, #qr, #standee)
+// =============================================================================
+function checkQrAccess() {
+  const search = (window.location.search || '').toLowerCase();
+  const hash = (window.location.hash || '').toLowerCase();
+  const isQrUnlocked =
+    search.includes('qr') ||
+    search.includes('standee') ||
+    hash.includes('qr') ||
+    hash.includes('standee');
+
+  const qrLink = document.getElementById('qr-standee-link');
+  const qrPill = document.getElementById('qr-organizer-pill');
+
+  if (isQrUnlocked) {
+    if (qrLink) qrLink.classList.remove('hidden');
+    if (qrPill) qrPill.classList.remove('hidden');
+  } else {
+    if (qrLink) qrLink.classList.add('hidden');
+    if (qrPill) qrPill.classList.add('hidden');
+  }
+}
+
+function setupQrUrlWatcher() {
+  // 1. Initial check
+  checkQrAccess();
+
+  // 2. React to hash changes immediately (e.g. user adds #qr to browser address bar)
+  window.addEventListener('hashchange', checkQrAccess);
+
+  // 3. React to popstate navigation
+  window.addEventListener('popstate', checkQrAccess);
+
+  // 4. Reactive polling every 300ms to catch silent programmatic/history URL alterations
+  let lastHref = window.location.href;
+  setInterval(() => {
+    if (window.location.href !== lastHref) {
+      lastHref = window.location.href;
+      checkQrAccess();
+    }
+  }, 300);
 }
