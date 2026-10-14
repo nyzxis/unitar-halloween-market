@@ -417,15 +417,15 @@ const BOOTHS_DATA = [
   },
   {
     id: "GIFT",
-    name: "PASSPORT GIFT REDEMPTION",
-    category: "Passport Gift Counter",
+    name: "GIFT COUNTER",
+    category: "Special Booth",
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
     cx: 968,
     cy: 457,
     path: "524,528 524,400 903,400 903,457 959,457",
-    directions: "Follow walkway into UNITAR Hub; Gift redemption counter is along far right wall."
+    directions: "Follow walkway into UNITAR Hub; Gift Counter is along the far right wall."
   },
   {
     id: "SALES1",

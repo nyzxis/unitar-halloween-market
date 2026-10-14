@@ -13,10 +13,10 @@ An elevated, interactive web application and wayfinding engine for the **UNITAR 
    - **Smooth Camera Transitions (`flyToBooth`)**: Automatically glides and zooms into the selected booth on the map.
 
 2. **Digital Halloween Passport / Stamp Card**
-   - **33 Stampable Locations**: 20 Student Entrepreneur Booths, 6 Academic Degree Booths, and 4 Activity & Highlights zones.
+   - **19 Vendor Booths Quest (B01–B20)**: Focuses strictly on student entrepreneur booths (excluding vacant B13).
    - **Offline Persistence**: Collected stamps are saved to browser `localStorage` so students don't lose progress on reload.
    - **Milestone Rewards**: Unlocks milestone celebrations (with celebratory confetti & sounds) at 5 stamps, 15 stamps, and completion.
-   - **Official Prize Redemption Voucher**: Unlocks a verified digital voucher with unique code to present at the **Passport Gift Redemption Counter**.
+   - **Mystery Easter Egg Unlock**: Unlocks the legendary milestone celebration and surprise upon collecting all 19 booth stamps.
 
 3. **Procedural Spooky Audio Synthesizer (Web Audio API)**
    - Zero external audio dependencies (no broken 404 links or lag).

@@ -153,6 +153,20 @@ const fs = require('fs');
     console.log('SUCCESS: #panel-stamp-btn is hidden for BFINTECH!');
   }
 
+  console.log('Testing GIFT Counter (No Passport affiliation)...');
+  await page.click('#map-GIFT');
+  await page.waitForTimeout(200);
+  const giftTitle = await page.$eval('#panel-title', el => el.innerText.trim());
+  const giftCategory = await page.$eval('#panel-category', el => el.innerText.trim());
+  const giftStampBtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  console.log(`GIFT Title: "${giftTitle}", Category: "${giftCategory}", Stamp button hidden: ${giftStampBtnHidden}`);
+  if (giftTitle.includes('PASSPORT') || giftCategory.includes('Passport') || !giftStampBtnHidden) {
+    console.error(`FAIL: GIFT counter still affiliated with passport! Title: ${giftTitle}, Category: ${giftCategory}`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: GIFT counter is independent ("GIFT COUNTER", "Special Booth") and unaffiliated with passport!');
+  }
+
   // 7. Test 100% Completion & Rickroll Modal (Voucher Code Section DELETED)
   console.log('Testing 100% completion (collecting all 19 booth stamps)...');
   await page.evaluate(() => {
