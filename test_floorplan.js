@@ -68,6 +68,27 @@ const fs = require('fs');
     console.log('SUCCESS: All 33 booth elements found in SVG!');
   }
 
+  // 3b. Verify UNITAR HUB LEVEL G label is rendered horizontally
+  console.log('Verifying UNITAR HUB LEVEL G center label is horizontal...');
+  const hubLabel = await page.$('#hub-center-label');
+  if (!hubLabel) {
+    console.error('FAIL: Missing #hub-center-label in SVG!');
+    process.exitCode = 1;
+  } else {
+    const text = await page.$eval('#hub-center-label', el => el.textContent.trim());
+    const transform = await hubLabel.getAttribute('transform');
+    console.log(`Hub center label text: "${text}", transform: ${transform}`);
+    if (text !== 'UNITAR HUB LEVEL G') {
+      console.error(`FAIL: Expected text 'UNITAR HUB LEVEL G', got '${text}'`);
+      process.exitCode = 1;
+    } else if (transform && transform.includes('rotate')) {
+      console.error('FAIL: Hub center label has rotation applied!');
+      process.exitCode = 1;
+    } else {
+      console.log('SUCCESS: UNITAR HUB LEVEL G label is horizontal single line!');
+    }
+  }
+
   // 4. Verify DigitalPassport is strictly 19 vendor booths (B01-B20)
   console.log('Verifying DigitalPassport restriction to B01-B20...');
   const passportTotal = await page.evaluate(() => passport.getTotal());
