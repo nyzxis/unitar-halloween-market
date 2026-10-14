@@ -706,6 +706,50 @@ class SpookySoundSystem {
       });
     });
   }
+
+  // Iconic procedural Rickroll synthesizer riff ("Never Gonna Give You Up")
+  playRickroll() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const now = this.ctx.currentTime;
+    const notes = [
+      { t: 0.0, f: 392.00, d: 0.12 }, // G4
+      { t: 0.15, f: 440.00, d: 0.12 }, // A4
+      { t: 0.30, f: 523.25, d: 0.15 }, // C5
+      { t: 0.48, f: 440.00, d: 0.15 }, // A4
+      { t: 0.66, f: 659.25, d: 0.28 }, // E5
+      { t: 0.96, f: 659.25, d: 0.28 }, // E5
+      { t: 1.28, f: 587.33, d: 0.45 }, // D5
+      // Never gonna let you down
+      { t: 1.80, f: 392.00, d: 0.12 }, // G4
+      { t: 1.95, f: 440.00, d: 0.12 }, // A4
+      { t: 2.10, f: 523.25, d: 0.15 }, // C5
+      { t: 2.28, f: 440.00, d: 0.15 }, // A4
+      { t: 2.46, f: 587.33, d: 0.28 }, // D5
+      { t: 2.76, f: 587.33, d: 0.28 }, // D5
+      { t: 3.08, f: 523.25, d: 0.55 }  // C5
+    ];
+
+    notes.forEach(note => {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(note.f, now + note.t);
+
+      gain.gain.setValueAtTime(0, now + note.t);
+      gain.gain.linearRampToValueAtTime(0.09, now + note.t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + note.t + note.d);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(now + note.t);
+      osc.stop(now + note.t + note.d + 0.05);
+    });
+  }
 }
 
 const soundSystem = new SpookySoundSystem();
@@ -1001,10 +1045,15 @@ class DigitalPassport {
 
   checkMilestones() {
     const count = this.getCount();
-    if (count === 5 || count === 15 || count === this.getTotal()) {
+    const total = this.getTotal();
+    if (count === total) {
+      soundSystem.playRickroll();
+      launchConfetti();
+      showToastNotification(`${SVG_ICONS.sparkles} 🏆 100% COMPLETE! All ${total} Stamps Collected! Click Redeem in Passport to Claim!`);
+    } else if (count === 10 || count === 20) {
       soundSystem.playVictorySound();
       launchConfetti();
-      showToastNotification(`${SVG_ICONS.sparkles} Milestone Unlocked: ${count} Stamps Collected! Redeem gifts at the Gift Counter.`);
+      showToastNotification(`${SVG_ICONS.sparkles} Progress: ${count} of ${total} Stamps Collected! Keep going!`);
     }
   }
 
@@ -1021,6 +1070,15 @@ class DigitalPassport {
 
     const progressText = document.getElementById('passport-progress-text');
     if (progressText) progressText.textContent = `${count} of ${total} (${percentage}%)`;
+
+    const modalStatus = document.getElementById('passport-modal-status');
+    if (modalStatus) {
+      if (count === total) {
+        modalStatus.innerHTML = `<span class="text-amber-300 font-extrabold">🎉 100% COMPLETE! All ${total} Stamps Collected! Click Redeem for the Grand Prize!</span>`;
+      } else {
+        modalStatus.textContent = `Collect all ${total} stamps to unlock the Legendary Mystery Prize! (${total - count} remaining)`;
+      }
+    }
 
     // Highlight Stamped Booths on Map
     BOOTHS_DATA.forEach(booth => {
@@ -1515,29 +1573,46 @@ function closePassportModal() {
   }
 }
 
-// Redeem Voucher modal
+// Redeem Voucher modal (Rickroll 100% Quest Unlock)
 function redeemPrize() {
   const count = passport.getCount();
-  if (count < 5) {
-    alert(`Collect at least 5 stamps to unlock the Halloween Gift Counter voucher! You currently have ${count} stamp(s).`);
+  const total = passport.getTotal();
+
+  if (count < total) {
+    const remaining = total - count;
+    alert(`🎃 QUEST INCOMPLETE!\n\nTo unlock the Grand Mystery Prize, you must collect EVERY single stamp across Level G (all ${total} booths & hubs)!\n\nYou currently have ${count} of ${total} stamps (${remaining} remaining).\n\nKeep exploring all student booths, degree hubs, and activity areas!`);
     return;
   }
 
   const voucherModal = document.getElementById('voucher-modal');
   const codeEl = document.getElementById('voucher-code');
   if (codeEl) {
-    codeEl.textContent = `UPP-HALLOWEEN-${Math.floor(1000 + Math.random() * 9000)}`;
+    codeEl.textContent = `UPP-RICKROLL-${Math.floor(1000 + Math.random() * 9000)}`;
   }
+
+  // Load YouTube Rickroll video
+  const rickrollIframe = document.getElementById('rickroll-iframe');
+  if (rickrollIframe) {
+    rickrollIframe.src = "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0";
+  }
+
   if (voucherModal) {
     voucherModal.classList.remove('hidden');
     launchConfetti();
-    soundSystem.playVictorySound();
+    soundSystem.playRickroll();
   }
 }
 
 function closeVoucherModal() {
   const modal = document.getElementById('voucher-modal');
   if (modal) modal.classList.add('hidden');
+
+  // Stop video playback by clearing iframe src
+  const rickrollIframe = document.getElementById('rickroll-iframe');
+  if (rickrollIframe) {
+    rickrollIframe.src = "";
+  }
+
   soundSystem.playNavSound();
 }
 

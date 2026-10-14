@@ -766,7 +766,7 @@
               <span id="passport-progress-text" class="text-orange-300 font-extrabold text-xs">0 of 33 (0%)</span>
             </div>
             <h4 id="passport-modal-status" class="text-xs sm:text-sm font-extrabold text-white mt-0.5">
-              Collect at least 5 stamps to unlock the mystery gift!
+              Collect all 33 stamps to unlock the Legendary Mystery Prize!
             </h4>
           </div>
 
@@ -799,32 +799,59 @@
   </div>
 
   <!-- =========================================================================
-       9. PRIZE VOUCHER REDEMPTION MODAL
+       9. PRIZE VOUCHER REDEMPTION MODAL (RICKROLL 100% UNLOCK)
        ========================================================================= -->
-  <div id="voucher-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-    <div class="glass-panel-elevated w-full max-w-sm p-5 border-emerald-500/50 text-center relative">
-      <button onclick="closeVoucherModal()" class="absolute right-3.5 top-3.5 text-purple-300 hover:text-white text-base">✕</button>
+  <div id="voucher-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md">
+    <div class="glass-panel-elevated w-full max-w-md p-5 sm:p-6 border-orange-500/60 text-center relative overflow-hidden shadow-2xl">
+      <button onclick="closeVoucherModal()" class="absolute right-3.5 top-3.5 text-purple-300 hover:text-white text-base z-20">✕</button>
 
-      <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center mx-auto mb-2.5 border border-emerald-500/40">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+      <!-- Achievement Pill -->
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-[10px] font-black uppercase tracking-widest mb-2">
+        <span>🏆 100% Quest Completion</span>
       </div>
 
-      <span class="text-[10px] uppercase font-extrabold tracking-widest text-emerald-400">Official Verification Voucher</span>
-      <h3 class="text-lg font-extrabold text-white mt-0.5">Passport Qualified!</h3>
-      <p class="text-xs text-purple-200 mt-1.5 leading-snug">
-        Present this verified digital voucher at the <strong class="text-orange-400">Passport Gift Counter</strong> (Level G Hub) to claim your event token!
+      <h3 class="font-creepster text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 leading-tight">
+        YOU HAVE BEEN RICKROLLED!
+      </h3>
+
+      <!-- Embedded Rickroll Video Frame -->
+      <div class="my-3 rounded-xl overflow-hidden border-2 border-orange-500/50 shadow-lg relative bg-black aspect-video flex items-center justify-center">
+        <iframe 
+          id="rickroll-iframe"
+          class="w-full h-full"
+          src=""
+          title="Rick Astley - Never Gonna Give You Up"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="text-xs sm:text-sm font-extrabold text-amber-300 leading-snug">
+        🎶 Never gonna give you up, never gonna let you down... 🎶
       </p>
 
-      <!-- Unique Voucher Code Box -->
-      <div class="my-4 p-3 rounded-xl bg-slate-950/90 border border-emerald-500/40">
-        <span class="text-[9px] text-purple-400 uppercase tracking-widest block font-bold">Voucher ID</span>
-        <span id="voucher-code" class="text-xl font-black font-mono text-emerald-300 tracking-wider block mt-0.5">UPP-HALLOWEEN-2026</span>
-        <span class="text-[9px] text-purple-400 block mt-0.5">Valid only on 21st Oct 2026</span>
+      <p class="text-[11px] sm:text-xs text-purple-200 mt-1.5 leading-relaxed">
+        <strong>LEGENDARY FEAT!</strong> You actually visited and collected every single stamp (<span class="text-orange-400 font-extrabold">33 of 33</span>) across Level G, UNITAR Hub!
+      </p>
+
+      <!-- Verified Winner Claim Code -->
+      <div class="my-3 p-3 rounded-xl bg-slate-950/90 border border-orange-500/40">
+        <span class="text-[9px] text-purple-400 uppercase tracking-widest block font-bold">Official Verification Voucher Code</span>
+        <span id="voucher-code" class="text-lg sm:text-xl font-black font-mono text-orange-400 tracking-wider block mt-0.5">UPP-RICKROLL-33OF33</span>
+        <span class="text-[10px] text-emerald-400 font-semibold block mt-0.5">✓ 33/33 Complete • Present to the Gift Counter team for your real prize!</span>
       </div>
 
-      <button onclick="closeVoucherModal()" class="w-full py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition">
-        Understood &amp; Close
-      </button>
+      <!-- Action Buttons -->
+      <div class="flex gap-2">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-xs transition flex items-center justify-center gap-1.5">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          <span>Open YouTube</span>
+        </a>
+        <button onclick="closeVoucherModal()" class="flex-1 py-2 rounded-full bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs transition">
+          Claim Real Prize &amp; Close
+        </button>
+      </div>
     </div>
   </div>
 
