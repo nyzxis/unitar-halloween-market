@@ -1,0 +1,23 @@
+{
+  "name": "unitar-halloween-market",
+  "version": "1.0.0",
+  "description": "An elevated, interactive web application and wayfinding engine for the **UNITAR Prop and Pop Market (Halloween Event 2026)** held at **Level G, UNITAR Hub**.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyzxis/unitar-halloween-market.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyzxis/unitar-halloween-market/issues"
+  },
+  "homepage": "https://github.com/nyzxis/unitar-halloween-market#readme",
+  "dependencies": {
+    "playwright": "^1.64.0"
+  }
+}
