@@ -310,6 +310,41 @@ const fs = require('fs');
   await page.screenshot({ path: path.join(screenshotDir, 'mobile_show_route_scrolled_to_map.png') });
   console.log('Saved: mobile_show_route_scrolled_to_map.png');
 
+  // 11. Test Mobile Horizontal Scroll & Header Passport Button (Text + Counts only)
+  console.log('Testing Mobile Horizontal Overflow & Header Passport Button (360, 375, 390, 414px)...');
+  const mobileWidths = [360, 375, 390, 414];
+  for (const w of mobileWidths) {
+    await page.setViewportSize({ width: w, height: 844 });
+    await page.waitForTimeout(150);
+    const overflowInfo = await page.evaluate(() => {
+      const docW = document.documentElement.clientWidth;
+      const scrollW = document.documentElement.scrollWidth;
+      const bodyScrollW = document.body.scrollWidth;
+      return { docW, scrollW, bodyScrollW, hasOverflow: scrollW > docW || bodyScrollW > docW };
+    });
+    if (overflowInfo.hasOverflow) {
+      console.error(`FAIL: Horizontal overflow detected at ${w}px! docW=${overflowInfo.docW}, scrollW=${overflowInfo.scrollW}, bodyScrollW=${overflowInfo.bodyScrollW}`);
+      process.exitCode = 1;
+    } else {
+      console.log(`SUCCESS: Zero horizontal overflow at ${w}px (scrollWidth === clientWidth === ${overflowInfo.docW})!`);
+    }
+  }
+
+  // Check top-right passport button has NO svg icon (text + counts only)
+  const headerPassportSvgCount = await page.$$eval('#header-passport-btn svg', svgs => svgs.length);
+  const headerPassportText = await page.$eval('#header-passport-btn', btn => btn.innerText.replace(/\s+/g, ' ').trim());
+  console.log(`Top-right passport button SVG count: ${headerPassportSvgCount}, text: "${headerPassportText}"`);
+  if (headerPassportSvgCount !== 0) {
+    console.error(`FAIL: Top-right header passport button contains ${headerPassportSvgCount} SVG icon(s), expected 0!`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Top-right header passport button has NO SVG icon, strictly text and count!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'mobile_header_text_only_passport.png') });
+  console.log('Saved: mobile_header_text_only_passport.png');
+
   await browser.close();
   console.log('--- PLAYWRIGHT VERIFICATION COMPLETE ---');
+
 })();
