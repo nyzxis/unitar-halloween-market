@@ -299,3 +299,89 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
 }
 
+/* ==========================================================================
+   HALLOWEEN DECORATIONS & AMBIENT VISUAL EFFECTS
+   ========================================================================== */
+
+/* Glowing Candlelight Flicker for Carved Pumpkins */
+@keyframes candleFlicker {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #ff7700) drop-shadow(0 0 16px #ff5400);
+  }
+  20% {
+    opacity: 0.82;
+    filter: drop-shadow(0 0 3px #ff5400) drop-shadow(0 0 9px #ff7700);
+  }
+  45% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 7px #ffb703) drop-shadow(0 0 20px #ff5400);
+  }
+  70% {
+    opacity: 0.88;
+    filter: drop-shadow(0 0 4px #ff5400) drop-shadow(0 0 12px #ff7700);
+  }
+}
+
+.flicker-pumpkin {
+  animation: candleFlicker 2.6s ease-in-out infinite;
+}
+
+/* Spider Dangle & Swing */
+@keyframes spiderDangle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(18px) rotate(-8deg);
+  }
+  70% {
+    transform: translateY(8px) rotate(6deg);
+  }
+}
+
+.spider-dangle {
+  animation: spiderDangle 4.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Spooky Spiderweb Corners */
+.spiderweb-corner {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+
+.spiderweb-corner:hover {
+  opacity: 0.6;
+}
+
+/* Eerie Haunted Mist Backdrop */
+.haunted-mist {
+  background: radial-gradient(circle at 50% 30%, rgba(157, 78, 221, 0.16) 0%, rgba(255, 84, 0, 0.09) 35%, transparent 70%);
+}
+
+/* Haunted Moon Glow */
+.moon-glow {
+  filter: drop-shadow(0 0 25px rgba(255, 183, 3, 0.25)) drop-shadow(0 0 60px rgba(157, 78, 221, 0.2));
+}
+
+/* Bats Flap Flight */
+@keyframes batFlyHorizontal {
+  0% {
+    transform: translate(-10%, 0) scale(0.9);
+  }
+  50% {
+    transform: translate(5%, -10px) scale(1.05);
+  }
+  100% {
+    transform: translate(-10%, 0) scale(0.9);
+  }
+}
+
+.bat-float {
+  animation: batFlyHorizontal 7s ease-in-out infinite;
+}
+
+
