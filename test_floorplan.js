@@ -68,33 +68,144 @@ const fs = require('fs');
     console.log('SUCCESS: All 33 booth elements found in SVG!');
   }
 
-  // 4. Test clicking B01 (Cozy Corner)
-  console.log('Testing click on Booth B01...');
+  // 4. Verify DigitalPassport is strictly 19 vendor booths (B01-B20)
+  console.log('Verifying DigitalPassport restriction to B01-B20...');
+  const passportTotal = await page.evaluate(() => passport.getTotal());
+  console.log(`Passport total count: ${passportTotal}`);
+  if (passportTotal !== 19) {
+    console.error(`FAIL: Expected passport total to be 19, got ${passportTotal}`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Passport total is exactly 19 booths (B01-B20)!');
+  }
+
+  const badgeText = await page.innerText('#passport-badge-count');
+  console.log(`Header badge counter text: "${badgeText}"`);
+  if (!badgeText.includes('/ 19')) {
+    console.error(`FAIL: Header badge counter does not show / 19: "${badgeText}"`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Header badge counter displays "0 / 19"!');
+  }
+
+  // 5. Open Passport Modal & Verify 19 Stamp Slots
+  console.log('Opening passport modal...');
+  await page.evaluate(() => openPassportModal());
+  await page.waitForTimeout(300);
+
+  const slotCount = await page.$$eval('#passport-slots-grid > div', els => els.length);
+  console.log(`Passport modal slot count: ${slotCount}`);
+  if (slotCount !== 19) {
+    console.error(`FAIL: Expected 19 passport slots, found ${slotCount}`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Exactly 19 stamp slots rendered in passport modal!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'passport_modal_19slots.png') });
+  console.log('Saved: passport_modal_19slots.png');
+  await page.evaluate(() => closePassportModal());
+  await page.waitForTimeout(200);
+
+  // 6. Test Drawer Stamp Button behavior for Vendor Booth vs Non-Booth
+  console.log('Testing Drawer Stamp Button for B01 (Vendor Booth)...');
   await page.click('#map-B01');
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(200);
+  const b01BtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (b01BtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be visible for B01!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is visible for B01!');
+  }
 
-  const panelTitle = await page.innerText('#panel-title');
-  console.log(`Panel title after clicking B01: "${panelTitle}"`);
-  await mapElement.screenshot({ path: path.join(screenshotDir, 'b01_selected_path.png') });
-  console.log('Saved: b01_selected_path.png');
+  console.log('Testing Drawer Stamp Button for STAGE (Non-booth location)...');
+  await page.click('#map-STAGE');
+  await page.waitForTimeout(200);
+  const stageBtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (!stageBtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be hidden for STAGE!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is hidden for STAGE!');
+  }
 
-  // 5. Test clicking B07 (West Corridor outer)
-  console.log('Testing click on Booth B07...');
-  await page.click('#map-B07');
-  await page.waitForTimeout(300);
-  const panelB07Title = await page.innerText('#panel-title');
-  console.log(`Panel title after clicking B07: "${panelB07Title}"`);
-  await mapElement.screenshot({ path: path.join(screenshotDir, 'b07_selected_path.png') });
-  console.log('Saved: b07_selected_path.png');
+  console.log('Testing Drawer Stamp Button for BFINTECH (Degree Programme)...');
+  await page.click('#map-BFINTECH');
+  await page.waitForTimeout(200);
+  const bfintechBtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (!bfintechBtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be hidden for BFINTECH!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is hidden for BFINTECH!');
+  }
 
-  // 6. Reset map view to full overview
+  // 7. Test Stamping B01 and milestone progress
+  console.log('Testing Stamping B01...');
+  await page.evaluate(() => passport.toggleStamp('B01'));
+  const stampedCount = await page.evaluate(() => passport.getCount());
+  console.log(`Stamped count after B01: ${stampedCount}`);
+  if (stampedCount !== 1) {
+    console.error(`FAIL: Expected count 1, got ${stampedCount}`);
+    process.exitCode = 1;
+  }
+  const badgeAfterStamp = await page.innerText('#passport-badge-count');
+  console.log(`Badge after stamp: "${badgeAfterStamp}"`);
+  if (badgeAfterStamp !== '1 / 19') {
+    console.error(`FAIL: Expected '1 / 19', got "${badgeAfterStamp}"`);
+    process.exitCode = 1;
+  }
+
+  // 8. Test 100% Completion & Rickroll Prize Unlock
+  console.log('Testing 100% completion (collecting all 19 booth stamps)...');
+  await page.evaluate(() => {
+    const stampable = BOOTHS_DATA.filter(b => passport.isStampable(b.id));
+    stampable.forEach(b => passport.stamps.add(b.id));
+    passport.save();
+    passport.updateUI();
+  });
+
+  const fullCount = await page.evaluate(() => passport.getCount());
+  console.log(`Full stamp count: ${fullCount} / 19`);
+  if (fullCount !== 19) {
+    console.error(`FAIL: Expected full count 19, got ${fullCount}`);
+    process.exitCode = 1;
+  }
+
+  console.log('Triggering prize redemption...');
+  await page.evaluate(() => redeemPrize());
+  await page.waitForTimeout(400);
+
+  const voucherModalHidden = await page.$eval('#voucher-modal', modal => modal.classList.contains('hidden'));
+  const voucherCode = await page.innerText('#voucher-code');
+  console.log(`Voucher modal visible: ${!voucherModalHidden}, code: "${voucherCode}"`);
+  if (voucherModalHidden || !voucherCode.includes('B01TOB20')) {
+    console.error(`FAIL: Voucher modal not shown properly or code unexpected: "${voucherCode}"`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Rickroll 100% prize voucher unlocked with code UPP-RICKROLL-B01TOB20!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'voucher_modal_unlocked.png') });
+  console.log('Saved: voucher_modal_unlocked.png');
+  await page.evaluate(() => closeVoucherModal());
+
+  // Reset stamps back to clean slate
+  await page.evaluate(() => {
+    passport.stamps.clear();
+    passport.save();
+    passport.updateUI();
+  });
+
+  // 9. Reset map view to full overview
   console.log('Resetting map view...');
   await page.click('#btn-reset-zoom');
   await page.waitForTimeout(400);
   await mapElement.screenshot({ path: path.join(screenshotDir, 'desktop_floorplan_overview.png') });
   console.log('Saved: desktop_floorplan_overview.png');
 
-  // 7. Verify Zero Phone Numbers in DOM
+  // 10. Verify Zero Phone Numbers in DOM
   const bodyText = await page.innerText('body');
   const phoneRegex = /\b01[0-9]-?[0-9]{7,8}\b/g;
   const foundPhones = bodyText.match(phoneRegex);
@@ -105,7 +216,7 @@ const fs = require('fs');
     console.log('SUCCESS: Zero phone/contact numbers detected in DOM! (Verified constraint)');
   }
 
-  // 8. Test Mobile Viewport (390x844 iPhone 12/13/14)
+  // 11. Test Mobile Viewport (390x844 iPhone 12/13/14)
   console.log('Testing Mobile Viewport (390x844)...');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.waitForTimeout(400);

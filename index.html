@@ -156,7 +156,7 @@
         <button onclick="openPassportModal()" class="py-1 px-3 sm:px-3.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 text-xs font-black shadow-lg shadow-orange-500/25 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
           <span>Passport</span>
-          <span id="passport-badge-count" class="bg-slate-950 text-orange-400 px-1.5 py-0.2 rounded-full text-[10px]">0 / 33</span>
+          <span id="passport-badge-count" class="bg-slate-950 text-orange-400 px-1.5 py-0.2 rounded-full text-[10px]">0 / 19</span>
         </button>
       </div>
     </div>
@@ -847,7 +847,7 @@
   </section>
 
   <!-- =========================================================================
-       8. DIGITAL PASSPORT MODAL (33 STAMP QUEST & REDEMPTION)
+       8. DIGITAL PASSPORT MODAL (VENDOR BOOTHS B01–B20 STAMP QUEST & REDEMPTION)
        ========================================================================= -->
   <div id="passport-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md">
     <div class="glass-panel-elevated w-full max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6 border-orange-500/40 relative">
@@ -859,7 +859,7 @@
           </div>
           <div>
             <h3 class="text-base sm:text-lg font-extrabold text-white">Digital Halloween Passport</h3>
-            <p class="text-[11px] text-purple-300">Tap any booth to mark as visited and collect your stamp!</p>
+            <p class="text-[11px] text-purple-300">Collect stamps from all vendor booths (B01–B20) to unlock the prize!</p>
           </div>
         </div>
         <button onclick="closePassportModal()" class="text-purple-300 hover:text-white p-1.5 rounded-lg bg-purple-950/60 transition text-sm">
@@ -873,10 +873,10 @@
           <div>
             <div class="flex items-center gap-2">
               <span class="text-[10px] uppercase font-extrabold text-orange-400 tracking-wider">Stamp Collection Progress</span>
-              <span id="passport-progress-text" class="text-orange-300 font-extrabold text-xs">0 of 33 (0%)</span>
+              <span id="passport-progress-text" class="text-orange-300 font-extrabold text-xs">0 of 19 (0%)</span>
             </div>
             <h4 id="passport-modal-status" class="text-xs sm:text-sm font-extrabold text-white mt-0.5">
-              Collect all 33 stamps to unlock the Legendary Mystery Prize!
+              Collect all 19 booth stamps (B01–B20) to unlock the Legendary Mystery Prize!
             </h4>
           </div>
 
@@ -942,14 +942,14 @@
       </p>
 
       <p class="text-[11px] sm:text-xs text-purple-200 mt-1.5 leading-relaxed">
-        <strong>LEGENDARY FEAT!</strong> You actually visited and collected every single stamp (<span class="text-orange-400 font-extrabold">33 of 33</span>) across Level G, UNITAR Hub!
+        <strong>LEGENDARY FEAT!</strong> You actually visited and collected every single vendor booth stamp (<span class="text-orange-400 font-extrabold">all vendor booths B01–B20</span>) across Level G!
       </p>
 
       <!-- Verified Winner Claim Code -->
       <div class="my-3 p-3 rounded-xl bg-slate-950/90 border border-orange-500/40">
         <span class="text-[9px] text-purple-400 uppercase tracking-widest block font-bold">Official Verification Voucher Code</span>
-        <span id="voucher-code" class="text-lg sm:text-xl font-black font-mono text-orange-400 tracking-wider block mt-0.5">UPP-RICKROLL-33OF33</span>
-        <span class="text-[10px] text-emerald-400 font-semibold block mt-0.5">✓ 33/33 Complete • Present to the Gift Counter team for your real prize!</span>
+        <span id="voucher-code" class="text-lg sm:text-xl font-black font-mono text-orange-400 tracking-wider block mt-0.5">UPP-RICKROLL-B01TOB20</span>
+        <span class="text-[10px] text-emerald-400 font-semibold block mt-0.5">✓ B01–B20 Complete • Present to the Gift Counter team for your real prize!</span>
       </div>
 
       <!-- Action Buttons -->

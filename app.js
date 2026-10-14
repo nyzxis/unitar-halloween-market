@@ -320,7 +320,7 @@ const BOOTHS_DATA = [
   {
     id: "BFINTECH",
     name: "Bachelor of Fintech",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -332,7 +332,7 @@ const BOOTHS_DATA = [
   {
     id: "BAF",
     name: "Bachelor of Accounting & Finance",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -344,7 +344,7 @@ const BOOTHS_DATA = [
   {
     id: "BACC",
     name: "Bachelor of Accounting",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -356,7 +356,7 @@ const BOOTHS_DATA = [
   {
     id: "BBA",
     name: "Bachelor of Business Admin",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -368,7 +368,7 @@ const BOOTHS_DATA = [
   {
     id: "BIB",
     name: "Bachelor of Int'l Business",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -380,7 +380,7 @@ const BOOTHS_DATA = [
   {
     id: "BHRM",
     name: "Bachelor of HR Management",
-    category: "Academic Passport (2:15 PM)",
+    category: "Degree Academic Showcase (2:15 PM)",
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
@@ -1007,9 +1007,13 @@ class SvgPanZoom {
 // =============================================================================
 class DigitalPassport {
   constructor() {
-    this.storageKey = 'unitar_halloween_stamps_v1';
+    this.storageKey = 'unitar_halloween_stamps_v2';
     this.stamps = new Set();
     this.load();
+  }
+
+  isStampable(id) {
+    return /^B\d{2}$/.test(id);
   }
 
   load() {
@@ -1017,7 +1021,7 @@ class DigitalPassport {
       const raw = localStorage.getItem(this.storageKey);
       if (raw) {
         const arr = JSON.parse(raw);
-        this.stamps = new Set(arr);
+        this.stamps = new Set(arr.filter(id => this.isStampable(id)));
       }
     } catch (e) {
       this.stamps = new Set();
@@ -1035,6 +1039,8 @@ class DigitalPassport {
   }
 
   toggleStamp(id) {
+    if (!this.isStampable(id)) return false;
+
     const isNowStamped = !this.stamps.has(id);
     if (isNowStamped) {
       this.stamps.add(id);
@@ -1058,27 +1064,27 @@ class DigitalPassport {
   }
 
   getTotal() {
-    return BOOTHS_DATA.length;
+    return BOOTHS_DATA.filter(b => this.isStampable(b.id)).length;
   }
 
   checkMilestones() {
     const count = this.getCount();
     const total = this.getTotal();
-    if (count === total) {
+    if (count === total && total > 0) {
       soundSystem.playRickroll();
       launchConfetti();
-      showToastNotification(`${SVG_ICONS.sparkles} 🏆 100% COMPLETE! All ${total} Stamps Collected! Click Redeem in Passport to Claim!`);
-    } else if (count === 10 || count === 20) {
+      showToastNotification(`${SVG_ICONS.sparkles} 🏆 100% COMPLETE! All ${total} Booth Stamps (B01–B20) Collected! Click Redeem in Passport to Claim!`);
+    } else if (count === 5 || count === 10 || count === 15) {
       soundSystem.playVictorySound();
       launchConfetti();
-      showToastNotification(`${SVG_ICONS.sparkles} Progress: ${count} of ${total} Stamps Collected! Keep going!`);
+      showToastNotification(`${SVG_ICONS.sparkles} Progress: ${count} of ${total} Booth Stamps Collected! Keep going!`);
     }
   }
 
   updateUI() {
     const count = this.getCount();
     const total = this.getTotal();
-    const percentage = Math.round((count / total) * 100);
+    const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
 
     const badgeCounter = document.getElementById('passport-badge-count');
     if (badgeCounter) badgeCounter.textContent = `${count} / ${total}`;
@@ -1091,18 +1097,18 @@ class DigitalPassport {
 
     const modalStatus = document.getElementById('passport-modal-status');
     if (modalStatus) {
-      if (count === total) {
-        modalStatus.innerHTML = `<span class="text-amber-300 font-extrabold">🎉 100% COMPLETE! All ${total} Stamps Collected! Click Redeem for the Grand Prize!</span>`;
+      if (count === total && total > 0) {
+        modalStatus.innerHTML = `<span class="text-amber-300 font-extrabold">🎉 100% COMPLETE! All ${total} Booth Stamps (B01–B20) Collected! Click Redeem for the Grand Prize!</span>`;
       } else {
-        modalStatus.textContent = `Collect all ${total} stamps to unlock the Legendary Mystery Prize! (${total - count} remaining)`;
+        modalStatus.textContent = `Collect all ${total} vendor booth stamps (B01–B20) to unlock the Legendary Mystery Prize! (${total - count} remaining)`;
       }
     }
 
-    // Highlight Stamped Booths on Map
+    // Highlight Stamped Booths on Map (Only B01 - B20)
     BOOTHS_DATA.forEach(booth => {
       const el = document.getElementById(`map-${booth.id}`);
       if (el) {
-        if (this.stamps.has(booth.id)) {
+        if (this.isStampable(booth.id) && this.stamps.has(booth.id)) {
           el.classList.add('booth-stamped');
         } else {
           el.classList.remove('booth-stamped');
@@ -1115,12 +1121,12 @@ class DigitalPassport {
   }
 
   reset() {
-    if (confirm("Reset all your collected Halloween stamps?")) {
+    if (confirm("Reset all your collected vendor booth stamps?")) {
       this.stamps.clear();
       this.save();
       this.updateUI();
       soundSystem.playNavSound();
-      showToastNotification("Stamp card reset successfully.");
+      showToastNotification("Booth stamp card reset successfully.");
     }
   }
 }
@@ -1375,21 +1381,25 @@ function updateBoothInfoPanel(booth) {
   const directionsText = document.getElementById('panel-directions');
   if (directionsText) directionsText.textContent = booth.directions;
 
-  // Stamp Action in drawer
+  // Stamp Action in drawer (Only vendor booths B01–B20)
   const stampBtn = document.getElementById('panel-stamp-btn');
   if (stampBtn) {
-    stampBtn.classList.remove('hidden');
-    stampBtn.innerHTML = isStamped
-      ? `${SVG_ICONS.check} <span>Stamped in Passport</span>`
-      : `${SVG_ICONS.stamp} <span>Stamp this Booth</span>`;
-    stampBtn.className = isStamped
-      ? "w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition flex items-center justify-center gap-2"
-      : "w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-orange-500/20 text-orange-300 border border-orange-500/40 hover:bg-orange-500/30 transition flex items-center justify-center gap-2";
+    if (!passport.isStampable(booth.id)) {
+      stampBtn.classList.add('hidden');
+    } else {
+      stampBtn.classList.remove('hidden');
+      stampBtn.innerHTML = isStamped
+        ? `${SVG_ICONS.check} <span>Stamped in Passport</span>`
+        : `${SVG_ICONS.stamp} <span>Stamp this Booth</span>`;
+      stampBtn.className = isStamped
+        ? "w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition flex items-center justify-center gap-2"
+        : "w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-orange-500/20 text-orange-300 border border-orange-500/40 hover:bg-orange-500/30 transition flex items-center justify-center gap-2";
 
-    stampBtn.onclick = () => {
-      passport.toggleStamp(booth.id);
-      updateBoothInfoPanel(booth);
-    };
+      stampBtn.onclick = () => {
+        passport.toggleStamp(booth.id);
+        updateBoothInfoPanel(booth);
+      };
+    }
   }
 }
 
@@ -1434,8 +1444,8 @@ function renderBoothCards() {
     else if (currentFilter === 'MC-S3') matchesFilter = booth.section === 'MC-S3';
     else if (currentFilter === 'ACADEMIC') matchesFilter = booth.zone === 'Academic Hub';
     else if (currentFilter === 'HUB') matchesFilter = booth.section === 'HUB';
-    else if (currentFilter === 'STAMPED') matchesFilter = passport.isStamped(booth.id);
-    else if (currentFilter === 'UNSTAMPED') matchesFilter = !passport.isStamped(booth.id);
+    else if (currentFilter === 'STAMPED') matchesFilter = passport.isStampable(booth.id) && passport.isStamped(booth.id);
+    else if (currentFilter === 'UNSTAMPED') matchesFilter = passport.isStampable(booth.id) && !passport.isStamped(booth.id);
 
     const matchesQuery = !query ||
       booth.id.toLowerCase().includes(query) ||
@@ -1483,6 +1493,7 @@ function renderBoothCards() {
               ${booth.id}
             </span>
 
+            ${passport.isStampable(booth.id) ? `
             <button
               onclick="passport.toggleStamp('${booth.id}');"
               title="${isStamped ? 'Unmark Stamp' : 'Collect Stamp'}"
@@ -1493,6 +1504,11 @@ function renderBoothCards() {
               }">
               ${isStamped ? `${SVG_ICONS.check} <span>Stamped</span>` : `<span>+ Stamp</span>`}
             </button>
+            ` : `
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-purple-900/40 text-purple-300 border border-purple-700/40">
+              ${booth.zone === 'Academic Hub' ? 'Academic Showcase' : 'Event Zone'}
+            </span>
+            `}
           </div>
 
           <!-- Booth Name & Category (Truncated / Clean on Mobile) -->
@@ -1530,12 +1546,14 @@ function renderBoothCards() {
   }).join('');
 }
 
-// Render Passport Grid inside the Passport Modal (3 columns on mobile, clean SVG stamps)
+// Render Passport Grid inside the Passport Modal (3 columns on mobile, strictly vendor booths B01–B20)
 function renderPassportGrid() {
   const container = document.getElementById('passport-slots-grid');
   if (!container) return;
 
-  container.innerHTML = BOOTHS_DATA.map(booth => {
+  const stampableBooths = BOOTHS_DATA.filter(b => passport.isStampable(b.id));
+
+  container.innerHTML = stampableBooths.map(booth => {
     const isStamped = passport.isStamped(booth.id);
     return `
       <div
@@ -1601,14 +1619,14 @@ function redeemPrize() {
 
   if (count < total) {
     const remaining = total - count;
-    alert(`🎃 QUEST INCOMPLETE!\n\nTo unlock the Grand Mystery Prize, you must collect EVERY single stamp across Level G (all ${total} booths & hubs)!\n\nYou currently have ${count} of ${total} stamps (${remaining} remaining).\n\nKeep exploring all student booths, degree hubs, and activity areas!`);
+    alert(`🎃 QUEST INCOMPLETE!\n\nTo unlock the Grand Mystery Prize, you must collect all vendor booth stamps (B01 to B20, 19 booths total)!\n\nYou currently have ${count} of ${total} stamps (${remaining} remaining).\n\nKeep exploring all vendor booths from B01 to B20!`);
     return;
   }
 
   const voucherModal = document.getElementById('voucher-modal');
   const codeEl = document.getElementById('voucher-code');
   if (codeEl) {
-    codeEl.textContent = `UPP-RICKROLL-${Math.floor(1000 + Math.random() * 9000)}`;
+    codeEl.textContent = `UPP-RICKROLL-B01TOB20`;
   }
 
   // Load YouTube Rickroll video
