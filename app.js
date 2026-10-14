@@ -31,9 +31,10 @@ const BOOTHS_DATA = [
   // --- Top Corridor (B01, B02, B05, B06, B08, B11) ---
   {
     id: "B01",
-    name: "CUSTIN",
+    name: "COZY CORNER",
     category: "Crafts & Gifts",
     owner: "Sharifah Elliya Farzana",
+    matric: "MC240930531",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 139,
@@ -46,6 +47,7 @@ const BOOTHS_DATA = [
     name: "BLOOM & CO",
     category: "Florist",
     owner: "Vainishini Sankar",
+    matric: "MC240929109",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 219,
@@ -58,6 +60,7 @@ const BOOTHS_DATA = [
     name: "KITTY KRAFT",
     category: "Women Accessories",
     owner: "Theeveeya Shankar Ganesh",
+    matric: "MC240929954",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 24,
@@ -70,6 +73,7 @@ const BOOTHS_DATA = [
     name: "IYAL JEWELLERY",
     category: "Jewelleries",
     owner: "Ooi Shun Jie Puvendran",
+    matric: "MC240728744",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 24,
@@ -82,6 +86,7 @@ const BOOTHS_DATA = [
     name: "STUDYMATE STATIONERY",
     category: "Stationeries & Jerseys",
     owner: "Shritharan",
+    matric: "MC240930182",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 304,
@@ -94,6 +99,7 @@ const BOOTHS_DATA = [
     name: "PHOTO BOOTH",
     category: "Photography",
     owner: "Shawin",
+    matric: "MC240728820",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 394,
@@ -106,6 +112,7 @@ const BOOTHS_DATA = [
     name: "PB & JL",
     category: "Keychains, Charms, Pins",
     owner: "Louiis Fernandez",
+    matric: "MC240930559",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 24,
@@ -118,6 +125,7 @@ const BOOTHS_DATA = [
     name: "CROCHET OF TWO (CO2)",
     category: "Arts & Handicrafts",
     owner: "Sudha",
+    matric: "MC240929677",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 484,
@@ -127,9 +135,10 @@ const BOOTHS_DATA = [
   },
   {
     id: "B09",
-    name: "FLORA & CO",
+    name: "FLORAL & CO.",
     category: "Florist",
     owner: "Yooshnika",
+    matric: "MC240930186",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 149,
@@ -141,7 +150,8 @@ const BOOTHS_DATA = [
     id: "B10",
     name: "ROSE2U",
     category: "Florist",
-    owner: "Lawnesh",
+    owner: "Levnesh",
+    matric: "MC240527875",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 149,
@@ -154,6 +164,7 @@ const BOOTHS_DATA = [
     name: "CHARMORA STUDIO",
     category: "Toys, Keychains",
     owner: "Nurdini Alya Najwa",
+    matric: "MC240930547",
     section: "MC-S2",
     zone: "Top Corridor",
     cx: 574,
@@ -166,6 +177,7 @@ const BOOTHS_DATA = [
     name: "HENNA HERITAGE",
     category: "Body Art",
     owner: "Shashmita",
+    matric: "MC240930425",
     section: "MC-S2",
     zone: "West Corridor",
     cx: 149,
@@ -178,6 +190,7 @@ const BOOTHS_DATA = [
     name: "ACCESSORIZE",
     category: "Accessories",
     owner: "Aila Naazneen",
+    matric: "MC260944134",
     section: "MC-S2",
     zone: "Middle Hub",
     cx: 668,
@@ -192,6 +205,7 @@ const BOOTHS_DATA = [
     name: "MIRROR ART & CO",
     category: "Hand Mirror For Décor",
     owner: "Hirosha",
+    matric: "MC240728764",
     section: "MC-S3",
     zone: "Middle Hub",
     cx: 668,
@@ -202,8 +216,9 @@ const BOOTHS_DATA = [
   {
     id: "B16",
     name: "TRISSORIES",
-    category: "Lanyard, Plushies",
+    category: "Mini Wallet, Lanyard, Plushies, Keychains",
     owner: "Krishan",
+    matric: "MC240929212",
     section: "MC-S3",
     zone: "Middle Hub",
     cx: 668,
@@ -216,6 +231,7 @@ const BOOTHS_DATA = [
     name: "AURORA",
     category: "Candles, Earrings",
     owner: "Nirmala Dhevi",
+    matric: "MC240930460",
     section: "MC-S3",
     zone: "Middle Hub",
     cx: 668,
@@ -228,6 +244,7 @@ const BOOTHS_DATA = [
     name: "IN & PAPER CO.",
     category: "Stationery Sets",
     owner: "Jagedishraj",
+    matric: "MC250534559",
     section: "MC-S3",
     zone: "Middle Hub",
     cx: 718,
@@ -240,6 +257,7 @@ const BOOTHS_DATA = [
     name: "THREE BROTHERS",
     category: "Keychains",
     owner: "Arunn",
+    matric: "MC240929953",
     section: "MC-S3",
     zone: "Middle Hub",
     cx: 718,
@@ -1347,7 +1365,9 @@ function updateBoothInfoPanel(booth) {
   if (panelCategory) panelCategory.textContent = booth.category;
 
   const panelOwner = document.getElementById('panel-owner');
-  if (panelOwner) panelOwner.textContent = booth.owner;
+  if (panelOwner) {
+    panelOwner.textContent = booth.matric ? `${booth.owner} (${booth.matric})` : booth.owner;
+  }
 
   const panelSection = document.getElementById('panel-section');
   if (panelSection) panelSection.textContent = `${booth.section} • ${booth.zone}`;
@@ -1422,6 +1442,7 @@ function renderBoothCards() {
       booth.name.toLowerCase().includes(query) ||
       booth.category.toLowerCase().includes(query) ||
       booth.owner.toLowerCase().includes(query) ||
+      (booth.matric && booth.matric.toLowerCase().includes(query)) ||
       booth.zone.toLowerCase().includes(query);
 
     return matchesFilter && matchesQuery;
@@ -1486,7 +1507,7 @@ function renderBoothCards() {
           <div class="mt-2.5 pt-2 border-t border-purple-800/40 space-y-1 text-[11px] text-purple-200">
             <div class="flex items-center justify-between gap-2">
               <span class="text-purple-400 text-[10px] uppercase font-bold shrink-0">Owner:</span>
-              <span class="font-medium truncate" title="${booth.owner}">${booth.owner}</span>
+              <span class="font-medium truncate" title="${booth.owner}${booth.matric ? ' (' + booth.matric + ')' : ''}">${booth.owner}${booth.matric ? ` <span class="text-[10px] text-purple-400 font-mono">(${booth.matric})</span>` : ''}</span>
             </div>
             <div class="flex items-center justify-between gap-2">
               <span class="text-purple-400 text-[10px] uppercase font-bold shrink-0">Zone:</span>
