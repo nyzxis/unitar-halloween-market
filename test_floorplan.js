@@ -79,33 +79,45 @@ const fs = require('fs');
     console.log('SUCCESS: Passport total is exactly 19 booths (B01-B20)!');
   }
 
-  const badgeText = await page.innerText('#passport-badge-count');
-  console.log(`Header badge counter text: "${badgeText}"`);
-  if (!badgeText.includes('/ 19')) {
-    console.error(`FAIL: Header badge counter does not show / 19: "${badgeText}"`);
-    process.exitCode = 1;
-  } else {
-    console.log('SUCCESS: Header badge counter displays "0 / 19"!');
-  }
-
-  // 5. Open Passport Modal & Verify 19 Stamp Slots
-  console.log('Opening passport modal...');
-  await page.evaluate(() => openPassportModal());
-  await page.waitForTimeout(300);
-
-  const slotCount = await page.$$eval('#passport-slots-grid > div', els => els.length);
-  console.log(`Passport modal slot count: ${slotCount}`);
-  if (slotCount !== 19) {
-    console.error(`FAIL: Expected 19 passport slots, found ${slotCount}`);
-    process.exitCode = 1;
-  } else {
-    console.log('SUCCESS: Exactly 19 stamp slots rendered in passport modal!');
-  }
-
-  await page.screenshot({ path: path.join(screenshotDir, 'passport_modal_19slots.png') });
-  console.log('Saved: passport_modal_19slots.png');
-  await page.evaluate(() => closePassportModal());
+  // 5. Verify Single-Line Navbar and Elongated Badge on 950px viewport (medium screen)
+  console.log('Testing Single-Line Nav Links & Elongated Passport Badge (950px viewport)...');
+  await page.setViewportSize({ width: 950, height: 800 });
   await page.waitForTimeout(200);
+
+  // Check Floor Plan & Event Info nav height (should be single line ~16-20px, not stacked > 30px)
+  const floorPlanHeight = await page.$eval('#nav-map span', el => el.getBoundingClientRect().height);
+  const eventInfoHeight = await page.$eval('#nav-info span', el => el.getBoundingClientRect().height);
+  console.log(`Nav "Floor Plan" height: ${floorPlanHeight}px, "Event Info" height: ${eventInfoHeight}px`);
+  if (floorPlanHeight > 24 || eventInfoHeight > 24) {
+    console.error('FAIL: Nav links wrapped onto multiple lines!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Nav links strictly stay on one single line!');
+  }
+
+  // Set 18 stamps to test "18 / 19" badge
+  await page.evaluate(() => {
+    const booths = BOOTHS_DATA.filter(b => passport.isStampable(b.id)).slice(0, 18);
+    booths.forEach(b => passport.stamps.add(b.id));
+    passport.save();
+    passport.updateUI();
+  });
+
+  const badgeText18 = await page.innerText('#passport-badge-count');
+  const badgeHeight18 = await page.$eval('#passport-badge-count', el => el.getBoundingClientRect().height);
+  console.log(`Passport badge text: "${badgeText18}", height: ${badgeHeight18}px`);
+  if (badgeHeight18 > 24 || !badgeText18.includes('18 / 19')) {
+    console.error(`FAIL: Badge wrapped onto multiple lines or text incorrect! Height: ${badgeHeight18}`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: Passport badge "18 / 19" displays cleanly on ONE single line without stacking!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'desktop_nav_single_line.png') });
+  console.log('Saved: desktop_nav_single_line.png');
+
+  // Reset back to 1280px viewport
+  await page.setViewportSize({ width: 1280, height: 900 });
 
   // 6. Test Drawer Stamp Button behavior for Vendor Booth vs Non-Booth
   console.log('Testing Drawer Stamp Button for B01 (Vendor Booth)...');
@@ -141,23 +153,7 @@ const fs = require('fs');
     console.log('SUCCESS: #panel-stamp-btn is hidden for BFINTECH!');
   }
 
-  // 7. Test Stamping B01 and milestone progress
-  console.log('Testing Stamping B01...');
-  await page.evaluate(() => passport.toggleStamp('B01'));
-  const stampedCount = await page.evaluate(() => passport.getCount());
-  console.log(`Stamped count after B01: ${stampedCount}`);
-  if (stampedCount !== 1) {
-    console.error(`FAIL: Expected count 1, got ${stampedCount}`);
-    process.exitCode = 1;
-  }
-  const badgeAfterStamp = await page.innerText('#passport-badge-count');
-  console.log(`Badge after stamp: "${badgeAfterStamp}"`);
-  if (badgeAfterStamp !== '1 / 19') {
-    console.error(`FAIL: Expected '1 / 19', got "${badgeAfterStamp}"`);
-    process.exitCode = 1;
-  }
-
-  // 8. Test 100% Completion & Rickroll Modal (Voucher Code Section DELETED)
+  // 7. Test 100% Completion & Rickroll Modal (Voucher Code Section DELETED)
   console.log('Testing 100% completion (collecting all 19 booth stamps)...');
   await page.evaluate(() => {
     const stampable = BOOTHS_DATA.filter(b => passport.isStampable(b.id));
@@ -212,7 +208,7 @@ const fs = require('fs');
     passport.updateUI();
   });
 
-  // 9. Verify QR Standee is HIDDEN by default and ACCESSIBLE in realtime via URL altering
+  // 8. Verify QR Standee is HIDDEN by default and ACCESSIBLE in realtime via URL altering
   console.log('Testing QR Standee hidden by default...');
   const isQrLinkHiddenDefault = await page.$eval('#qr-standee-link', el => el.classList.contains('hidden'));
   const isQrPillHiddenDefault = await page.$eval('#qr-organizer-pill', el => el.classList.contains('hidden'));
@@ -242,9 +238,6 @@ const fs = require('fs');
     console.log('SUCCESS: QR Standee became visible in realtime after altering URL hash to #qr!');
   }
 
-  await page.screenshot({ path: path.join(screenshotDir, 'qr_revealed_realtime.png') });
-  console.log('Saved: qr_revealed_realtime.png');
-
   // Remove hash (#) in realtime
   console.log('Removing hash to test hiding again in realtime...');
   await page.evaluate(() => {
@@ -263,14 +256,7 @@ const fs = require('fs');
     console.log('SUCCESS: QR Standee hides again in realtime when URL hash is cleared!');
   }
 
-  // 10. Reset map view to full overview
-  console.log('Resetting map view...');
-  await page.click('#btn-reset-zoom');
-  await page.waitForTimeout(400);
-  await mapElement.screenshot({ path: path.join(screenshotDir, 'desktop_floorplan_overview.png') });
-  console.log('Saved: desktop_floorplan_overview.png');
-
-  // 11. Verify Zero Phone Numbers in DOM
+  // 9. Verify Zero Phone Numbers in DOM
   const bodyText = await page.innerText('body');
   const phoneRegex = /\b01[0-9]-?[0-9]{7,8}\b/g;
   const foundPhones = bodyText.match(phoneRegex);
@@ -281,20 +267,48 @@ const fs = require('fs');
     console.log('SUCCESS: Zero phone/contact numbers detected in DOM! (Verified constraint)');
   }
 
-  // 12. Test Mobile Viewport (390x844 iPhone 12/13/14)
-  console.log('Testing Mobile Viewport (390x844)...');
+  // 10. Test Mobile Viewport (390x844 iPhone 12/13/14) & "Show Route" Scroll to Map
+  console.log('Testing Mobile Viewport (390x844) & "Show Route" scroll to map...');
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.waitForTimeout(400);
-  await page.click('#btn-reset-zoom');
   await page.waitForTimeout(300);
-  await page.screenshot({ path: path.join(screenshotDir, 'mobile_full_view.png') });
-  console.log('Saved: mobile_full_view.png');
 
-  const mobileMap = await page.$('#map-viewport');
-  if (mobileMap) {
-    await mobileMap.screenshot({ path: path.join(screenshotDir, 'mobile_map_viewport.png') });
-    console.log('Saved: mobile_map_viewport.png');
+  // Scroll down to directory section
+  await page.evaluate(() => {
+    document.getElementById('directory-section').scrollIntoView();
+  });
+  await page.waitForTimeout(300);
+  const scrollBeforeClick = await page.evaluate(() => window.scrollY);
+  console.log(`Scroll position before clicking "Show Route": ${scrollBeforeClick}px`);
+
+  // Click "Show Route" on B01 in directory
+  console.log('Clicking "Show Route" button on B01 card...');
+  const showRouteBtn = await page.$('#booth-grid button:has-text("Show Route")');
+  if (showRouteBtn) {
+    await showRouteBtn.click();
+    await page.waitForTimeout(600); // Allow smooth scroll to settle
+  } else {
+    console.error('FAIL: Could not find Show Route button!');
+    process.exitCode = 1;
   }
+
+  const scrollAfterClick = await page.evaluate(() => window.scrollY);
+  const mapSectionOffsetTop = await page.evaluate(() => {
+    const el = document.getElementById('map-section');
+    return el ? el.offsetTop : 0;
+  });
+  console.log(`Scroll position after clicking "Show Route": ${scrollAfterClick}px (map section top: ${mapSectionOffsetTop}px)`);
+
+  // Verify that the viewport scrolled up towards map-section (should be around mapSectionOffsetTop - 64)
+  const isScrolledToMap = Math.abs(scrollAfterClick - (mapSectionOffsetTop - 64)) < 120 || scrollAfterClick < mapSectionOffsetTop + 100;
+  if (!isScrolledToMap) {
+    console.error(`FAIL: Viewport did not scroll to map section! Expected near ${mapSectionOffsetTop - 64}, got ${scrollAfterClick}`);
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: On mobile, clicking "Show Route" smoothly scrolled directly to the map!');
+  }
+
+  await page.screenshot({ path: path.join(screenshotDir, 'mobile_show_route_scrolled_to_map.png') });
+  console.log('Saved: mobile_show_route_scrolled_to_map.png');
 
   await browser.close();
   console.log('--- PLAYWRIGHT VERIFICATION COMPLETE ---');

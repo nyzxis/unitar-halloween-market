@@ -1312,18 +1312,21 @@ function selectBooth(id, triggerFly = true) {
   // 4. Update Details Drawer & Drawer UI
   updateBoothInfoPanel(booth);
 
-  // If on mobile (screen < 1024px) and triggered directly by user, gently scroll to panel
-  if (triggerFly && window.innerWidth < 1024) {
-    const detailsPanel = document.getElementById('booth-details-card');
-    if (detailsPanel) {
-      setTimeout(() => {
-        detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 250);
-    }
-  }
-
   // 5. Update cards glowing active state
   renderBoothCards();
+}
+
+// Smoothly scroll the viewport to the interactive map with sticky header offset
+function scrollToMap() {
+  const mapSection = document.getElementById('map-section');
+  if (mapSection) {
+    const headerOffset = 64;
+    const targetPos = mapSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: Math.max(0, targetPos),
+      behavior: 'smooth'
+    });
+  }
 }
 
 // Clear currently selected path
@@ -1536,7 +1539,7 @@ function renderBoothCards() {
         <!-- Action Button -->
         <div class="mt-3 pt-2.5 border-t border-purple-800/30">
           <button
-            onclick="selectBooth('${booth.id}', true); document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });"
+            onclick="selectBooth('${booth.id}', true); scrollToMap();"
             class="w-full py-1.5 px-3 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 border border-orange-500/40 text-xs font-bold transition flex items-center justify-center gap-1.5">
             ${SVG_ICONS.compass}
             <span>Show Route</span>
