@@ -43,12 +43,12 @@ const fs = require('fs');
     console.log('Saved: current_svg_floorplan.png');
   }
 
-  // 3. Verify all 33 booths are present in SVG DOM
+  // 3. Verify all 34 booths are present in SVG DOM
   const expectedBooths = [
     'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10',
-    'B11', 'B12', 'B14', 'B15', 'B16', 'B17', 'B18', 'B19', 'B20',
-    'G1', 'G2', 'G3',
-    'BFINTECH', 'BAF', 'BACC', 'BBA', 'BIB', 'BHRM',
+    'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B18',
+    'G1', 'G2', 'G3', 'G4',
+    'BFINTECH', 'BAF', 'BACC', 'BBA', 'BIB', 'BHRM', 'FOOD',
     'STAGE', 'PHOTO', 'GIFT', 'SALES1', 'SALES2'
   ];
 
@@ -65,7 +65,17 @@ const fs = require('fs');
     console.error('FAIL: Missing booth elements:', missingBooths);
     process.exitCode = 1;
   } else {
-    console.log('SUCCESS: All 33 booth elements found in SVG!');
+    console.log(`SUCCESS: All ${expectedBooths.length} booth elements found in SVG!`);
+  }
+
+  // Also verify removed booths B19 and B20 are NOT in DOM
+  const b19El = await page.$('#map-B19');
+  const b20El = await page.$('#map-B20');
+  if (b19El || b20El) {
+    console.error('FAIL: B19 or B20 still found in SVG map!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: B19 and B20 are confirmed removed from SVG map!');
   }
 
   // 3b. Verify UNITAR HUB LEVEL G label is rendered horizontally
@@ -89,15 +99,15 @@ const fs = require('fs');
     }
   }
 
-  // 4. Verify DigitalPassport is strictly 19 vendor booths (B01-B20)
-  console.log('Verifying DigitalPassport restriction to B01-B20...');
+  // 4. Verify DigitalPassport is strictly 18 vendor booths (B01-B18)
+  console.log('Verifying DigitalPassport restriction to B01-B18...');
   const passportTotal = await page.evaluate(() => passport.getTotal());
   console.log(`Passport total count: ${passportTotal}`);
-  if (passportTotal !== 19) {
-    console.error(`FAIL: Expected passport total to be 19, got ${passportTotal}`);
+  if (passportTotal !== 18) {
+    console.error(`FAIL: Expected passport total to be 18, got ${passportTotal}`);
     process.exitCode = 1;
   } else {
-    console.log('SUCCESS: Passport total is exactly 19 booths (B01-B20)!');
+    console.log('SUCCESS: Passport total is exactly 18 booths (B01-B18)!');
   }
 
   // 5. Verify Single-Line Navbar and Elongated Badge on 950px viewport (medium screen)
@@ -116,22 +126,22 @@ const fs = require('fs');
     console.log('SUCCESS: Nav links strictly stay on one single line!');
   }
 
-  // Set 18 stamps to test "18 / 19" badge
+  // Set 17 stamps to test "17 / 18" badge
   await page.evaluate(() => {
-    const booths = BOOTHS_DATA.filter(b => passport.isStampable(b.id)).slice(0, 18);
+    const booths = BOOTHS_DATA.filter(b => passport.isStampable(b.id)).slice(0, 17);
     booths.forEach(b => passport.stamps.add(b.id));
     passport.save();
     passport.updateUI();
   });
 
-  const badgeText18 = await page.innerText('#passport-badge-count');
-  const badgeHeight18 = await page.$eval('#passport-badge-count', el => el.getBoundingClientRect().height);
-  console.log(`Passport badge text: "${badgeText18}", height: ${badgeHeight18}px`);
-  if (badgeHeight18 > 24 || !badgeText18.includes('18 / 19')) {
-    console.error(`FAIL: Badge wrapped onto multiple lines or text incorrect! Height: ${badgeHeight18}`);
+  const badgeText17 = await page.innerText('#passport-badge-count');
+  const badgeHeight17 = await page.$eval('#passport-badge-count', el => el.getBoundingClientRect().height);
+  console.log(`Passport badge text: "${badgeText17}", height: ${badgeHeight17}px`);
+  if (badgeHeight17 > 24 || !badgeText17.includes('17 / 18')) {
+    console.error(`FAIL: Badge wrapped onto multiple lines or text incorrect! Height: ${badgeHeight17}`);
     process.exitCode = 1;
   } else {
-    console.log('SUCCESS: Passport badge "18 / 19" displays cleanly on ONE single line without stacking!');
+    console.log('SUCCESS: Passport badge "17 / 18" displays cleanly on ONE single line without stacking!');
   }
 
   await page.screenshot({ path: path.join(screenshotDir, 'desktop_nav_single_line.png') });
@@ -150,6 +160,39 @@ const fs = require('fs');
     process.exitCode = 1;
   } else {
     console.log('SUCCESS: #panel-stamp-btn is visible for B01!');
+  }
+
+  console.log('Testing Drawer Stamp Button for B13 (Restored Vendor Booth)...');
+  await page.click('#map-B13');
+  await page.waitForTimeout(200);
+  const b13BtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (b13BtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be visible for B13!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is visible for B13!');
+  }
+
+  console.log('Testing Drawer Stamp Button for FOOD (New Food & Refreshments booth)...');
+  await page.click('#map-FOOD');
+  await page.waitForTimeout(200);
+  const foodBtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (!foodBtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be hidden for FOOD!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is hidden for FOOD!');
+  }
+
+  console.log('Testing Drawer Stamp Button for G4 (New Activity booth)...');
+  await page.click('#map-G4');
+  await page.waitForTimeout(200);
+  const g4BtnHidden = await page.$eval('#panel-stamp-btn', btn => btn.classList.contains('hidden'));
+  if (!g4BtnHidden) {
+    console.error('FAIL: #panel-stamp-btn should be hidden for G4!');
+    process.exitCode = 1;
+  } else {
+    console.log('SUCCESS: #panel-stamp-btn is hidden for G4!');
   }
 
   console.log('Testing Drawer Stamp Button for STAGE (Non-booth location)...');
@@ -189,7 +232,7 @@ const fs = require('fs');
   }
 
   // 7. Test 100% Completion & Rickroll Modal (Voucher Code Section DELETED)
-  console.log('Testing 100% completion (collecting all 19 booth stamps)...');
+  console.log('Testing 100% completion (collecting all 18 booth stamps)...');
   await page.evaluate(() => {
     const stampable = BOOTHS_DATA.filter(b => passport.isStampable(b.id));
     stampable.forEach(b => passport.stamps.add(b.id));
@@ -198,9 +241,9 @@ const fs = require('fs');
   });
 
   const fullCount = await page.evaluate(() => passport.getCount());
-  console.log(`Full stamp count: ${fullCount} / 19`);
-  if (fullCount !== 19) {
-    console.error(`FAIL: Expected full count 19, got ${fullCount}`);
+  console.log(`Full stamp count: ${fullCount} / 18`);
+  if (fullCount !== 18) {
+    console.error(`FAIL: Expected full count 18, got ${fullCount}`);
     process.exitCode = 1;
   }
 

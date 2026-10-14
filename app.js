@@ -28,7 +28,7 @@ const SVG_ICONS = {
 // 2. COMPLETE BOOTH DATASET (EVERY CONTACT NUMBER REMOVED)
 // =============================================================================
 const BOOTHS_DATA = [
-  // --- Top Corridor (B01, B02, B05, B06, B08, B11) ---
+  // --- 1. Top Corridor Row (B01 - B07) ---
   {
     id: "B01",
     name: "COZY CORNER",
@@ -37,9 +37,9 @@ const BOOTHS_DATA = [
     matric: "MC240930531",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 161,
-    cy: 79,
-    path: "524,528 524,115 161,115 161,92",
+    cx: 139,
+    cy: 73,
+    path: "524,528 524,115 139,115 139,86",
     directions: "Enter through Main Entrance, walk straight up central aisle past Lifts to top corridor under Staff Room."
   },
   {
@@ -50,10 +50,10 @@ const BOOTHS_DATA = [
     matric: "MC240929109",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 238,
-    cy: 79,
-    path: "524,528 524,115 238,115 238,92",
-    directions: "Walk straight up past Lifts to top corridor in front of One Stop Centre, next to B01."
+    cx: 212,
+    cy: 73,
+    path: "524,528 524,115 212,115 212,86",
+    directions: "Walk straight up past Lifts to top corridor under One Stop Centre, next to B01."
   },
   {
     id: "B03",
@@ -62,11 +62,11 @@ const BOOTHS_DATA = [
     owner: "Theeveeya Shankar Ganesh",
     matric: "MC240929954",
     section: "MC-S2",
-    zone: "West Corridor",
-    cx: 39,
-    cy: 297,
-    path: "524,528 524,400 102,400 102,297 53,297",
-    directions: "From Entrance, turn left past Admissions, walk up West Corridor outer row; B03 is between B07 and B04 across B10."
+    zone: "Top Corridor",
+    cx: 285,
+    cy: 74,
+    path: "524,528 524,115 285,115 285,86",
+    directions: "Walk straight up to top corridor in front of One Stop Centre, between B02 and B04."
   },
   {
     id: "B04",
@@ -75,11 +75,11 @@ const BOOTHS_DATA = [
     owner: "Ooi Shun Jie Puvendran",
     matric: "MC240728744",
     section: "MC-S2",
-    zone: "West Corridor",
-    cx: 39,
-    cy: 373,
-    path: "524,528 524,400 102,400 102,373 53,373",
-    directions: "From Entrance, turn left toward Admissions; B04 is at the start of West Corridor outer row across B09."
+    zone: "Top Corridor",
+    cx: 358,
+    cy: 73,
+    path: "524,528 524,115 358,115 358,86",
+    directions: "Walk straight up to top corridor under One Stop Centre, between B03 and B05."
   },
   {
     id: "B05",
@@ -89,10 +89,10 @@ const BOOTHS_DATA = [
     matric: "MC240930182",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 323,
-    cy: 77,
-    path: "524,528 524,115 323,115 323,91",
-    directions: "Walk straight up to top corridor under One Stop Centre, between B02 and B06."
+    cx: 433,
+    cy: 74,
+    path: "524,528 524,115 433,115 433,86",
+    directions: "Walk up past Left Lift to top corridor in front of One Stop Centre."
   },
   {
     id: "B06",
@@ -102,10 +102,10 @@ const BOOTHS_DATA = [
     matric: "MC240728820",
     section: "MC-S2",
     zone: "Top Corridor",
-    cx: 414,
-    cy: 77,
-    path: "524,528 524,115 414,115 414,91",
-    directions: "Walk up past Left Lift to top corridor in front of One Stop Centre."
+    cx: 508,
+    cy: 73,
+    path: "524,528 524,115 508,115 508,86",
+    directions: "Walk up past Lifts to top corridor under International Student Office."
   },
   {
     id: "B07",
@@ -114,12 +114,14 @@ const BOOTHS_DATA = [
     owner: "Louiis Fernandez",
     matric: "MC240930559",
     section: "MC-S2",
-    zone: "West Corridor",
-    cx: 39,
-    cy: 226,
-    path: "524,528 524,400 102,400 102,226 53,226",
-    directions: "Turn left into West Corridor and walk past B04 and B03; B07 is near the Trophy circle across B12."
+    zone: "Top Corridor",
+    cx: 583,
+    cy: 73,
+    path: "524,528 524,115 583,115 583,86",
+    directions: "Walk past Right Lift to top corridor in front of International Student Office, near San Francisco Cafe."
   },
+
+  // --- 2. West Corridor (Outer: B10, B09, B08 | Inner: B13, B12, B11) ---
   {
     id: "B08",
     name: "CROCHET OF TWO (CO2)",
@@ -127,11 +129,11 @@ const BOOTHS_DATA = [
     owner: "Sudha",
     matric: "MC240929677",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 503,
-    cy: 77,
-    path: "524,528 524,115 503,115 503,91",
-    directions: "Walk straight between the Lifts to top corridor under International Student Office."
+    zone: "West Corridor",
+    cx: 24,
+    cy: 374,
+    path: "524,528 524,400 80,400 80,374 37,374",
+    directions: "From Entrance, turn left toward Admissions; B08 is at the bottom of West Corridor outer wall across B11."
   },
   {
     id: "B09",
@@ -141,10 +143,10 @@ const BOOTHS_DATA = [
     matric: "MC240930186",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 164,
-    cy: 373,
-    path: "524,528 524,400 102,400 102,373 151,373",
-    directions: "Turn left past Admissions into West Corridor; B09 is the first booth in the inner row across B04."
+    cx: 24,
+    cy: 297,
+    path: "524,528 524,400 80,400 80,297 37,297",
+    directions: "Walk down West Corridor outer aisle; B09 is in the middle between B08 and B10 across B12."
   },
   {
     id: "B10",
@@ -154,10 +156,10 @@ const BOOTHS_DATA = [
     matric: "MC240527875",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 164,
-    cy: 302,
-    path: "524,528 524,400 102,400 102,302 151,302",
-    directions: "Walk down West Corridor inner aisle; B10 is between B09 and B12 across B03."
+    cx: 24,
+    cy: 224,
+    path: "524,528 524,400 80,400 80,224 37,224",
+    directions: "Turn left into West Corridor; B10 is at the top of the outer column below Trophy circle across B13."
   },
   {
     id: "B11",
@@ -166,11 +168,11 @@ const BOOTHS_DATA = [
     owner: "Nurdini Alya Najwa",
     matric: "MC240930547",
     section: "MC-S2",
-    zone: "Top Corridor",
-    cx: 593,
-    cy: 77,
-    path: "524,528 524,115 593,115 593,91",
-    directions: "Walk past Right Lift to top corridor under International Student Office."
+    zone: "West Corridor",
+    cx: 152,
+    cy: 374,
+    path: "524,528 524,400 80,400 80,374 139,374",
+    directions: "Turn left past Admissions into West Corridor; B11 is at the bottom of the inner column across B08."
   },
   {
     id: "B12",
@@ -180,105 +182,93 @@ const BOOTHS_DATA = [
     matric: "MC240930425",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 164,
-    cy: 231,
-    path: "524,528 524,400 102,400 102,231 151,231",
-    directions: "Walk down West Corridor inner aisle to B12, directly below the West Escalator across B07."
+    cx: 152,
+    cy: 302,
+    path: "524,528 524,400 80,400 80,302 139,302",
+    directions: "Walk down West Corridor inner aisle; B12 is in the middle row across B09."
   },
   {
-    id: "B14",
+    id: "B13",
     name: "ACCESSORIZE",
     category: "Accessories",
     owner: "Aila Naazneen",
     matric: "MC260944134",
     section: "MC-S2",
-    zone: "Middle Hub",
-    cx: 684,
-    cy: 191,
-    path: "524,528 524,400 705,400 705,191 694,191",
-    directions: "Walk right to Middle Hub entrance, step inside, and head to B14 on left partition."
+    zone: "West Corridor",
+    cx: 152,
+    cy: 229,
+    path: "524,528 524,400 80,400 80,229 139,229",
+    directions: "Walk down West Corridor inner aisle; B13 is at the top directly below the Escalator across B10."
   },
 
-  // --- MC-S3: Middle Hub Zone (B15 - B20) ---
+  // --- 3. Middle Hub Zone (B14 - B18) ---
   {
-    id: "B15",
+    id: "B14",
     name: "MIRROR ART & CO",
     category: "Hand Mirror For Décor",
     owner: "Hirosha",
     matric: "MC240728764",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 684,
-    cy: 235,
-    path: "524,528 524,400 705,400 705,235 694,235",
-    directions: "Turn right into Middle Hub entrance, walk up left aisle to find B15."
+    cx: 686,
+    cy: 209,
+    path: "524,528 524,400 705,400 705,209 695,209",
+    directions: "Walk right to Middle Hub entrance, step inside, and head to B14 on top of left column."
   },
   {
-    id: "B16",
+    id: "B15",
     name: "TRISSORIES",
     category: "Mini Wallet, Lanyard, Plushies, Keychains",
     owner: "Krishan",
     matric: "MC240929212",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 684,
-    cy: 280,
-    path: "524,528 524,400 705,400 705,280 694,280",
-    directions: "Turn right into Middle Hub entrance; find B16 in the left partition."
+    cx: 686,
+    cy: 259,
+    path: "524,528 524,400 705,400 705,259 695,259",
+    directions: "Turn right into Middle Hub entrance; B15 is in the middle of left partition."
   },
   {
-    id: "B17",
+    id: "B16",
     name: "AURORA",
     category: "Candles, Earrings",
     owner: "Nirmala Dhevi",
     matric: "MC240930460",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 684,
-    cy: 328,
-    path: "524,528 524,400 705,400 705,328 694,328",
-    directions: "Turn right into Middle Hub entrance; B17 is immediately on your left."
+    cx: 687,
+    cy: 312,
+    path: "524,528 524,400 705,400 705,312 695,312",
+    directions: "Turn right into Middle Hub entrance; B16 is at the bottom of left partition."
   },
   {
-    id: "B18",
+    id: "B17",
     name: "IN & PAPER CO.",
     category: "Stationery Sets",
     owner: "Jagedishraj",
     matric: "MC250534559",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 735,
-    cy: 218,
-    path: "524,528 524,400 745,400 745,218 735,218",
-    directions: "Turn right into Middle Hub and follow central partition up to B18."
+    cx: 737,
+    cy: 212,
+    path: "524,528 524,400 750,400 750,212 746,212",
+    directions: "Turn right into Middle Hub; B17 is at top of center column."
   },
   {
-    id: "B19",
+    id: "B18",
     name: "THREE BROTHERS",
     category: "Keychains",
     owner: "Arunn",
     matric: "MC240929953",
     section: "MC-S3",
     zone: "Middle Hub",
-    cx: 735,
-    cy: 265,
-    path: "524,528 524,400 745,400 745,265 735,265",
-    directions: "Turn right into Middle Hub; B19 is on the central partition."
-  },
-  {
-    id: "B20",
-    name: "SPOOKY POP-UP BOOTH",
-    category: "Special Event Booth",
-    owner: "UNITAR Student Committee",
-    section: "MC-S3",
-    zone: "Middle Hub",
-    cx: 734,
-    cy: 312,
-    path: "524,528 524,400 745,400 745,312 734,312",
-    directions: "Turn right into Middle Hub; B20 is the first booth on the central partition."
+    cx: 738,
+    cy: 269,
+    path: "524,528 524,400 750,400 750,269 746,269",
+    directions: "Turn right into Middle Hub; B18 is below B17 in center column."
   },
 
-  // --- HUB Activity & Games (G1 - G3) ---
+  // --- 4. HUB Activity & Games (G1 - G4) ---
   {
     id: "G1",
     name: "Activity & Registration G1",
@@ -286,9 +276,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 801,
-    cy: 202,
-    path: "524,528 524,400 780,400 780,202 792,202",
+    cx: 785,
+    cy: 190,
+    path: "524,528 524,400 765,400 765,190 776,190",
     directions: "From Main Entrance, turn right into Middle Hub; G1 is at the top of the activity row."
   },
   {
@@ -298,9 +288,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 802,
-    cy: 249,
-    path: "524,528 524,400 780,400 780,249 793,249",
+    cx: 786,
+    cy: 234,
+    path: "524,528 524,400 765,400 765,234 776,234",
     directions: "Turn right into Middle Hub; G2 is in the activity row beside the round tables."
   },
   {
@@ -310,13 +300,25 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Middle Hub",
-    cx: 801,
-    cy: 299,
-    path: "524,528 524,400 780,400 780,299 792,299",
-    directions: "Turn right into Middle Hub; G3 is right next to the Register counter."
+    cx: 787,
+    cy: 280,
+    path: "524,528 524,400 765,400 765,280 776,280",
+    directions: "Turn right into Middle Hub; G3 is in the activity row above G4."
+  },
+  {
+    id: "G4",
+    name: "Activity & Registration G4",
+    category: "Hub Activity Booth",
+    owner: "Event Committee",
+    section: "HUB",
+    zone: "Middle Hub",
+    cx: 787,
+    cy: 326,
+    path: "524,528 524,400 765,400 765,326 776,326",
+    directions: "Turn right into Middle Hub; G4 is directly above the Register counter."
   },
 
-  // --- Academic Degree Programme Passport Booths (Level G Hub) ---
+  // --- 5. Academic Degree Programme Booths (Level G Hub) ---
   {
     id: "BFINTECH",
     name: "Bachelor of Fintech",
@@ -324,10 +326,10 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 746,
-    cy: 465,
-    path: "524,528 524,400 903,400 903,490 746,490 746,475",
-    directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is on the top row."
+    cx: 732,
+    cy: 469,
+    path: "524,528 524,400 903,400 903,490 732,490 732,478",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is on the top row left."
   },
   {
     id: "BAF",
@@ -336,9 +338,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 798,
-    cy: 466,
-    path: "524,528 524,400 903,400 903,490 798,490 798,475",
+    cx: 786,
+    cy: 469,
+    path: "524,528 524,400 903,400 903,490 786,490 786,478",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BA&F is in middle of top row."
   },
   {
@@ -348,10 +350,10 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 852,
-    cy: 466,
-    path: "524,528 524,400 903,400 903,490 852,490 852,475",
-    directions: "Head right to UNITAR Hub 'IN' entrance; BACC is first booth on right top row."
+    cx: 838,
+    cy: 467,
+    path: "524,528 524,400 903,400 903,490 838,490 838,476",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BACC is on top row right."
   },
   {
     id: "BBA",
@@ -360,9 +362,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 746,
-    cy: 534,
-    path: "524,528 524,400 903,400 903,505 746,505 746,524",
+    cx: 732,
+    cy: 539,
+    path: "524,528 524,400 903,400 903,505 732,505 732,529",
     directions: "Turn right toward UNITAR Hub 'IN' entrance and walk down to BBA near Main Stage."
   },
   {
@@ -372,9 +374,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 798,
-    cy: 534,
-    path: "524,528 524,400 903,400 903,505 798,505 798,524",
+    cx: 788,
+    cy: 539,
+    path: "524,528 524,400 903,400 903,505 788,505 788,530",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BIB is in middle of bottom row."
   },
   {
@@ -384,13 +386,25 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 852,
-    cy: 534,
-    path: "524,528 524,400 903,400 903,505 852,505 852,524",
-    directions: "Turn right toward UNITAR Hub 'IN' entrance; BHRM is on bottom row right."
+    cx: 840,
+    cy: 538,
+    path: "524,528 524,400 903,400 903,505 840,505 840,529",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BHRM is on bottom row 3rd booth."
+  },
+  {
+    id: "FOOD",
+    name: "FOOD & REFRESHMENTS",
+    category: "Food & Drinks",
+    owner: "Event Vendors & Committee",
+    section: "HUB",
+    zone: "Academic Hub",
+    cx: 890,
+    cy: 537,
+    path: "524,528 524,400 903,400 903,505 890,505 890,528",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; Food booth is on bottom row next to BHRM."
   },
 
-  // --- Highlights, Stage & Service Points ---
+  // --- 6. Highlights, Stage & Service Points ---
   {
     id: "STAGE",
     name: "UNITAR HUB MAIN STAGE",
@@ -398,9 +412,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 670,
-    cy: 490,
-    path: "524,528 524,400 903,400 903,490 689,490",
+    cx: 665,
+    cy: 495,
+    path: "524,528 524,400 903,400 903,490 677,490",
     directions: "Walk forward from Main Entrance, turn right down walkway past Photo Stand to Stage."
   },
   {
@@ -422,9 +436,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 968,
-    cy: 457,
-    path: "524,528 524,400 903,400 903,457 959,457",
+    cx: 976,
+    cy: 461,
+    path: "524,528 524,400 903,400 903,461 967,461",
     directions: "Follow walkway into UNITAR Hub; Gift Counter is along the far right wall."
   },
   {
@@ -434,9 +448,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 968,
-    cy: 502,
-    path: "524,528 524,400 903,400 903,502 959,502",
+    cx: 976,
+    cy: 507,
+    path: "524,528 524,400 903,400 903,507 967,507",
     directions: "Located on far right wall inside UNITAR Hub Level G below Gift Counter."
   },
   {
@@ -446,9 +460,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 968,
-    cy: 546,
-    path: "524,528 524,400 903,400 903,546 959,546",
+    cx: 976,
+    cy: 552,
+    path: "524,528 524,400 903,400 903,552 967,552",
     directions: "Located at bottom-right corner inside UNITAR Hub Level G."
   }
 ];
@@ -1013,7 +1027,7 @@ class DigitalPassport {
   }
 
   isStampable(id) {
-    return /^B\d{2}$/.test(id);
+    return /^B(0[1-9]|1[0-8])$/.test(id);
   }
 
   load() {
@@ -1073,7 +1087,7 @@ class DigitalPassport {
     if (count === total && total > 0) {
       soundSystem.playRickroll();
       launchConfetti();
-      showToastNotification(`${SVG_ICONS.sparkles} 🏆 100% COMPLETE! All ${total} Booth Stamps (B01–B20) Collected! Click Redeem in Passport to Claim!`);
+      showToastNotification(`${SVG_ICONS.sparkles} 🏆 100% COMPLETE! All ${total} Booth Stamps (B01–B18) Collected! Click Redeem in Passport to Claim!`);
     } else if (count === 5 || count === 10 || count === 15) {
       soundSystem.playVictorySound();
       launchConfetti();
@@ -1098,9 +1112,9 @@ class DigitalPassport {
     const modalStatus = document.getElementById('passport-modal-status');
     if (modalStatus) {
       if (count === total && total > 0) {
-        modalStatus.innerHTML = `<span class="text-amber-300 font-extrabold">🎉 100% COMPLETE! All ${total} Booth Stamps (B01–B20) Collected! Click Redeem for the Grand Prize!</span>`;
+        modalStatus.innerHTML = `<span class="text-amber-300 font-extrabold">🎉 100% COMPLETE! All ${total} Booth Stamps (B01–B18) Collected! Click Claim for the Grand Prize!</span>`;
       } else {
-        modalStatus.textContent = `Collect all ${total} vendor booth stamps (B01–B20) to unlock the Legendary Mystery Prize! (${total - count} remaining)`;
+        modalStatus.textContent = `Collect all ${total} vendor booth stamps (B01–B18) to unlock the Legendary Mystery Prize! (${total - count} remaining)`;
       }
     }
 
@@ -1623,7 +1637,7 @@ function redeemPrize() {
 
   if (count < total) {
     const remaining = total - count;
-    alert(`🎃 QUEST INCOMPLETE!\n\nTo unlock the Grand Mystery Prize, you must collect all vendor booth stamps (B01 to B20, 19 booths total)!\n\nYou currently have ${count} of ${total} stamps (${remaining} remaining).\n\nKeep exploring all vendor booths from B01 to B20!`);
+    alert(`🎃 QUEST INCOMPLETE!\n\nTo unlock the Grand Mystery Prize, you must collect all vendor booth stamps (B01 to B18, 18 booths total)!\n\nYou currently have ${count} of ${total} stamps (${remaining} remaining).\n\nKeep exploring all vendor booths from B01 to B18!`);
     return;
   }
 
