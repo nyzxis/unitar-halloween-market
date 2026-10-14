@@ -69,29 +69,6 @@
     </svg>
   </div>
 
-  <!-- =========================================================================
-       1. LIVE ANNOUNCEMENTS TICKER BANNER
-       ========================================================================= -->
-  <div id="live-ticker" class="relative z-30 bg-gradient-to-r from-orange-600 via-amber-600 to-purple-700 text-slate-950 font-bold text-xs py-2 px-3 sm:px-4 shadow-lg border-b border-orange-400/30">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2 overflow-hidden flex-1">
-        <span class="bg-slate-950 text-orange-400 px-2 py-0.5 rounded-full uppercase tracking-wider text-[10px] font-extrabold flex items-center gap-1 shrink-0">
-          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
-          LIVE
-        </span>
-        <div class="overflow-hidden whitespace-nowrap">
-          <div class="marquee-track flex gap-8 text-white font-semibold text-xs">
-            <span>Welcome to UNITAR Prop &amp; Pop Market! Level G Hub booths open from 9:30 AM to 4:30 PM.</span>
-            <span>Collect digital stamps across booths to unlock gifts at the Gift Redemption Counter!</span>
-            <span>Transfer Programme Opening &amp; Dean's Address begins at 2:00 PM at Main Stage.</span>
-          </div>
-        </div>
-      </div>
-      <button onclick="document.getElementById('live-ticker').remove();" class="text-slate-950 hover:text-white px-2 py-0.5 rounded text-xs font-bold transition shrink-0" title="Dismiss banner">
-        ✕
-      </button>
-    </div>
-  </div>
 
   <!-- =========================================================================
        2. NAVIGATION BAR (WITH OFFICIAL UNITAR LOGO)
@@ -180,94 +157,56 @@
   <!-- =========================================================================
        3. HERO SECTION (WITH MOON, GLOWING CARVED PUMPKINS & BATS)
        ========================================================================= -->
-  <section class="relative z-10 pt-6 sm:pt-8 pb-8 px-4 border-b border-purple-900/30 overflow-hidden haunted-mist">
+  <!-- =========================================================================
+       3. HERO SECTION (SIMPLIFIED & SLEEK)
+       ========================================================================= -->
+  <section class="relative z-10 pt-8 pb-7 px-4 border-b border-purple-900/30 overflow-hidden haunted-mist">
     <!-- Eerie Full Moon Glow Backdrop -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-b from-amber-500/10 via-purple-600/10 to-transparent blur-3xl pointer-events-none moon-glow"></div>
 
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <!-- Tagline Pill with Spooky Bats -->
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-950/70 border border-orange-500/30 text-purple-200 text-[11px] font-semibold mb-3 shadow-lg">
-        <svg class="w-3.5 h-3.5 text-orange-400 animate-pulse" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
-        <span>Where Creativity Meets Business • #ACCELERATEYourFuture</span>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <!-- Tagline Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-950/80 border border-purple-700/40 text-purple-200 text-[11px] font-semibold mb-3 shadow-md">
+        <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+        <span>UNITAR International University • Faculty of Business</span>
       </div>
 
-      <!-- Main Headline Flanked by Flickering Carved Pumpkins -->
-      <div class="flex items-center justify-center gap-2 sm:gap-4 my-1">
-        <!-- Left Carved Pumpkin -->
-        <svg class="w-7 h-7 sm:w-11 sm:h-11 flicker-pumpkin shrink-0 hidden xs:block" viewBox="0 0 64 64" fill="none">
-          <ellipse cx="32" cy="36" rx="26" ry="21" fill="#ff5400"/>
-          <ellipse cx="32" cy="36" rx="16" ry="21" fill="#ff7700"/>
-          <ellipse cx="32" cy="36" rx="7" ry="21" fill="#ff9100"/>
-          <path d="M30 15 C30 9 35 7 36 7 C35 11 34 15 34 15" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="21,29 27,34 22,36" fill="#ffe600"/>
-          <polygon points="43,29 37,34 42,36" fill="#ffe600"/>
-          <polygon points="32,35 30,39 34,39" fill="#ffe600"/>
-          <path d="M20 44 C23 52 41 52 44 44 C40 46 38 43 35 46 C32 43 29 46 24 43 Z" fill="#ffe600"/>
-        </svg>
-
+      <!-- Main Headline with Clean Accents -->
+      <div class="flex items-center justify-center gap-3 my-1">
         <h2 class="font-creepster text-3xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 leading-tight">
           PROP &amp; POP MARKET
         </h2>
-
-        <!-- Right Carved Pumpkin -->
-        <svg class="w-7 h-7 sm:w-11 sm:h-11 flicker-pumpkin shrink-0 hidden xs:block" viewBox="0 0 64 64" fill="none">
-          <ellipse cx="32" cy="36" rx="26" ry="21" fill="#ff5400"/>
-          <ellipse cx="32" cy="36" rx="16" ry="21" fill="#ff7700"/>
-          <ellipse cx="32" cy="36" rx="7" ry="21" fill="#ff9100"/>
-          <path d="M30 15 C30 9 35 7 36 7 C35 11 34 15 34 15" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="21,29 27,34 22,36" fill="#ffe600"/>
-          <polygon points="43,29 37,34 42,36" fill="#ffe600"/>
-          <polygon points="32,35 30,39 34,39" fill="#ffe600"/>
-          <path d="M20 44 C23 52 41 52 44 44 C40 46 38 43 35 46 C32 43 29 46 24 43 Z" fill="#ffe600"/>
-        </svg>
       </div>
 
-      <p class="mt-2 text-purple-200/90 text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
-        Explore student entrepreneur booths, discover bachelor's degree programmes, and collect digital stamps across Level G, UNITAR Hub.
+      <p class="mt-2 text-purple-200/90 text-xs sm:text-sm max-w-lg mx-auto font-medium leading-relaxed">
+        Level G Hub Interactive Wayfinder &amp; Digital Stamp Passport. Explore student booths, academic zones, and event highlights.
       </p>
 
-      <!-- Event Badges (Compact 3-Col Grid on Mobile, Never Stacks awkwardly) -->
-      <div class="mt-5 max-w-lg mx-auto grid grid-cols-3 gap-2 text-left">
-        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
-          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Date</span>
-          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">Wed, 21 Oct</span>
-        </div>
-
-        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
-          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Hours</span>
-          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">9:00am–4:30pm</span>
-        </div>
-
-        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
-          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Venue</span>
-          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">Level G Hub</span>
-        </div>
+      <!-- Consolidated Single-Line Event Meta Strip -->
+      <div class="mt-4 inline-flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5 px-4 py-2 rounded-full glass-panel border-purple-500/30 text-xs text-purple-200 shadow-md">
+        <span class="flex items-center gap-1.5 font-bold text-white">
+          <span class="text-orange-400">📅</span> Wed, 21 Oct 2026
+        </span>
+        <span class="hidden sm:inline text-purple-600 font-bold">•</span>
+        <span class="flex items-center gap-1.5 font-semibold text-purple-200">
+          <span class="text-orange-400">⏰</span> 9:00 AM – 4:30 PM
+        </span>
+        <span class="hidden sm:inline text-purple-600 font-bold">•</span>
+        <span class="flex items-center gap-1.5 font-bold text-orange-300">
+          <span class="text-orange-400">📍</span> Level G, UNITAR Hub
+        </span>
       </div>
 
-      <!-- Quick Action Buttons -->
-      <div class="mt-5 flex justify-center gap-2.5">
-        <a href="#map-section" class="py-2 px-5 rounded-full bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition flex items-center gap-1.5">
+      <!-- Primary Action Buttons -->
+      <div class="mt-5 flex items-center justify-center gap-3">
+        <a href="#map-section" class="py-2 px-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/25 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
-          <span>Floor Plan</span>
+          <span>Explore Floor Plan</span>
         </a>
         <button onclick="openPassportModal()" class="py-2 px-5 rounded-full glass-panel hover:bg-purple-900/50 text-white font-bold text-xs border-purple-500/40 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
-          <span>Stamp Card</span>
+          <span>Digital Passport</span>
         </button>
-      </div>
-
-      <!-- Passport Mini Progress Bar -->
-      <div class="mt-5 max-w-sm mx-auto glass-panel p-2.5 border-orange-500/20">
-        <div class="flex justify-between items-center text-[11px] mb-1">
-          <span class="text-purple-300 font-bold flex items-center gap-1">
-            <svg class="w-3 h-3 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14"/><path d="M14 13V8.5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2V13"/></svg>
-            <span>Passport Quest</span>
-          </span>
-          <span id="passport-progress-text" class="text-orange-400 font-extrabold">0 of 33 (0%)</span>
-        </div>
-        <div class="w-full h-2 bg-purple-950/80 rounded-full overflow-hidden border border-purple-800/40">
-          <div id="passport-progress-fill" class="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500" style="width: 0%"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -276,35 +215,26 @@
        4. INTERACTIVE FLOOR PLAN & WAYFINDING SECTION
        ========================================================================= -->
   <section id="map-section" class="relative z-10 py-8 px-3 sm:px-4 max-w-7xl mx-auto w-full">
-    <!-- Section Title & Controls Header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
+    <!-- Section Title & Sleek Unified Controls Toolbar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
       <div>
-        <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">Interactive Wayfinder</span>
         <h3 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
-          <span>Level G, UNITAR Hub Floor Plan</span>
+          <span>Level G Floor Plan</span>
+          <span class="text-[10px] font-bold text-orange-400 bg-orange-500/10 border border-orange-500/30 px-2 py-0.5 rounded-full">Interactive Wayfinder</span>
         </h3>
-        <p class="text-[11px] sm:text-xs text-purple-300 mt-0.5">
-          Drag to pan, pinch to zoom. Tap any booth to trace the glowing route from the Main Entrance!
+        <p class="text-xs text-purple-300 mt-0.5">
+          Tap any booth to see details &amp; animated route from the Main Entrance.
         </p>
       </div>
 
-      <!-- Quick Map Utilities -->
-      <div class="flex items-center gap-1.5 self-start sm:self-auto">
-        <button onclick="panZoomInstance.zoomIn()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition" title="Zoom In">
-          +
-        </button>
-        <button onclick="panZoomInstance.zoomOut()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition" title="Zoom Out">
-          −
-        </button>
-        <button onclick="panZoomInstance.resetView()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 border border-purple-800/40 text-xs font-bold transition" title="Reset View">
-          Reset
-        </button>
-        <button onclick="panZoomInstance.centerOnEntrance()" class="p-1.5 px-2.5 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 border border-orange-500/40 text-xs font-bold transition" title="Focus Main Entrance">
-          Entrance
-        </button>
-        <button onclick="clearSelection()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-300 border border-purple-800/40 text-xs font-bold transition">
-          Clear
-        </button>
+      <!-- Clean Map Controls Group -->
+      <div class="flex items-center gap-1 bg-[#140e26] p-1 rounded-xl border border-purple-800/50 self-start sm:self-auto shadow-md">
+        <button onclick="panZoomInstance.zoomIn()" class="w-7 h-7 rounded-lg hover:bg-purple-900/60 text-white font-bold flex items-center justify-center transition text-sm" title="Zoom In">+</button>
+        <button onclick="panZoomInstance.zoomOut()" class="w-7 h-7 rounded-lg hover:bg-purple-900/60 text-white font-bold flex items-center justify-center transition text-sm" title="Zoom Out">−</button>
+        <div class="w-px h-4 bg-purple-800/60 my-auto mx-0.5"></div>
+        <button onclick="panZoomInstance.resetView()" class="px-2.5 h-7 rounded-lg hover:bg-purple-900/60 text-purple-200 font-semibold text-xs flex items-center transition" title="Reset View">Reset</button>
+        <button onclick="panZoomInstance.centerOnEntrance()" class="px-2.5 h-7 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 font-bold text-xs flex items-center transition" title="Focus Entrance">Entrance</button>
+        <button onclick="clearSelection()" class="px-2 h-7 rounded-lg hover:bg-purple-900/60 text-purple-400 hover:text-white text-xs transition" title="Clear Selection">✕</button>
       </div>
     </div>
 
@@ -827,21 +757,28 @@
         </button>
       </div>
 
-      <!-- Passport Progress & Claim Banner -->
-      <div class="p-3 sm:p-4 rounded-xl bg-purple-950/70 border border-purple-700/50 mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div>
-          <span class="text-[10px] uppercase font-extrabold text-orange-400 tracking-wider">Stamp Collection Progress</span>
-          <h4 id="passport-modal-status" class="text-xs sm:text-sm font-extrabold text-white mt-0.5">
-            Collect stamps to redeem free gifts at the Hub!
-          </h4>
-          <p class="text-[11px] text-purple-300 mt-0.5">
-            Need at least 5 stamps to unlock the mystery prize voucher.
-          </p>
+      <!-- Passport Progress & Claim Banner with Live Animated Bar -->
+      <div class="p-3.5 sm:p-4 rounded-xl bg-purple-950/70 border border-purple-700/50 mb-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2.5">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] uppercase font-extrabold text-orange-400 tracking-wider">Stamp Collection Progress</span>
+              <span id="passport-progress-text" class="text-orange-300 font-extrabold text-xs">0 of 33 (0%)</span>
+            </div>
+            <h4 id="passport-modal-status" class="text-xs sm:text-sm font-extrabold text-white mt-0.5">
+              Collect at least 5 stamps to unlock the mystery gift!
+            </h4>
+          </div>
+
+          <button onclick="redeemPrize()" class="self-start sm:self-auto px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition shrink-0">
+            Redeem Prize Voucher
+          </button>
         </div>
 
-        <button onclick="redeemPrize()" class="w-full sm:w-auto px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition shrink-0">
-          Redeem Prize Voucher
-        </button>
+        <!-- Animated Progress Bar -->
+        <div class="w-full h-2 bg-purple-950/90 rounded-full overflow-hidden border border-purple-800/40">
+          <div id="passport-progress-fill" class="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
       </div>
 
       <!-- Passport Stamp Slots Grid (3 columns on mobile) -->
