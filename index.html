@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +35,7 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-[#08070e] text-[#f8f9fa] antialiased min-h-screen flex flex-col pb-20 md:pb-0">
+<body class="bg-[#08070e] text-[#f8f9fa] antialiased min-h-screen flex flex-col pb-24 md:pb-0">
 
   <!-- Ambient Spooky Canvas (Embers & Flying Bats) -->
   <canvas id="ambient-canvas"></canvas>
@@ -44,24 +44,23 @@
   <!-- =========================================================================
        1. LIVE ANNOUNCEMENTS TICKER BANNER
        ========================================================================= -->
-  <div id="live-ticker" class="relative z-30 bg-gradient-to-r from-orange-600 via-amber-600 to-purple-700 text-slate-950 font-bold text-xs py-2 px-4 shadow-lg border-b border-orange-400/30">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3 overflow-hidden flex-1">
-        <span class="bg-slate-950 text-orange-400 px-2.5 py-0.5 rounded-full uppercase tracking-wider text-[11px] font-extrabold flex items-center gap-1.5 shrink-0">
-          <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
-          LIVE UPDATES
+  <div id="live-ticker" class="relative z-30 bg-gradient-to-r from-orange-600 via-amber-600 to-purple-700 text-slate-950 font-bold text-xs py-2 px-3 sm:px-4 shadow-lg border-b border-orange-400/30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 overflow-hidden flex-1">
+        <span class="bg-slate-950 text-orange-400 px-2 py-0.5 rounded-full uppercase tracking-wider text-[10px] font-extrabold flex items-center gap-1 shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
+          LIVE
         </span>
         <div class="overflow-hidden whitespace-nowrap">
-          <div class="marquee-track flex gap-8 text-white font-semibold">
-            <span>🎃 Welcome to UNITAR Prop & Pop Market! Level G Hub booths open from 9:30 AM to 4:30 PM.</span>
-            <span>✨ Collect digital stamps across booths to claim prizes at the Gift Redemption Counter!</span>
-            <span>🎤 Dean's Opening Speech starts at 2:00 PM at Main Stage.</span>
-            <span>🎃 Welcome to UNITAR Prop & Pop Market! Level G Hub booths open from 9:30 AM to 4:30 PM.</span>
+          <div class="marquee-track flex gap-8 text-white font-semibold text-xs">
+            <span>Welcome to UNITAR Prop &amp; Pop Market! Level G Hub booths open from 9:30 AM to 4:30 PM.</span>
+            <span>Collect digital stamps across booths to unlock gifts at the Gift Redemption Counter!</span>
+            <span>Transfer Programme Opening &amp; Dean's Address begins at 2:00 PM at Main Stage.</span>
           </div>
         </div>
       </div>
       <button onclick="document.getElementById('live-ticker').remove();" class="text-slate-950 hover:text-white px-2 py-0.5 rounded text-xs font-bold transition shrink-0" title="Dismiss banner">
-        ✕ Hide
+        ✕
       </button>
     </div>
   </div>
@@ -70,40 +69,58 @@
        2. NAVIGATION BAR
        ========================================================================= -->
   <header class="sticky top-0 z-30 bg-[#0c0919]/90 backdrop-blur-md border-b border-purple-900/40">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-      <!-- Brand & Event Identity -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-purple-600 flex items-center justify-center text-xl shadow-lg shadow-orange-500/20 group-hover:scale-105 transition">
-          🎃
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex items-center justify-between gap-3">
+      <!-- Modern Geometric Brand SVG Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-purple-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition text-white">
+          <!-- Sleek Geometric Pumpkin / Flame SVG Icon -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="rgba(255,255,255,0.2)"/>
+            <path d="M12 4c-4.97 0-9 3.58-9 8s4.03 8 9 8 9-3.58 9-8-4.03-8-9-8z" fill="#ff5400" stroke="#fff" stroke-width="1.5"/>
+            <path d="M9 11l1.5 2 1.5-2M15 11l-1.5 2-1.5-2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 16c1.5 1 4.5 1 6 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
         </div>
         <div>
-          <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">UNITAR International University</span>
-          <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white group-hover:text-orange-300 transition">
-            PROP & POP MARKET <span class="text-orange-400 font-normal">2026</span>
+          <span class="text-[9px] uppercase tracking-widest text-orange-400 font-extrabold block leading-none">UNITAR International University</span>
+          <h1 class="text-xs sm:text-sm font-extrabold tracking-tight text-white group-hover:text-orange-300 transition mt-0.5">
+            PROP &amp; POP MARKET <span class="text-orange-400 font-normal">2026</span>
           </h1>
         </div>
       </a>
 
-      <!-- Quick Nav Links -->
+      <!-- Desktop Smooth Navigation Links -->
       <nav class="hidden md:flex items-center gap-1 text-xs font-semibold text-purple-200">
-        <a href="#map-section" class="px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition">Floor Plan</a>
-        <a href="#directory-section" class="px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition">Booths</a>
-        <a href="#agenda-section" class="px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition">Agenda</a>
-        <a href="#info-section" class="px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition">Event Info</a>
+        <a id="nav-map" href="#map-section" class="desktop-nav-link px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          <span>Floor Plan</span>
+        </a>
+        <a id="nav-directory" href="#directory-section" class="desktop-nav-link px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M2 7h20"/></svg>
+          <span>Booths</span>
+        </a>
+        <a id="nav-agenda" href="#agenda-section" class="desktop-nav-link px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Agenda</span>
+        </a>
+        <a id="nav-info" href="#info-section" class="desktop-nav-link px-3 py-1.5 rounded-lg hover:bg-purple-900/40 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>Event Info</span>
+        </a>
       </nav>
 
-      <!-- Action Utilities: Audio Toggle & Passport Modal Button -->
+      <!-- Action Utilities: Spooky Audio Toggle & Passport Modal Button -->
       <div class="flex items-center gap-2">
         <!-- Spooky Ambient Audio Toggle -->
-        <button id="audio-toggle-btn" class="py-1.5 px-3 rounded-full border border-purple-500/20 bg-purple-950/40 hover:bg-purple-900/60 transition flex items-center gap-1.5" title="Toggle Spooky Audio Effects">
-          <span class="text-sm">🔊</span>
+        <button id="audio-toggle-btn" class="py-1 px-2.5 sm:px-3 rounded-full border border-purple-500/20 bg-purple-950/40 hover:bg-purple-900/60 transition flex items-center gap-1.5" title="Toggle Spooky Audio Effects">
+          <svg class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
           <span class="hidden sm:inline text-xs font-semibold text-purple-200">Spooky Sound</span>
         </button>
 
         <!-- Digital Passport Quick Button -->
-        <button onclick="openPassportModal()" class="py-1.5 px-3.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 text-xs font-black shadow-lg shadow-orange-500/25 transition flex items-center gap-1.5">
-          <span>📜</span>
-          <span>Passport:</span>
+        <button onclick="openPassportModal()" class="py-1 px-3 sm:px-3.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 text-xs font-black shadow-lg shadow-orange-500/25 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          <span>Passport</span>
           <span id="passport-badge-count" class="bg-slate-950 text-orange-400 px-1.5 py-0.2 rounded-full text-[10px]">0 / 33</span>
         </button>
       </div>
@@ -111,71 +128,65 @@
   </header>
 
   <!-- =========================================================================
-       3. SPOOKY HERO SECTION
+       3. HERO SECTION (OPTIMIZED FOR CLEAN 1-2 LINE MOBILE HEADERS)
        ========================================================================= -->
-  <section class="relative z-10 pt-8 pb-10 px-4 border-b border-purple-900/30 overflow-hidden">
-    <div class="max-w-5xl mx-auto text-center relative">
+  <section class="relative z-10 pt-6 sm:pt-8 pb-8 px-4 border-b border-purple-900/30 overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative">
       <!-- Tagline Pill -->
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-xs font-semibold mb-4">
-        <span>🦇</span>
-        <span>#ACCELERATEYourFuture • Where Creativity Meets Business</span>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-[11px] font-semibold mb-3">
+        <svg class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+        <span>Where Creativity Meets Business • #ACCELERATEYourFuture</span>
       </div>
 
-      <!-- Main Headline -->
-      <h2 class="font-creepster text-4xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 leading-tight drop-shadow-lg">
-        PROP AND POP MARKET
+      <!-- Main Headline (Tight & Balanced) -->
+      <h2 class="font-creepster text-3xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 leading-tight">
+        PROP &amp; POP MARKET
       </h2>
 
-      <p class="mt-2 text-purple-200/90 text-sm sm:text-base max-w-2xl mx-auto font-medium">
-        Experience UNITAR’s flagship Halloween entrepreneurial showcase! Explore student businesses, discover bachelor's degree opportunities, and collect stamps for mystery prizes.
+      <p class="mt-2 text-purple-200/90 text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
+        Explore student entrepreneur booths, discover bachelor's degree programmes, and collect digital stamps across Level G, UNITAR Hub.
       </p>
 
-      <!-- Quick Event Info Badges -->
-      <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs sm:text-sm">
-        <div class="glass-panel px-4 py-2 flex items-center gap-2 border-orange-500/30">
-          <span class="text-orange-400 text-base">📅</span>
-          <div class="text-left">
-            <span class="text-[10px] uppercase font-bold text-purple-300 block">Date</span>
-            <span class="font-extrabold text-white">Wednesday, 21st Oct 2026</span>
-          </div>
+      <!-- Event Badges (Compact 3-Col Grid on Mobile, Never Stacks awkwardly) -->
+      <div class="mt-5 max-w-lg mx-auto grid grid-cols-3 gap-2 text-left">
+        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
+          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Date</span>
+          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">Wed, 21 Oct</span>
         </div>
 
-        <div class="glass-panel px-4 py-2 flex items-center gap-2 border-orange-500/30">
-          <span class="text-orange-400 text-base">⏰</span>
-          <div class="text-left">
-            <span class="text-[10px] uppercase font-bold text-purple-300 block">Time</span>
-            <span class="font-extrabold text-white">9:00 AM – 4:30 PM</span>
-          </div>
+        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
+          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Hours</span>
+          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">9:00am–4:30pm</span>
         </div>
 
-        <div class="glass-panel px-4 py-2 flex items-center gap-2 border-orange-500/30">
-          <span class="text-orange-400 text-base">📍</span>
-          <div class="text-left">
-            <span class="text-[10px] uppercase font-bold text-purple-300 block">Venue</span>
-            <span class="font-extrabold text-white">Level G, UNITAR Hub</span>
-          </div>
+        <div class="glass-panel p-2.5 sm:p-3 border-orange-500/30">
+          <span class="text-[9px] uppercase font-bold text-orange-400 block tracking-wider">Venue</span>
+          <span class="font-extrabold text-white text-xs sm:text-sm block mt-0.5 leading-tight">Level G Hub</span>
         </div>
       </div>
 
       <!-- Quick Action Buttons -->
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <a href="#map-section" class="py-2.5 px-6 rounded-full bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-orange-500/30 transition flex items-center gap-2">
-          <span>🗺️ Explore Floor Plan</span>
+      <div class="mt-5 flex justify-center gap-2.5">
+        <a href="#map-section" class="py-2 px-5 rounded-full bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
+          <span>Floor Plan</span>
         </a>
-        <button onclick="openPassportModal()" class="py-2.5 px-6 rounded-full glass-panel hover:bg-purple-900/50 text-white font-bold text-xs sm:text-sm border-purple-500/40 transition flex items-center gap-2">
-          <span>📜 My Digital Stamp Card</span>
+        <button onclick="openPassportModal()" class="py-2 px-5 rounded-full glass-panel hover:bg-purple-900/50 text-white font-bold text-xs border-purple-500/40 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          <span>Stamp Card</span>
         </button>
       </div>
 
       <!-- Passport Mini Progress Bar -->
-      <div class="mt-6 max-w-md mx-auto glass-panel p-3 border-orange-500/20">
-        <div class="flex justify-between items-center text-xs mb-1.5">
+      <div class="mt-5 max-w-sm mx-auto glass-panel p-2.5 border-orange-500/20">
+        <div class="flex justify-between items-center text-[11px] mb-1">
           <span class="text-purple-300 font-bold flex items-center gap-1">
-            <span>🎃</span> Passport Quest Progress
+            <svg class="w-3 h-3 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14"/><path d="M14 13V8.5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2V13"/></svg>
+            <span>Passport Quest</span>
           </span>
-          <span id="passport-progress-text" class="text-orange-400 font-extrabold">0 of 33 stamps collected (0%)</span>
+          <span id="passport-progress-text" class="text-orange-400 font-extrabold">0 of 33 (0%)</span>
         </div>
-        <div class="w-full h-2.5 bg-purple-950/80 rounded-full overflow-hidden border border-purple-800/40">
+        <div class="w-full h-2 bg-purple-950/80 rounded-full overflow-hidden border border-purple-800/40">
           <div id="passport-progress-fill" class="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500" style="width: 0%"></div>
         </div>
       </div>
@@ -185,69 +196,67 @@
   <!-- =========================================================================
        4. INTERACTIVE FLOOR PLAN & WAYFINDING SECTION
        ========================================================================= -->
-  <section id="map-section" class="relative z-10 py-10 px-4 max-w-7xl mx-auto w-full">
+  <section id="map-section" class="relative z-10 py-8 px-3 sm:px-4 max-w-7xl mx-auto w-full">
     <!-- Section Title & Controls Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
       <div>
-        <span class="text-xs uppercase tracking-widest text-orange-400 font-extrabold block">Interactive Wayfinder</span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2">
-          <span>🗺️</span> Level G, UNITAR Hub Floor Plan
+        <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">Interactive Wayfinder</span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
+          <span>Level G, UNITAR Hub Floor Plan</span>
         </h3>
-        <p class="text-xs sm:text-sm text-purple-300 mt-1">
-          Pinch or scroll to zoom, drag to pan. Tap any booth on the map to illuminate its glowing Halloween path from the Main Entrance!
+        <p class="text-[11px] sm:text-xs text-purple-300 mt-0.5">
+          Drag to pan, pinch to zoom. Tap any booth to trace the glowing route from the Main Entrance!
         </p>
       </div>
 
       <!-- Quick Map Utilities -->
-      <div class="flex flex-wrap items-center gap-2">
-        <button onclick="panZoomInstance.zoomIn()" class="p-2 px-3 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition flex items-center gap-1" title="Zoom In">
-          <span>➕</span>
+      <div class="flex items-center gap-1.5 self-start sm:self-auto">
+        <button onclick="panZoomInstance.zoomIn()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition" title="Zoom In">
+          +
         </button>
-        <button onclick="panZoomInstance.zoomOut()" class="p-2 px-3 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition flex items-center gap-1" title="Zoom Out">
-          <span>➖</span>
+        <button onclick="panZoomInstance.zoomOut()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-white border border-purple-800/40 text-xs font-bold transition" title="Zoom Out">
+          −
         </button>
-        <button onclick="panZoomInstance.resetView()" class="p-2 px-3 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 border border-purple-800/40 text-xs font-bold transition flex items-center gap-1" title="Reset View">
-          <span>⟲ Reset</span>
+        <button onclick="panZoomInstance.resetView()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 border border-purple-800/40 text-xs font-bold transition" title="Reset View">
+          Reset
         </button>
-        <button onclick="panZoomInstance.centerOnEntrance()" class="p-2 px-3 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 border border-orange-500/40 text-xs font-bold transition flex items-center gap-1" title="Focus Main Entrance">
-          <span>🎃 Entrance</span>
+        <button onclick="panZoomInstance.centerOnEntrance()" class="p-1.5 px-2.5 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 border border-orange-500/40 text-xs font-bold transition" title="Focus Main Entrance">
+          Entrance
         </button>
-        <button onclick="clearSelection()" class="p-2 px-3 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-300 border border-purple-800/40 text-xs font-bold transition flex items-center gap-1">
-          <span>✕ Clear Route</span>
+        <button onclick="clearSelection()" class="p-1.5 px-2.5 rounded-lg bg-purple-950/60 hover:bg-purple-900/80 text-purple-300 border border-purple-800/40 text-xs font-bold transition">
+          Clear
         </button>
       </div>
     </div>
 
     <!-- Map Grid: Left Map Viewport (2 Cols on LG) + Right Sticky Info Drawer (1 Col) -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
       <!-- 4.A LEFT 2 COLUMNS: INTERACTIVE SVG MAP -->
-      <div class="lg:col-span-2 glass-panel p-3 sm:p-4 relative">
+      <div class="lg:col-span-2 glass-panel p-2.5 sm:p-4 relative">
         <!-- Map Legend Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-3 border-b border-purple-900/40 text-xs">
-          <div class="flex flex-wrap items-center gap-3">
+        <div class="flex items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-purple-900/40 text-[11px]">
+          <div class="flex items-center gap-2.5 overflow-x-auto scrollbar-none whitespace-nowrap">
             <span class="flex items-center gap-1.5 text-purple-300">
-              <span class="w-3 h-3 rounded bg-[#7b2cbf] border border-[#e0aaff]"></span> Student Market (B01–B20)
+              <span class="w-2.5 h-2.5 rounded bg-[#7b2cbf] border border-[#e0aaff]"></span> Market (B01–B20)
             </span>
             <span class="flex items-center gap-1.5 text-purple-300">
-              <span class="w-3 h-3 rounded bg-[#0077b6] border border-[#90e0ef]"></span> Academic Hub & Games
+              <span class="w-2.5 h-2.5 rounded bg-[#0077b6] border border-[#90e0ef]"></span> Hub Programmes
             </span>
-            <span class="flex items-center gap-1.5 text-orange-400">
-              <span class="w-3 h-3 rounded-full bg-orange-500 animate-ping"></span> Active Route
+            <span class="flex items-center gap-1 text-orange-400">
+              <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span> Route
             </span>
           </div>
-          <span id="zoom-percentage" class="text-purple-400 font-mono text-[11px] bg-purple-950/70 px-2 py-0.5 rounded border border-purple-800/30">100%</span>
+          <span id="zoom-percentage" class="text-purple-400 font-mono text-[10px] bg-purple-950/70 px-1.5 py-0.5 rounded border border-purple-800/30 shrink-0">100%</span>
         </div>
 
         <!-- The Responsive Pan-Zoom Map Viewport -->
         <div id="map-viewport" class="map-viewport border border-purple-900/50">
           <svg id="floorplan-svg" viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <!-- Arrow Marker for Entrance & Corridors -->
               <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M 0 1 L 10 5 L 0 9 Z" fill="#ffb703" />
               </marker>
 
-              <!-- Spooky Grid Pattern -->
               <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
                 <path d="M 25 0 L 0 0 25" fill="none" stroke="#1d1233" stroke-width="1"/>
               </pattern>
@@ -256,68 +265,69 @@
             <!-- Background Grid -->
             <rect width="1000" height="650" fill="url(#grid)" />
 
-            <!-- ================= TOP BUILDING ROOMS ================= -->
+            <!-- ================= TOP BUILDING ROOMS (PERFECTLY CENTERED LABELS) ================= -->
             <g stroke="#4a2574" stroke-width="2" fill="#140b24">
               <rect x="10" y="10" width="180" height="45" rx="4" />
               <rect x="198" y="10" width="245" height="45" rx="4" />
               <rect x="435" y="10" width="290" height="45" rx="4" />
               <rect x="725" y="10" width="265" height="45" rx="4" />
             </g>
-            <g fill="#a98eda" font-size="11" font-weight="700" text-anchor="middle">
-              <text x="100" y="37">STAFF ROOM</text>
-              <text x="312" y="37">ONE STOP CENTRE</text>
-              <text x="580" y="37">INTERNATIONAL STUDENT OFFICE</text>
-              <text x="857" y="37">SAN FRANCISCO CAFE</text>
+            <g fill="#c7b2e8" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">
+              <text x="100" y="32.5">STAFF ROOM</text>
+              <text x="320.5" y="32.5">ONE STOP CENTRE</text>
+              <text x="580" y="32.5">INTERNATIONAL STUDENT OFFICE</text>
+              <text x="857.5" y="32.5">SAN FRANCISCO CAFE</text>
             </g>
 
             <!-- Trophy Circle -->
             <circle cx="52" cy="96" r="34" fill="#291447" stroke="#6c3baa" stroke-width="2" />
-            <text x="52" y="100" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" transform="rotate(-90 52 100)">TROPHY</text>
+            <text x="52" y="96" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">TROPHY</text>
 
             <!-- Left Escalator -->
             <rect x="80" y="205" width="120" height="32" fill="#2b1942" stroke="#6c3baa" stroke-dasharray="4 2" rx="4" />
-            <text x="215" y="220" fill="#9d80c4" font-size="11" font-weight="700" text-anchor="middle" transform="rotate(90 215 220)">ESCALATOR</text>
+            <text x="140" y="221" fill="#9d80c4" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">ESCALATOR</text>
 
             <!-- Corridor Walls & Lifts -->
             <polyline points="215,265 415,265 415,335 425" fill="none" stroke="#5a348a" stroke-width="2" />
             <rect x="393" y="318" width="44" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
-            <text x="415" y="350" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle">LIFT</text>
+            <text x="415" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
 
             <polyline points="650,265 612,265 612,425 690,425" fill="none" stroke="#5a348a" stroke-width="2" />
             <rect x="590" y="318" width="44" height="55" fill="#2d174a" stroke="#a370f7" stroke-width="2" rx="4" />
-            <text x="612" y="350" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle">LIFT</text>
+            <text x="612" y="345.5" fill="#e0c8ff" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="central">LIFT</text>
 
             <!-- Admissions and Counselling -->
             <rect x="10" y="485" width="388" height="155" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="6" />
-            <text x="204" y="570" fill="#a98eda" font-size="14" font-weight="700" text-anchor="middle">ADMISSIONS AND COUNSELLING</text>
+            <text x="204" y="562.5" fill="#c7b2e8" font-size="13" font-weight="700" text-anchor="middle" dominant-baseline="central">ADMISSIONS AND COUNSELLING</text>
 
-            <!-- Main Entrance -->
+            <!-- Main Entrance (Centered, Clean SVG Entrance) -->
             <rect x="415" y="602" width="198" height="40" fill="#3c1642" stroke="#ff6b00" stroke-width="3" rx="6" />
-            <text x="514" y="627" fill="#ffb703" font-size="13" font-weight="800" text-anchor="middle">🎃 MAIN ENTRANCE</text>
+            <text x="514" y="622" fill="#ffb703" font-size="13" font-weight="800" text-anchor="middle" dominant-baseline="central">MAIN ENTRANCE</text>
 
-            <!-- Middle Hub Enclosure -->
+            <!-- Middle Hub Enclosure (No Overlap, Centered Header Inside) -->
             <rect x="652" y="188" width="196" height="222" fill="#180c29" stroke="#723d9c" stroke-width="2" rx="6" />
-            <line x1="750" y1="188" x2="750" y2="410" stroke="#723d9c" stroke-width="1.5" stroke-dasharray="3 3" />
-            <text x="698" y="452" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" transform="rotate(-90 698 452)">MIDDLE HUB ENCLOSURE</text>
+            <line x1="750" y1="210" x2="750" y2="405" stroke="#723d9c" stroke-width="1.5" stroke-dasharray="3 3" />
+            <text x="750" y="200" fill="#c7b2e8" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">MIDDLE HUB ENCLOSURE</text>
 
             <!-- Register Box inside Middle Hub -->
-            <rect x="800" y="387" width="40" height="20" fill="#3a1c5e" stroke="#a370f7" stroke-width="1.5" rx="3" />
-            <text x="820" y="400" fill="#e2d4f0" font-size="7" font-weight="700" text-anchor="middle">REGISTER</text>
+            <rect x="800" y="387" width="42" height="20" fill="#3a1c5e" stroke="#a370f7" stroke-width="1.5" rx="3" />
+            <text x="821" y="397" fill="#e2d4f0" font-size="8" font-weight="700" text-anchor="middle" dominant-baseline="central">REGISTER</text>
 
-            <!-- Right Escalator, Sitting Area, Washroom -->
-            <text x="895" y="260" fill="#9d80c4" font-size="11" font-weight="700" text-anchor="middle">ESCALATOR</text>
+            <!-- Right Escalator, Sitting Area, Washroom (Aligned & Centered) -->
             <rect x="878" y="280" width="30" height="135" fill="#2b1942" stroke="#6c3baa" stroke-dasharray="4 2" rx="4" />
-            <rect x="938" y="185" width="36" height="230" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="4" />
-            <text x="956" y="300" fill="#a98eda" font-size="11" font-weight="700" text-anchor="middle" transform="rotate(90 956 300)">WASHROOM</text>
-            <text x="988" y="310" fill="#a98eda" font-size="11" font-weight="700" text-anchor="middle" transform="rotate(90 988 310)">SITTING AREA</text>
+            <text x="893" y="347.5" fill="#9d80c4" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 893 347.5)">ESCALATOR</text>
 
-            <!-- Photo Stand -->
-            <polygon id="map-PHOTO" points="815,446 858,455 858,478 815,478" fill="#ff6b00" opacity="0.85" class="booth-rect" />
-            <text x="795" y="463" fill="#ffb703" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 795 463)">PHOTO</text>
+            <rect x="938" y="185" width="46" height="230" fill="#140b24" stroke="#4a2574" stroke-width="2" rx="4" />
+            <text x="961" y="240" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 961 240)">WASHROOM</text>
+            <text x="961" y="340" fill="#c7b2e8" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 961 340)">SITTING AREA</text>
 
-            <!-- Bottom Right: UNITAR Hub Level G (Stage & Degree Booths) -->
+            <!-- Photo Stand (Clear Label Inside) -->
+            <polygon id="map-PHOTO" points="815,446 865,446 865,476 815,476" fill="#ff6b00" opacity="0.85" class="booth-rect" />
+            <text x="840" y="461" fill="#ffffff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central">PHOTO</text>
+
+            <!-- UNITAR Hub Level G (Header placed cleanly at top of zone, NO OVERLAP) -->
             <rect x="615" y="488" width="375" height="152" fill="#150a26" stroke="#8338ec" stroke-width="2.5" rx="6" />
-            <text x="772" y="565" fill="#c7d7ff" font-size="11" font-weight="800" text-anchor="middle" transform="rotate(-90 772 565)">UNITAR HUB LEVEL G</text>
+            <text x="800" y="504" fill="#c7d7ff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central">UNITAR HUB (LEVEL G)</text>
 
             <!-- In / Out Arrows -->
             <text x="892" y="478" fill="#c7b2e8" font-size="10" font-weight="800">IN</text>
@@ -325,123 +335,123 @@
             <line x1="895" y1="500" x2="895" y2="555" stroke="#c7b2e8" stroke-width="1.5" marker-end="url(#arrow)" />
             <line x1="922" y1="555" x2="922" y2="500" stroke="#c7b2e8" stroke-width="1.5" marker-end="url(#arrow)" />
 
-            <!-- Stage -->
-            <rect id="map-STAGE" x="642" y="506" width="36" height="105" fill="#e63946" stroke="#ffb703" stroke-width="2" rx="4" class="booth-rect" />
-            <text x="660" y="558" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" transform="rotate(-90 660 558)">STAGE</text>
+            <!-- Stage (Centered) -->
+            <rect id="map-STAGE" x="642" y="506" width="36" height="116" fill="#e63946" stroke="#ffb703" stroke-width="2" rx="4" class="booth-rect" />
+            <text x="660" y="564" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 660 564)">STAGE</text>
 
-            <!-- ================= INTERACTIVE BOOTHS LAYER ================= -->
+            <!-- ================= INTERACTIVE BOOTHS LAYER (CENTERED WITH DOMINANT-BASELINE) ================= -->
             <!-- Top Corridor Row 1: B01, B02, B05, B06, B08, B11 -->
             <g class="booth-group">
               <rect id="map-B01" class="booth-rect" x="118" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="148" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B01</text>
+              <text x="148" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B01</text>
 
               <rect id="map-B02" class="booth-rect" x="200" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="230" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B02</text>
+              <text x="230" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B02</text>
 
               <rect id="map-B05" class="booth-rect" x="285" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="315" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B05</text>
+              <text x="315" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B05</text>
 
               <rect id="map-B06" class="booth-rect" x="375" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="405" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B06</text>
+              <text x="405" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B06</text>
 
               <rect id="map-B08" class="booth-rect" x="468" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="498" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B08</text>
+              <text x="498" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B08</text>
 
               <rect id="map-B11" class="booth-rect" x="570" y="70" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="600" y="90" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B11</text>
+              <text x="600" y="85" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B11</text>
             </g>
 
             <!-- Top Corridor Row 2: B04, B03, B07, B09, B10, B12 -->
             <g class="booth-group">
               <rect id="map-B04" class="booth-rect" x="136" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="166" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B04</text>
+              <text x="166" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B04</text>
 
               <rect id="map-B03" class="booth-rect" x="220" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="250" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B03</text>
+              <text x="250" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B03</text>
 
               <rect id="map-B07" class="booth-rect" x="316" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="346" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B07</text>
+              <text x="346" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B07</text>
 
               <rect id="map-B09" class="booth-rect" x="415" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="445" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B09</text>
+              <text x="445" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B09</text>
 
               <rect id="map-B10" class="booth-rect" x="510" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="540" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B10</text>
+              <text x="540" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B10</text>
 
               <rect id="map-B12" class="booth-rect" x="605" y="130" width="60" height="30" rx="4" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="635" y="150" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" pointer-events="none">B12</text>
+              <text x="635" y="145" fill="#fff" font-size="12" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">B12</text>
             </g>
 
-            <!-- Middle Enclosure Booths: B14 - B20 -->
+            <!-- Middle Enclosure Booths: B14 - B20 (Centered inside rectangles) -->
             <g class="booth-group">
               <rect id="map-B14" class="booth-rect" x="664" y="196" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="220" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 675 220)" pointer-events="none">B14</text>
+              <text x="675" y="217" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 217)" pointer-events="none">B14</text>
 
               <rect id="map-B15" class="booth-rect" x="664" y="246" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="270" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 675 270)" pointer-events="none">B15</text>
+              <text x="675" y="267" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 267)" pointer-events="none">B15</text>
 
               <rect id="map-B16" class="booth-rect" x="664" y="298" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="322" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 675 322)" pointer-events="none">B16</text>
+              <text x="675" y="319" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 319)" pointer-events="none">B16</text>
 
               <rect id="map-B17" class="booth-rect" x="664" y="352" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="675" y="376" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 675 376)" pointer-events="none">B17</text>
+              <text x="675" y="373" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 675 373)" pointer-events="none">B17</text>
 
               <rect id="map-B18" class="booth-rect" x="714" y="225" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="249" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 725 249)" pointer-events="none">B18</text>
+              <text x="725" y="246" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 246)" pointer-events="none">B18</text>
 
               <rect id="map-B19" class="booth-rect" x="714" y="280" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="304" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 725 304)" pointer-events="none">B19</text>
+              <text x="725" y="301" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 301)" pointer-events="none">B19</text>
 
               <rect id="map-B20" class="booth-rect" x="714" y="334" width="22" height="42" rx="3" fill="#7b2cbf" stroke="#e0aaff" stroke-width="1" />
-              <text x="725" y="358" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 725 358)" pointer-events="none">B20</text>
+              <text x="725" y="355" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 725 355)" pointer-events="none">B20</text>
             </g>
 
-            <!-- Activity Zones: G1 - G3 -->
+            <!-- Activity Zones: G1 - G3 (Centered inside rectangles) -->
             <g class="booth-group">
               <rect id="map-G1" class="booth-rect" x="780" y="206" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="230" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 791 230)" pointer-events="none">G1</text>
+              <text x="791" y="227" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 227)" pointer-events="none">G1</text>
 
               <rect id="map-G2" class="booth-rect" x="780" y="262" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="286" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 791 286)" pointer-events="none">G2</text>
+              <text x="791" y="283" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 283)" pointer-events="none">G2</text>
 
               <rect id="map-G3" class="booth-rect" x="780" y="320" width="22" height="42" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="791" y="344" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 791 344)" pointer-events="none">G3</text>
+              <text x="791" y="341" fill="#fff" font-size="9" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 791 341)" pointer-events="none">G3</text>
             </g>
 
-            <!-- Academic Programme Booths in Level G Hub -->
+            <!-- Academic Programme Booths in Level G Hub (Centered Clean Labels) -->
             <g class="booth-group">
-              <rect id="map-BFINTECH" class="booth-rect" x="715" y="520" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="736" y="534" fill="#fff" font-size="7.5" font-weight="800" text-anchor="middle" pointer-events="none">BFINTECH</text>
+              <rect id="map-BFINTECH" class="booth-rect" x="715" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="739" y="532" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BFINTECH</text>
 
-              <rect id="map-BAF" class="booth-rect" x="768" y="520" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="789" y="534" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" pointer-events="none">BA&amp;F</text>
+              <rect id="map-BAF" class="booth-rect" x="768" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="792" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BA&amp;F</text>
 
-              <rect id="map-BACC" class="booth-rect" x="822" y="520" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="843" y="534" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" pointer-events="none">BACC</text>
+              <rect id="map-BACC" class="booth-rect" x="821" y="520" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="845" y="532" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BACC</text>
 
-              <rect id="map-BBA" class="booth-rect" x="715" y="596" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="736" y="610" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" pointer-events="none">BBA</text>
+              <rect id="map-BBA" class="booth-rect" x="715" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="739" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BBA</text>
 
-              <rect id="map-BIB" class="booth-rect" x="768" y="596" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="789" y="610" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" pointer-events="none">BIB</text>
+              <rect id="map-BIB" class="booth-rect" x="768" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="792" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BIB</text>
 
-              <rect id="map-BHRM" class="booth-rect" x="822" y="596" width="42" height="22" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="843" y="610" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" pointer-events="none">BHRM</text>
+              <rect id="map-BHRM" class="booth-rect" x="821" y="592" width="48" height="24" rx="3" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="845" y="604" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" pointer-events="none">BHRM</text>
             </g>
 
             <!-- Gift & Sales Counters -->
             <g class="booth-group">
-              <rect id="map-GIFT" class="booth-rect" x="945" y="502" width="20" height="40" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="525" fill="#fff" font-size="7.5" font-weight="800" text-anchor="middle" transform="rotate(-90 955 525)" pointer-events="none">GIFT</text>
+              <rect id="map-GIFT" class="booth-rect" x="942" y="502" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="955" y="521" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 521)" pointer-events="none">GIFT</text>
 
-              <rect id="map-SALES1" class="booth-rect" x="945" y="555" width="20" height="40" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="571" fill="#fff" font-size="7" font-weight="800" text-anchor="middle" transform="rotate(-90 955 571)" pointer-events="none">SALES1</text>
+              <rect id="map-SALES1" class="booth-rect" x="942" y="550" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="955" y="569" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 569)" pointer-events="none">SALES1</text>
 
-              <rect id="map-SALES2" class="booth-rect" x="945" y="595" width="20" height="40" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
-              <text x="955" y="618" fill="#fff" font-size="7" font-weight="800" text-anchor="middle" transform="rotate(-90 955 618)" pointer-events="none">SALES2</text>
+              <rect id="map-SALES2" class="booth-rect" x="942" y="598" width="26" height="38" rx="2" fill="#0077b6" stroke="#90e0ef" stroke-width="1" />
+              <text x="955" y="617" fill="#fff" font-size="8" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 955 617)" pointer-events="none">SALES2</text>
             </g>
 
-            <!-- ================= DYNAMIC WAYFINDING PATH LAYER ================= -->
+            <!-- Dynamic Glowing Wayfinding Path -->
             <polyline id="wayfinding-line" class="wayfinding-path hidden" points="" fill="none" stroke="#ff5400" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
             <circle id="start-dot" cx="514" cy="602" r="8" fill="#ff5400" stroke="#fff" stroke-width="2.5" class="hidden" />
             <circle id="end-beacon" cx="0" cy="0" r="14" fill="none" stroke="#ffb703" stroke-width="3" class="beacon-pulse hidden" />
@@ -449,11 +459,10 @@
         </div>
       </div>
 
-      <!-- 4.B RIGHT 1 COLUMN: STICKY BOOTH DETAILS & STEP-BY-STEP DIRECTIONS -->
-      <div id="booth-details-card" class="glass-panel-elevated p-5 lg:sticky lg:top-20">
-        <!-- Badge & Category -->
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <span id="panel-badge" class="px-3 py-1 rounded-full text-xs font-black tracking-wider uppercase bg-orange-500/20 text-orange-400 border border-orange-500/40">
+      <!-- 4.B RIGHT 1 COLUMN: STICKY BOOTH DETAILS (NO CONTACT NUMBERS) -->
+      <div id="booth-details-card" class="glass-panel-elevated p-4 sm:p-5 lg:sticky lg:top-20">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span id="panel-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider uppercase bg-orange-500/20 text-orange-400 border border-orange-500/40">
             Tap a Booth
           </span>
           <span id="panel-category" class="text-xs text-purple-300 font-medium">
@@ -461,45 +470,38 @@
           </span>
         </div>
 
-        <h4 id="panel-title" class="text-xl font-extrabold text-white mt-1">
+        <h4 id="panel-title" class="text-lg sm:text-xl font-extrabold text-white mt-1">
           Select Any Booth
         </h4>
 
-        <!-- Metadata Cards -->
-        <div class="mt-4 pt-3 border-t border-purple-800/40 space-y-2.5 text-xs">
-          <div class="flex justify-between items-center">
+        <!-- Metadata Cards (Clean, zero phone numbers) -->
+        <div class="mt-3 pt-2.5 border-t border-purple-800/40 space-y-2 text-xs">
+          <div class="flex justify-between items-center gap-2">
             <span class="text-purple-400">Represented By:</span>
-            <span id="panel-owner" class="font-bold text-white text-right">UNITAR Entrepreneurs</span>
+            <span id="panel-owner" class="font-bold text-white text-right truncate">UNITAR Entrepreneurs</span>
           </div>
 
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between items-center gap-2">
             <span class="text-purple-400">Section &amp; Zone:</span>
             <span id="panel-section" class="font-bold text-purple-200">All Sections</span>
-          </div>
-
-          <div class="flex justify-between items-center">
-            <span class="text-purple-400">Contact Seller:</span>
-            <div class="flex items-center gap-2">
-              <a id="panel-phone" href="#" class="font-bold text-orange-400 hover:underline">📞 -</a>
-              <a id="panel-whatsapp" href="#" target="_blank" class="font-bold text-emerald-400 hover:underline">💬 Chat</a>
-            </div>
           </div>
         </div>
 
         <!-- Walking Directions Box -->
-        <div class="mt-4 p-3.5 rounded-xl bg-purple-950/60 border border-purple-700/40 text-xs text-purple-100">
-          <div class="flex items-center gap-1.5 font-bold text-orange-400 uppercase tracking-wider text-[11px] mb-1">
-            <span>🧭</span> Walking Directions:
+        <div class="mt-3.5 p-3 rounded-xl bg-purple-950/60 border border-purple-700/40 text-xs text-purple-100">
+          <div class="flex items-center gap-1.5 font-bold text-orange-400 uppercase tracking-wider text-[10px] mb-1">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <span>Walking Directions</span>
           </div>
-          <p id="panel-directions" class="leading-relaxed">
-            Click on any booth number on the floor plan or from the directory below to trace the animated glowing path from the Main Entrance!
+          <p id="panel-directions" class="leading-relaxed text-[11px] sm:text-xs">
+            Tap any booth on the floor plan or directory below to trace the animated walking route from the Main Entrance!
           </p>
         </div>
 
         <!-- Stamp in Passport Action -->
-        <div class="mt-4">
-          <button id="panel-stamp-btn" class="hidden w-full py-2.5 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2">
-            <span>🎃 Stamp this Booth</span>
+        <div class="mt-3.5">
+          <button id="panel-stamp-btn" class="hidden w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2">
+            <span>Stamp this Booth</span>
           </button>
         </div>
       </div>
@@ -509,14 +511,14 @@
   <!-- =========================================================================
        5. BOOTH DIRECTORY & REAL-TIME SEARCH SECTION
        ========================================================================= -->
-  <section id="directory-section" class="relative z-10 py-10 px-4 max-w-7xl mx-auto w-full border-t border-purple-900/30">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+  <section id="directory-section" class="relative z-10 py-8 px-3 sm:px-4 max-w-7xl mx-auto w-full border-t border-purple-900/30">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4">
       <div>
-        <span class="text-xs uppercase tracking-widest text-orange-400 font-extrabold block">Support Small Businesses</span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2">
-          <span>🛍️</span> Booth Directory &amp; Sellers
+        <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">Support Small Businesses</span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
+          <span>Booth Directory &amp; Sellers</span>
         </h3>
-        <p id="booths-count-display" class="text-xs sm:text-sm text-purple-300 mt-1">
+        <p id="booths-count-display" class="text-xs text-purple-300 mt-0.5">
           Showing all booths
         </p>
       </div>
@@ -527,131 +529,133 @@
           type="text"
           id="booth-search"
           placeholder="Search booth #, name, craft, owner..."
-          class="w-full bg-[#161327] border border-purple-700/40 focus:border-orange-500 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-purple-400/60 outline-none transition shadow-inner"
+          class="w-full bg-[#161327] border border-purple-700/40 focus:border-orange-500 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white placeholder-purple-400/60 outline-none transition shadow-inner"
         />
-        <span class="absolute right-3.5 top-2.5 text-purple-400 text-sm">🔍</span>
+        <span class="absolute right-3.5 top-2.5 text-purple-400">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
       </div>
     </div>
 
     <!-- Category Filter Chips (Swipeable on Mobile) -->
-    <div class="flex items-center gap-2 mb-6 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap" id="filter-pills-container">
-      <button data-filter="ALL" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-orange-500 text-slate-950 border border-orange-400">
+    <div class="flex items-center gap-1.5 mb-5 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap" id="filter-pills-container">
+      <button data-filter="ALL" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-orange-500 text-slate-950 border border-orange-400">
         All Booths (33)
       </button>
-      <button data-filter="MC-S2" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="MC-S2" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Top Corridor (MC-S2)
       </button>
-      <button data-filter="MC-S3" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="MC-S3" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Middle Hub (MC-S3)
       </button>
-      <button data-filter="ACADEMIC" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="ACADEMIC" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Degree Programmes
       </button>
-      <button data-filter="HUB" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
+      <button data-filter="HUB" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Activity &amp; Highlights
       </button>
-      <button data-filter="UNSTAMPED" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-orange-500">
-        🎯 Left to Visit
+      <button data-filter="UNSTAMPED" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-orange-500">
+        Left to Visit
       </button>
-      <button data-filter="STAMPED" class="filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-emerald-500">
-        ✓ Stamped
+      <button data-filter="STAMPED" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-emerald-500">
+        Stamped
       </button>
     </div>
 
     <!-- Dynamic Booth Cards Grid -->
-    <div id="booth-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div id="booth-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
       <!-- Populated dynamically by app.js -->
     </div>
   </section>
 
   <!-- =========================================================================
-       6. CUSTOMER-FACING PROGRAMME AGENDA
+       6. CUSTOMER-FACING PROGRAMME AGENDA (CLEAN & PUNCHY FOR MOBILE)
        ========================================================================= -->
-  <section id="agenda-section" class="relative z-10 py-10 px-4 max-w-4xl mx-auto w-full border-t border-purple-900/30">
-    <div class="text-center mb-8">
-      <span class="text-xs uppercase tracking-widest text-orange-400 font-extrabold block">Event Timeline</span>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center gap-2">
-        <span>⏱️</span> Programme Agenda
+  <section id="agenda-section" class="relative z-10 py-8 px-3 sm:px-4 max-w-3xl mx-auto w-full border-t border-purple-900/30">
+    <div class="text-center mb-6">
+      <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">Event Timeline</span>
+      <h3 class="text-xl sm:text-2xl font-extrabold text-white flex items-center justify-center gap-2">
+        <span>Programme Agenda</span>
       </h3>
-      <p class="text-xs sm:text-sm text-purple-300 mt-1">
+      <p class="text-xs text-purple-300 mt-0.5">
         Wednesday, 21st October 2026 • Level G, UNITAR Hub
       </p>
     </div>
 
     <!-- Timeline Container -->
-    <div class="space-y-4">
+    <div class="space-y-3">
       <!-- Slot 1: 9:30 AM -->
-      <div class="glass-panel p-5 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="glass-panel p-4 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
               9:30 AM
             </span>
-            <span id="slot-badge-930" class="text-[11px] font-bold text-purple-400"></span>
+            <span id="slot-badge-930" class="text-[10px] font-bold text-purple-400"></span>
           </div>
-          <h4 class="text-base font-extrabold text-white">Starting of Prop and Pop Market</h4>
-          <p class="text-xs text-purple-200 mt-1">
-            All student entrepreneur booths (B01–B20) open for visitors! Explore handcrafted gifts, florists, crochet, henna body art, and accessories.
+          <h4 class="text-sm font-extrabold text-white">Starting of Prop and Pop Market</h4>
+          <p class="text-xs text-purple-200 mt-0.5 leading-snug">
+            All student entrepreneur booths (B01–B20) open for visitors! Handcrafted gifts, florists, crochet, henna &amp; jewelry.
           </p>
         </div>
-        <button onclick="document.getElementById('directory-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-4 py-2 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 text-xs font-bold transition shrink-0">
+        <button onclick="document.getElementById('directory-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-3 py-1.5 rounded-lg bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 text-xs font-bold transition shrink-0">
           Browse Booths →
         </button>
       </div>
 
       <!-- Slot 2: 2:00 PM -->
-      <div class="glass-panel p-5 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="glass-panel p-4 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
               2:00 PM
             </span>
-            <span id="slot-badge-1400" class="text-[11px] font-bold text-purple-400"></span>
+            <span id="slot-badge-1400" class="text-[10px] font-bold text-purple-400"></span>
           </div>
-          <h4 class="text-base font-extrabold text-white">Transfer Programme Opening &amp; Dean's Address</h4>
-          <p class="text-xs text-purple-200 mt-1">
+          <h4 class="text-sm font-extrabold text-white">Transfer Programme Opening &amp; Dean's Address</h4>
+          <p class="text-xs text-purple-200 mt-0.5 leading-snug">
             Official opening speech by the Faculty of Business Acting Dean at the Main Stage (UNITAR Hub).
           </p>
         </div>
-        <button onclick="selectBooth('STAGE', true); document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-4 py-2 rounded-lg bg-purple-900/40 hover:bg-purple-800 text-purple-200 text-xs font-bold transition shrink-0">
+        <button onclick="selectBooth('STAGE', true); document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-3 py-1.5 rounded-lg bg-purple-900/40 hover:bg-purple-800 text-purple-200 text-xs font-bold transition shrink-0">
           Locate Stage →
         </button>
       </div>
 
       <!-- Slot 3: 2:15 PM -->
-      <div class="glass-panel p-5 border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="glass-panel p-4 border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-orange-500 text-slate-950">
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500 text-slate-950">
               2:15 PM
             </span>
-            <span id="slot-badge-1415" class="text-[11px] font-bold text-orange-400"></span>
+            <span id="slot-badge-1415" class="text-[10px] font-bold text-orange-400"></span>
           </div>
-          <h4 class="text-base font-extrabold text-white">Activity Booth Initiation &amp; Passport Challenge</h4>
-          <p class="text-xs text-purple-200 mt-1">
-            Explore bachelor's degree programme booths (BIB, BHRM, BACC, BBA, BFINTECH, BA&amp;F) inside UNITAR Hub Zone and collect stamps for the mystery prize!
+          <h4 class="text-sm font-extrabold text-white">Degree Booth Initiation &amp; Passport Challenge</h4>
+          <p class="text-xs text-purple-200 mt-0.5 leading-snug">
+            Visit bachelor's degree booths (BIB, BHRM, BACC, BBA, BFINTECH, BA&amp;F) and collect stamps for mystery prizes!
           </p>
         </div>
-        <button onclick="openPassportModal()" class="self-start sm:self-center px-4 py-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-slate-950 text-xs font-black transition shrink-0">
+        <button onclick="openPassportModal()" class="self-start sm:self-center px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-slate-950 text-xs font-black transition shrink-0">
           Open Passport →
         </button>
       </div>
 
       <!-- Slot 4: 4:30 PM -->
-      <div class="glass-panel p-5 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="glass-panel p-4 border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/40">
               4:30 PM
             </span>
-            <span id="slot-badge-1630" class="text-[11px] font-bold text-purple-400"></span>
+            <span id="slot-badge-1630" class="text-[10px] font-bold text-purple-400"></span>
           </div>
-          <h4 class="text-base font-extrabold text-white">Closing Ceremony &amp; Group Photo Taking</h4>
-          <p class="text-xs text-purple-200 mt-1">
-            Wrap up the day with group photo sessions at the Halloween Photo Stand and final visits before the market concludes!
+          <h4 class="text-sm font-extrabold text-white">Closing Ceremony &amp; Group Photo Taking</h4>
+          <p class="text-xs text-purple-200 mt-0.5 leading-snug">
+            Wrap up the day with group photo sessions at the Halloween Photo Stand and final visits before market concludes!
           </p>
         </div>
-        <button onclick="selectBooth('PHOTO', true); document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-4 py-2 rounded-lg bg-purple-900/40 hover:bg-purple-800 text-purple-200 text-xs font-bold transition shrink-0">
+        <button onclick="selectBooth('PHOTO', true); document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });" class="self-start sm:self-center px-3 py-1.5 rounded-lg bg-purple-900/40 hover:bg-purple-800 text-purple-200 text-xs font-bold transition shrink-0">
           Photo Stand →
         </button>
       </div>
@@ -659,65 +663,65 @@
   </section>
 
   <!-- =========================================================================
-       7. PROGRAMME OBJECTIVES & ORGANIZERS CONTACT
+       7. PROGRAMME OBJECTIVES & EVENT COMMITTEE (NO CONTACT NUMBERS)
        ========================================================================= -->
-  <section id="info-section" class="relative z-10 py-10 px-4 max-w-7xl mx-auto w-full border-t border-purple-900/30">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <section id="info-section" class="relative z-10 py-8 px-3 sm:px-4 max-w-7xl mx-auto w-full border-t border-purple-900/30">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <!-- Objectives Card -->
-      <div class="glass-panel p-6 border-purple-800/40">
-        <span class="text-xs uppercase tracking-widest text-orange-400 font-extrabold block">About the Event</span>
-        <h4 class="text-xl font-extrabold text-white mt-1 mb-4 flex items-center gap-2">
-          <span>🎯</span> Programme Objectives
+      <div class="glass-panel p-5 border-purple-800/40">
+        <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">About the Event</span>
+        <h4 class="text-lg font-extrabold text-white mt-0.5 mb-3">
+          Programme Objectives
         </h4>
-        <ul class="space-y-3 text-xs sm:text-sm text-purple-200">
-          <li class="flex items-start gap-2.5">
+        <ul class="space-y-2 text-xs text-purple-200">
+          <li class="flex items-start gap-2">
             <span class="text-orange-400 font-black">01.</span>
             <span>Provide students with comprehensive information on bachelor's degree programmes and transfer pathways offered by UNITAR.</span>
           </li>
-          <li class="flex items-start gap-2.5">
+          <li class="flex items-start gap-2">
             <span class="text-orange-400 font-black">02.</span>
-            <span>Introduce students to the fundamental processes and practical procedures in planning and executing university events.</span>
+            <span>Introduce students to the fundamental processes and practical procedures in planning and organising events.</span>
           </li>
-          <li class="flex items-start gap-2.5">
+          <li class="flex items-start gap-2">
             <span class="text-orange-400 font-black">03.</span>
-            <span>Equip students with relevant knowledge, problem-solving abilities, and practical skills in management.</span>
+            <span>Equip students with relevant knowledge, problem-solving skills, and management practical experience.</span>
           </li>
-          <li class="flex items-start gap-2.5">
+          <li class="flex items-start gap-2">
             <span class="text-orange-400 font-black">04.</span>
-            <span>Provide students with experiential learning in entrepreneurship, retail marketing, and client handling.</span>
+            <span>Provide experiential learning in entrepreneurship, retail marketing, and client handling.</span>
           </li>
         </ul>
       </div>
 
-      <!-- Organizers & Hotline Card -->
-      <div class="glass-panel p-6 border-purple-800/40 flex flex-col justify-between">
+      <!-- Committee & Inquiries Card (NO CONTACT NUMBERS) -->
+      <div class="glass-panel p-5 border-purple-800/40 flex flex-col justify-between">
         <div>
-          <span class="text-xs uppercase tracking-widest text-orange-400 font-extrabold block">Need Assistance?</span>
-          <h4 class="text-xl font-extrabold text-white mt-1 mb-2 flex items-center gap-2">
-            <span>📞</span> Event Organizers &amp; Contact
+          <span class="text-[10px] uppercase tracking-widest text-orange-400 font-extrabold block">Need Assistance?</span>
+          <h4 class="text-lg font-extrabold text-white mt-0.5 mb-2">
+            Event Committee &amp; Info Desk
           </h4>
-          <p class="text-xs text-purple-300 mb-4">
-            Have questions about booth locations, the passport system, or entrepreneurship stalls? Reach out to our event leads:
+          <p class="text-xs text-purple-300 mb-3">
+            Have questions about booth locations or the passport system? Visit our friendly student event team at Level G:
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a href="tel:01129948241" class="glass-panel p-3.5 hover:border-orange-500 transition block">
-              <span class="text-[10px] text-purple-400 uppercase font-bold block">Event Lead</span>
-              <span class="text-sm font-extrabold text-white block mt-0.5">Sai Lakshmi</span>
-              <span class="text-xs font-bold text-orange-400 mt-1 block">📞 011-29948241</span>
-            </a>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div class="glass-panel p-3 border-purple-700/40">
+              <span class="text-[9px] text-purple-400 uppercase font-bold block">Event Lead</span>
+              <span class="text-xs sm:text-sm font-extrabold text-white block mt-0.5">Sai Lakshmi</span>
+              <span class="text-[10px] text-orange-300/90 font-medium mt-0.5 block">Student Organizing Committee</span>
+            </div>
 
-            <a href="tel:0195781405" class="glass-panel p-3.5 hover:border-orange-500 transition block">
-              <span class="text-[10px] text-purple-400 uppercase font-bold block">Registration Lead</span>
-              <span class="text-sm font-extrabold text-white block mt-0.5">Dhivyah</span>
-              <span class="text-xs font-bold text-orange-400 mt-1 block">📞 019-5781405</span>
-            </a>
+            <div class="glass-panel p-3 border-purple-700/40">
+              <span class="text-[9px] text-purple-400 uppercase font-bold block">Registration Lead</span>
+              <span class="text-xs sm:text-sm font-extrabold text-white block mt-0.5">Dhivyah</span>
+              <span class="text-[10px] text-orange-300/90 font-medium mt-0.5 block">Registration &amp; Passport Desk</span>
+            </div>
           </div>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-purple-800/40 flex items-center justify-between text-xs text-purple-300">
+        <div class="mt-4 pt-3 border-t border-purple-800/40 flex items-center justify-between text-xs text-purple-300">
           <span>Venue: Level G, UNITAR Hub</span>
-          <span class="text-orange-400 font-bold">100+ UNITARians Gathering</span>
+          <span class="text-orange-400 font-bold">100+ UNITARians</span>
         </div>
       </div>
     </div>
@@ -726,38 +730,38 @@
   <!-- =========================================================================
        8. DIGITAL PASSPORT MODAL (33 STAMP QUEST & REDEMPTION)
        ========================================================================= -->
-  <div id="passport-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="glass-panel-elevated w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 border-orange-500/40 relative">
+  <div id="passport-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md">
+    <div class="glass-panel-elevated w-full max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6 border-orange-500/40 relative">
       <!-- Modal Header -->
-      <div class="flex items-center justify-between border-b border-purple-800/40 pb-4 mb-4">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-2xl border border-orange-500/40">
-            📜
+      <div class="flex items-center justify-between border-b border-purple-800/40 pb-3 mb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center text-lg border border-orange-500/40">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
           </div>
           <div>
-            <h3 class="text-xl font-extrabold text-white">Digital Halloween Passport</h3>
-            <p class="text-xs text-purple-300">Tap any booth to mark it as visited and collect your stamp!</p>
+            <h3 class="text-base sm:text-lg font-extrabold text-white">Digital Halloween Passport</h3>
+            <p class="text-[11px] text-purple-300">Tap any booth to mark as visited and collect your stamp!</p>
           </div>
         </div>
-        <button onclick="closePassportModal()" class="text-purple-300 hover:text-white p-2 rounded-lg bg-purple-950/60 transition text-lg">
+        <button onclick="closePassportModal()" class="text-purple-300 hover:text-white p-1.5 rounded-lg bg-purple-950/60 transition text-sm">
           ✕
         </button>
       </div>
 
       <!-- Passport Progress & Claim Banner -->
-      <div class="p-4 rounded-xl bg-purple-950/70 border border-purple-700/50 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="p-3 sm:p-4 rounded-xl bg-purple-950/70 border border-purple-700/50 mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
-          <span class="text-xs uppercase font-extrabold text-orange-400 tracking-wider">Stamp Collection Progress</span>
-          <h4 id="passport-modal-status" class="text-base font-extrabold text-white mt-0.5">
+          <span class="text-[10px] uppercase font-extrabold text-orange-400 tracking-wider">Stamp Collection Progress</span>
+          <h4 id="passport-modal-status" class="text-xs sm:text-sm font-extrabold text-white mt-0.5">
             Collect stamps to redeem free gifts at the Hub!
           </h4>
-          <p class="text-xs text-purple-300 mt-1">
+          <p class="text-[11px] text-purple-300 mt-0.5">
             Need at least 5 stamps to unlock the mystery prize voucher.
           </p>
         </div>
 
-        <button onclick="redeemPrize()" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition shrink-0">
-          🎁 Redeem Prize Voucher
+        <button onclick="redeemPrize()" class="w-full sm:w-auto px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 text-slate-950 font-black text-xs shadow-lg shadow-orange-500/30 transition shrink-0">
+          Redeem Prize Voucher
         </button>
       </div>
 
@@ -767,11 +771,11 @@
       </div>
 
       <!-- Modal Footer -->
-      <div class="mt-6 pt-4 border-t border-purple-800/40 flex items-center justify-between text-xs text-purple-400">
+      <div class="mt-4 pt-3 border-t border-purple-800/40 flex items-center justify-between text-xs text-purple-400">
         <button onclick="passport.reset()" class="hover:text-red-400 transition underline">
           Reset All Stamps
         </button>
-        <button onclick="closePassportModal()" class="px-4 py-2 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-white font-bold transition">
+        <button onclick="closePassportModal()" class="px-4 py-1.5 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-white font-bold transition text-xs">
           Done
         </button>
       </div>
@@ -782,27 +786,27 @@
        9. PRIZE VOUCHER REDEMPTION MODAL
        ========================================================================= -->
   <div id="voucher-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-    <div class="glass-panel-elevated w-full max-w-md p-6 border-emerald-500/50 text-center relative">
-      <button onclick="closeVoucherModal()" class="absolute right-4 top-4 text-purple-300 hover:text-white text-lg">✕</button>
+    <div class="glass-panel-elevated w-full max-w-sm p-5 border-emerald-500/50 text-center relative">
+      <button onclick="closeVoucherModal()" class="absolute right-3.5 top-3.5 text-purple-300 hover:text-white text-base">✕</button>
 
-      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-3xl mx-auto mb-3 border border-emerald-500/40">
-        🏆
+      <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center mx-auto mb-2.5 border border-emerald-500/40">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
       </div>
 
-      <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-400">Official Verification Voucher</span>
-      <h3 class="text-xl font-extrabold text-white mt-1">Halloween Passport Qualified!</h3>
-      <p class="text-xs text-purple-200 mt-2">
-        Present this verified digital voucher at the <strong class="text-orange-400">Passport Gift Redemption Counter</strong> (UNITAR Hub Level G) to claim your event token!
+      <span class="text-[10px] uppercase font-extrabold tracking-widest text-emerald-400">Official Verification Voucher</span>
+      <h3 class="text-lg font-extrabold text-white mt-0.5">Passport Qualified!</h3>
+      <p class="text-xs text-purple-200 mt-1.5 leading-snug">
+        Present this verified digital voucher at the <strong class="text-orange-400">Passport Gift Counter</strong> (Level G Hub) to claim your event token!
       </p>
 
       <!-- Unique Voucher Code Box -->
-      <div class="my-6 p-4 rounded-xl bg-slate-950/90 border border-emerald-500/40">
-        <span class="text-[10px] text-purple-400 uppercase tracking-widest block font-bold">Voucher ID</span>
-        <span id="voucher-code" class="text-2xl font-black font-mono text-emerald-300 tracking-wider block mt-1">UPP-HALLOWEEN-2026</span>
-        <span class="text-[10px] text-purple-400 block mt-1">Valid only on 21st Oct 2026</span>
+      <div class="my-4 p-3 rounded-xl bg-slate-950/90 border border-emerald-500/40">
+        <span class="text-[9px] text-purple-400 uppercase tracking-widest block font-bold">Voucher ID</span>
+        <span id="voucher-code" class="text-xl font-black font-mono text-emerald-300 tracking-wider block mt-0.5">UPP-HALLOWEEN-2026</span>
+        <span class="text-[9px] text-purple-400 block mt-0.5">Valid only on 21st Oct 2026</span>
       </div>
 
-      <button onclick="closeVoucherModal()" class="w-full py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition">
+      <button onclick="closeVoucherModal()" class="w-full py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition">
         Understood &amp; Close
       </button>
     </div>
@@ -811,43 +815,45 @@
   <!-- =========================================================================
        10. FOOTER
        ========================================================================= -->
-  <footer class="mt-auto relative z-10 py-8 px-4 border-t border-purple-900/30 bg-[#06050b] text-center text-xs text-purple-400">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2 font-bold text-white">
-        <span>🎃</span> UNITAR Prop and Pop Market 2026
+  <footer class="mt-auto relative z-10 py-6 px-4 border-t border-purple-900/30 bg-[#06050b] text-center text-xs text-purple-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2 font-bold text-white text-xs">
+        <svg class="w-4 h-4 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4c-4.97 0-9 3.58-9 8s4.03 8 9 8 9-3.58 9-8-4.03-8-9-8z"/></svg>
+        <span>UNITAR Prop and Pop Market 2026</span>
       </div>
-      <div class="text-purple-400">
+      <div class="text-purple-400 text-[11px]">
         Where Creativity Meets Business • #ACCELERATEYourFuture
       </div>
       <div class="flex items-center gap-4 text-xs font-semibold">
         <a href="qr-standee.html" target="_blank" class="text-orange-400 hover:underline">Printable QR Standee</a>
-        <a href="#map-section" class="text-purple-300 hover:underline">Top of Page ↑</a>
+        <a href="#map-section" class="text-purple-300 hover:underline">Top ↑</a>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================================
-       11. MOBILE BOTTOM ACTION BAR (PHONES ONLY)
+       11. MOBILE BOTTOM ACTION BAR (PHONES ONLY - DYNAMIC ACTIVE HIGHLIGHTS)
        ========================================================================= -->
   <div class="fixed bottom-3 inset-x-3 z-40 md:hidden">
-    <div class="mobile-bottom-nav flex items-center justify-around py-2 px-3">
-      <a href="#map-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
-        <span class="text-base">🗺️</span>
+    <div class="mobile-bottom-nav flex items-center justify-around py-2 px-2">
+      <a id="mobile-nav-map" href="#map-section" class="mobile-nav-item flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-purple-300 transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
         <span>Map</span>
       </a>
 
-      <a href="#directory-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
-        <span class="text-base">🛍️</span>
+      <a id="mobile-nav-directory" href="#directory-section" class="mobile-nav-item flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-purple-300 transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M2 7h20"/></svg>
         <span>Booths</span>
       </a>
 
-      <button onclick="openPassportModal()" class="flex flex-col items-center gap-1 text-[10px] font-bold text-orange-400 hover:text-orange-300 transition relative">
-        <span class="text-base">📜</span>
+      <!-- Passport Button: Highlights ONLY when active/clicked, never permanently -->
+      <button id="mobile-nav-passport" onclick="openPassportModal()" class="mobile-nav-item flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-purple-300 transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
         <span>Passport</span>
       </button>
 
-      <a href="#agenda-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-purple-200 hover:text-white transition">
-        <span class="text-base">⏱️</span>
+      <a id="mobile-nav-agenda" href="#agenda-section" class="mobile-nav-item flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-purple-300 transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>Agenda</span>
       </a>
     </div>
