@@ -338,10 +338,10 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 839,
+    cx: 784,
     cy: 469,
-    path: "524,528 524,400 903,400 903,490 839,490 839,478",
-    directions: "Turn right toward UNITAR Hub 'IN' entrance; BACC is on top row right."
+    path: "524,528 524,400 903,400 903,490 784,490 784,478",
+    directions: "Turn right toward UNITAR Hub 'IN' entrance; BACC is on top row right next to BFINTECH."
   },
   {
     id: "BBA",
