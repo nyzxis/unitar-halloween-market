@@ -326,9 +326,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 732,
+    cx: 729,
     cy: 469,
-    path: "524,528 524,400 903,400 903,490 732,490 732,478",
+    path: "524,528 524,400 903,400 903,490 729,490 729,478",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is on the top row left."
   },
   {
@@ -338,9 +338,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 786,
+    cx: 784,
     cy: 469,
-    path: "524,528 524,400 903,400 903,490 786,490 786,478",
+    path: "524,528 524,400 903,400 903,490 784,490 784,478",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BA&F is in middle of top row."
   },
   {
@@ -350,9 +350,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 838,
-    cy: 467,
-    path: "524,528 524,400 903,400 903,490 838,490 838,476",
+    cx: 839,
+    cy: 469,
+    path: "524,528 524,400 903,400 903,490 839,490 839,478",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BACC is on top row right."
   },
   {
@@ -362,9 +362,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 732,
+    cx: 729,
     cy: 539,
-    path: "524,528 524,400 903,400 903,505 732,505 732,529",
+    path: "524,528 524,400 903,400 903,510 729,510 729,530",
     directions: "Turn right toward UNITAR Hub 'IN' entrance and walk down to BBA near Main Stage."
   },
   {
@@ -374,9 +374,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 788,
+    cx: 784,
     cy: 539,
-    path: "524,528 524,400 903,400 903,505 788,505 788,530",
+    path: "524,528 524,400 903,400 903,510 784,510 784,530",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BIB is in middle of bottom row."
   },
   {
@@ -386,9 +386,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 840,
-    cy: 538,
-    path: "524,528 524,400 903,400 903,505 840,505 840,529",
+    cx: 839,
+    cy: 539,
+    path: "524,528 524,400 903,400 903,510 839,510 839,530",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BHRM is on bottom row 3rd booth."
   },
   {
@@ -398,9 +398,9 @@ const BOOTHS_DATA = [
     owner: "Event Vendors & Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 890,
-    cy: 537,
-    path: "524,528 524,400 903,400 903,505 890,505 890,528",
+    cx: 894,
+    cy: 539,
+    path: "524,528 524,400 903,400 903,510 894,510 894,530",
     directions: "Turn right toward UNITAR Hub 'IN' entrance; Food booth is on bottom row next to BHRM."
   },
 
@@ -412,9 +412,9 @@ const BOOTHS_DATA = [
     owner: "Faculty of Business",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 665,
-    cy: 495,
-    path: "524,528 524,400 903,400 903,490 677,490",
+    cx: 664,
+    cy: 499,
+    path: "524,528 524,400 903,400 903,499 683,499",
     directions: "Walk forward from Main Entrance, turn right down walkway past Photo Stand to Stage."
   },
   {
@@ -436,9 +436,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 976,
-    cy: 461,
-    path: "524,528 524,400 903,400 903,461 967,461",
+    cx: 969,
+    cy: 451,
+    path: "524,528 524,400 903,400 903,451 960,451",
     directions: "Follow walkway into UNITAR Hub; Gift Counter is along the far right wall."
   },
   {
@@ -448,9 +448,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 976,
-    cy: 507,
-    path: "524,528 524,400 903,400 903,507 967,507",
+    cx: 969,
+    cy: 499,
+    path: "524,528 524,400 903,400 903,499 960,499",
     directions: "Located on far right wall inside UNITAR Hub Level G below Gift Counter."
   },
   {
@@ -460,9 +460,9 @@ const BOOTHS_DATA = [
     owner: "Event Committee",
     section: "HUB",
     zone: "Academic Hub",
-    cx: 976,
-    cy: 552,
-    path: "524,528 524,400 903,400 903,552 967,552",
+    cx: 969,
+    cy: 547,
+    path: "524,528 524,400 903,400 903,547 960,547",
     directions: "Located at bottom-right corner inside UNITAR Hub Level G."
   }
 ];
