@@ -351,14 +351,6 @@
             <!-- Middle Hub Entrance Label & Photo Stand -->
             <text x="709" y="395" fill="#c7b2e8" font-size="8.5" font-weight="800" text-anchor="middle" dominant-baseline="central" transform="rotate(90 709 395)">ENTRANCE</text>
 
-            <!-- Photo Stand (With 3D Backdrop Graphic & Text) -->
-            <g id="map-PHOTO" class="booth-rect cursor-pointer">
-              <polygon points="825,419 864,415 868,393 829,396" fill="#ff6b00" stroke="#ffa200" stroke-width="1.5" opacity="0.95" />
-              <line x1="835" y1="418" x2="838" y2="423" stroke="#ffa200" stroke-width="2" />
-              <line x1="855" y1="416" x2="858" y2="421" stroke="#ffa200" stroke-width="2" />
-            </g>
-            <text x="806" y="399" fill="#c7b2e8" font-size="7.5" font-weight="800" text-anchor="middle">PHOTO</text>
-            <text x="806" y="411" fill="#c7b2e8" font-size="7.5" font-weight="800" text-anchor="middle">STAND</text>
 
             <!-- Right Vertical Escalator, Sitting Area, Washroom -->
             <rect x="888" y="247" width="28" height="122" fill="url(#escalator-ribs-v)" stroke="#a370f7" stroke-width="2" rx="3" />
@@ -627,7 +619,7 @@
     <!-- Category Filter Chips (Swipeable on Mobile) -->
     <div class="flex items-center gap-1.5 mb-5 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap" id="filter-pills-container">
       <button data-filter="ALL" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-orange-500 text-slate-950 border border-orange-400">
-        All Booths (34)
+        All Booths (33)
       </button>
       <button data-filter="MC-S2" class="filter-btn shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-purple-950/40 text-purple-300 border border-purple-700/30 hover:border-purple-500">
         Top &amp; West Corridor (MC-S2)
@@ -737,14 +729,11 @@
             </span>
             <span id="slot-badge-1630" class="text-[10px] font-bold text-purple-400"></span>
           </div>
-          <h4 class="text-sm font-extrabold text-white">Closing Ceremony &amp; Group Photo Taking</h4>
+          <h4 class="text-sm font-extrabold text-white">Closing Ceremony &amp; Group Photos</h4>
           <p class="text-xs text-purple-200 mt-0.5 leading-snug">
-            Wrap up the day with group photo sessions at the Halloween Photo Stand and final visits before market concludes!
+            Wrap up the day with group photo sessions, announcement of winners, and final visits before market concludes!
           </p>
         </div>
-        <button onclick="selectBooth('PHOTO', true); scrollToMap();" class="self-start sm:self-center px-3 py-1.5 rounded-lg bg-purple-900/40 hover:bg-purple-800 text-purple-200 text-xs font-bold transition shrink-0">
-          Photo Stand →
-        </button>
       </div>
     </div>
   </section>
@@ -788,22 +777,8 @@
             Event Committee &amp; Info Desk
           </h4>
           <p class="text-xs text-purple-300 mb-3">
-            Have questions about booth locations or the passport system? Visit our friendly student event team at Level G:
+            Have questions about booth locations or the passport quest? Connect with our student organizing team via our official event social channels below or visit the Registration Desk at Level G:
           </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <div class="glass-panel p-3 border-purple-700/40">
-              <span class="text-[9px] text-purple-400 uppercase font-bold block">Event Lead</span>
-              <span class="text-xs sm:text-sm font-extrabold text-white block mt-0.5">Sai Lakshmi</span>
-              <span class="text-[10px] text-orange-300/90 font-medium mt-0.5 block">Student Organizing Committee</span>
-            </div>
-
-            <div class="glass-panel p-3 border-purple-700/40">
-              <span class="text-[9px] text-purple-400 uppercase font-bold block">Registration Lead</span>
-              <span class="text-xs sm:text-sm font-extrabold text-white block mt-0.5">Dhivyah</span>
-              <span class="text-[10px] text-orange-300/90 font-medium mt-0.5 block">Registration &amp; Passport Desk</span>
-            </div>
-          </div>
 
           <!-- Official Event Social Media Channels -->
           <div class="mt-3 pt-3 border-t border-purple-800/40">

@@ -415,19 +415,7 @@ const BOOTHS_DATA = [
     cx: 664,
     cy: 499,
     path: "524,528 524,400 903,400 903,499 683,499",
-    directions: "Walk forward from Main Entrance, turn right down walkway past Photo Stand to Stage."
-  },
-  {
-    id: "PHOTO",
-    name: "HALLOWEEN PHOTO STAND",
-    category: "Photo Spot",
-    owner: "Prop & Pop Committee",
-    section: "HUB",
-    zone: "Middle Hub",
-    cx: 846,
-    cy: 407,
-    path: "524,528 524,407 825,407",
-    directions: "Walk slightly up and turn right; Photo Stand is located between Middle Hub and Level G entrance."
+    directions: "Walk forward from Main Entrance, turn right down walkway to Stage."
   },
   {
     id: "GIFT",
