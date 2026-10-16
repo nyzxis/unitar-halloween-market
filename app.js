@@ -130,9 +130,9 @@ const BOOTHS_DATA = [
     matric: "MC240929677",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 24,
+    cx: 39,
     cy: 374,
-    path: "524,528 524,400 80,400 80,374 37,374",
+    path: "524,528 524,400 80,400 80,374 52,374",
     directions: "From Entrance, turn left toward Admissions; B08 is at the bottom of West Corridor outer wall across B11."
   },
   {
@@ -143,9 +143,9 @@ const BOOTHS_DATA = [
     matric: "MC240930186",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 24,
+    cx: 39,
     cy: 297,
-    path: "524,528 524,400 80,400 80,297 37,297",
+    path: "524,528 524,400 80,400 80,297 52,297",
     directions: "Walk down West Corridor outer aisle; B09 is in the middle between B08 and B10 across B12."
   },
   {
@@ -156,9 +156,9 @@ const BOOTHS_DATA = [
     matric: "MC240527875",
     section: "MC-S2",
     zone: "West Corridor",
-    cx: 24,
+    cx: 39,
     cy: 224,
-    path: "524,528 524,400 80,400 80,224 37,224",
+    path: "524,528 524,400 80,400 80,224 52,224",
     directions: "Turn left into West Corridor; B10 is at the top of the outer column below Trophy circle across B13."
   },
   {
