@@ -332,18 +332,6 @@ const BOOTHS_DATA = [
     directions: "Turn right toward UNITAR Hub 'IN' entrance; BFINTECH is on the top row left."
   },
   {
-    id: "BAF",
-    name: "Bachelor of Accounting & Finance",
-    category: "Degree Academic Showcase (2:15 PM)",
-    owner: "Faculty of Business",
-    section: "HUB",
-    zone: "Academic Hub",
-    cx: 784,
-    cy: 469,
-    path: "524,528 524,400 903,400 903,490 784,490 784,478",
-    directions: "Turn right toward UNITAR Hub 'IN' entrance; BA&F is in middle of top row."
-  },
-  {
     id: "BACC",
     name: "Bachelor of Accounting",
     category: "Degree Academic Showcase (2:15 PM)",

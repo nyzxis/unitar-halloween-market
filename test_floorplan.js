@@ -43,12 +43,12 @@ const fs = require('fs');
     console.log('Saved: current_svg_floorplan.png');
   }
 
-  // 3. Verify all 33 booths are present in SVG DOM
+  // 3. Verify all 32 booths are present in SVG DOM
   const expectedBooths = [
     'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10',
     'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B18',
     'G1', 'G2', 'G3', 'G4',
-    'BFINTECH', 'BAF', 'BACC', 'BBA', 'BIB', 'BHRM', 'FOOD',
+    'BFINTECH', 'BACC', 'BBA', 'BIB', 'BHRM', 'FOOD',
     'STAGE', 'GIFT', 'SALES1', 'SALES2'
   ];
 
@@ -68,15 +68,16 @@ const fs = require('fs');
     console.log(`SUCCESS: All ${expectedBooths.length} booth elements found in SVG!`);
   }
 
-  // Also verify removed booths B19, B20, and PHOTO are NOT in DOM
+  // Also verify removed booths B19, B20, PHOTO, and BAF are NOT in DOM
   const b19El = await page.$('#map-B19');
   const b20El = await page.$('#map-B20');
   const photoEl = await page.$('#map-PHOTO');
-  if (b19El || b20El || photoEl) {
-    console.error('FAIL: B19, B20, or PHOTO still found in SVG map!');
+  const bafEl = await page.$('#map-BAF');
+  if (b19El || b20El || photoEl || bafEl) {
+    console.error('FAIL: B19, B20, PHOTO, or BAF still found in SVG map!');
     process.exitCode = 1;
   } else {
-    console.log('SUCCESS: B19, B20, and PHOTO stand are confirmed removed from SVG map!');
+    console.log('SUCCESS: B19, B20, PHOTO stand, and BA&F are confirmed removed from SVG map!');
   }
 
   // Verify Sai Lakshmi and Dhivyah lead cards are removed from DOM
